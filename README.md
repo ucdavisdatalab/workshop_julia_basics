@@ -2,7 +2,7 @@
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-_[UC Davis DataLab](https://datalab.ucdavis.edu/)_  
+_[UC Davis DataLab][datalab], [UC Julia Users Group][ucjug]_  
 _Winter 2024_  
 _Authors: Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle_  
 _Maintainer: Nick Ulle <<naulle@ucdavis.edu>>_  
@@ -12,6 +12,9 @@ _Maintainer: Nick Ulle <<naulle@ucdavis.edu>>_
 <!--
 * [Event Page](https://datalab.ucdavis.edu/eventscalendar/YOUR_EVENT/)
 -->
+
+[datalab]: https://datalab.ucdavis.edu/
+[ucjug]: https://datalab.ucdavis.edu/julia-users-group/
 
 :warning: This workshop is still in development!
 
