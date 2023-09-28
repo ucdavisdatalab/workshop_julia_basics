@@ -72,13 +72,29 @@ To make alterations to the reader:
 
 ### Python Packages
 
-We recommend using [conda][] to manage Python dependencies. The `env.yaml` file
-in this repo contains a list of packages necessary to build the reader. You can
-create a new conda environment with all of the packages listed in that file
-with this shell command:
+We recommend using [mamba][] by way of [Miniforge][] to manage Python
+dependencies. The `env.yaml` file in this repo contains a list of packages
+necessary to build the reader. After installing Miniforge, you can create a new
+environment with all of the packages listed in that file with this shell
+command:
 
 ```sh
-conda env create --file env.yaml
+mamba env create --file env.yaml
 ```
 
-[conda]: https://docs.conda.io/en/latest/
+[mamba]: https://mamba.readthedocs.io/en/latest/
+[miniforge]: https://github.com/conda-forge/miniforge
+
+
+### Julia Packages
+
+To build the chapters with Julia code, you'll need Julia 1.9 and the [`IJulia`
+package][IJulia]. You can install the package by running these commands in a
+Julia prompt:
+
+```julia
+using Pkg
+Pkg.add("IJulia")
+```
+
+[IJulia]: https://github.com/JuliaLang/IJulia.jl
