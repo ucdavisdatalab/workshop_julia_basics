@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; Julia Basics</title>
+    <title>14. Loops &#8212; Julia Basics</title>
   
   
   
@@ -63,10 +63,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/14_more-iteration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Getting Started" href="01_julia-basics.html" />
+    <link rel="next" title="15. Test" href="15_test.html" />
+    <link rel="prev" title="13. Surfing the Web" href="13_web-apis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -160,13 +161,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Overview
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
@@ -180,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
 </ul>
 
@@ -253,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/14_more-iteration.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/index.md" target="_blank"
+      <li><a href="../_sources/chapters/14_more-iteration.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview</h1>
+    <h1>Loops</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,9 +376,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">14.1. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">14.2. Exporting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">14.3. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.3.2. Exercise 2</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -389,65 +394,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>YOUR DESCRIPTION</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
-<p>After completing this workshop, learners should be able to:</p>
-<p>LEARNING GOALS</p>
-</section>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
-<!--
-No prior programming experience is necessary. Learners should commit to
-attending all four sessions of this series.
-
-These workshops are not an introduction to Python. Learners must have taken
-[DataLab’s Python Basics workshop series][basics] or have equivalent prior
-experience using Python.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
-
-These workshops are not an introduction to R. Learners must have taken
-[DataLab’s R Basics workshop series][basics] or have equivalent prior
-experience using R.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_r_basics/
+  <!--
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.9
+---
 -->
-<p>YOUR PREQUISITES</p>
+<section class="tex2jax_ignore mathjax_ignore" id="loops">
+<span id="id1"></span><h1><span class="section-number">14. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h1>
+<p>Now suppose you want to get the information for the first 15 people in SWAPI.
+You could do this by writing 15 calls to <code class="docutils literal notranslate"><span class="pre">get_swapi_person</span></code>, but that would be
+very tedious.</p>
+<p>One major benefit of using a programming language like Python is that
+repetitive tasks can be automated. A <strong>loop</strong> is a way to automate doing a
+similar operation several times, so that you don’t have to repeat the code
+several times. Loops are a feature of almost all modern programming languages,
+so it’s useful to understand them.</p>
+<p>In Python, there are two kinds of loops. We’ll focus on <strong>for-loops</strong>.</p>
+<p>For-loops <strong>iterate</strong> over some object, and compute something for each element.
+Each one of these computations is one <strong>iteration</strong>. A for-loop begins with the
+<code class="docutils literal notranslate"><span class="pre">for</span></code> keyword, followed by:</p>
+<ul class="simple">
+<li><p>A placeholder variable, which will automatically be assigned an element at
+the beginning of each iteration</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword</p></li>
+<li><p>An object with elements</p></li>
+<li><p>A colon <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+</ul>
+<p>Code in the body of the loop must be indented by 4 spaces.</p>
+<p>For example, to print out the names in a list <code class="docutils literal notranslate"><span class="pre">names</span></code>, you can write:</p>
+<p>The code in the body of the loop is evaluated once for each name in the list
+(that is, once for each iteration).</p>
+<p>A common technique when programming with for-loops is to iterate over a
+sequence of numbers. Then you can use the numbers to index other objects. In
+Python, the <code class="docutils literal notranslate"><span class="pre">range</span></code> function generates a sequence of numbers starting from 0.
+As an example, here’s a version of the loop above that uses indexes:</p>
+<p>Sometimes you might want both the indexes and the values for an object. In that
+case, you can use the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function. When you use <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> in a
+loop, the loop syntax is slightly different:</p>
+<p>Most of the time, you’ll want to save the results from the iterations into a
+variable for use later on, rather than print them all out. The best way to do
+this is to create an empty list before the loop, and then append to it with the
+<code class="docutils literal notranslate"><span class="pre">.append</span></code> method. For example, here’s a loop that computes the cumulative sums
+from left to right for the numbers in a list:</p>
+<p>You can use a loop to get the information about the first 15 people in SWAPI.
+When you send HTTP requests (or call a function that sends HTTP requests) in a
+loop, be careful to follow the guidelines for request etiquette described in
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">request-etiquette</span></code>. For loops, limiting the number of requests per
+second is especially important. Here’s the code to get the information for the
+first 15 people:</p>
+<p>After running the loop, you can inspect the returned information in the list
+<code class="docutils literal notranslate"><span class="pre">people</span></code>:</p>
+<section id="comprehensions">
+<h2><span class="section-number">14.1. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h2>
+<p>Python provides an efficient and powerful alternative to loops called
+<strong>comprehensions</strong>. Comprehensions automatically create a list or dictionary. A
+<strong>list comprehension</strong> creates a list, and a <strong>dictionary comprehension</strong>
+creates a dictionary.</p>
+<p>Comprehensions are especially helpful if you have a list or dictionary and want
+to transform each element in the same way. For instance, suppose you want to
+get the eye color for each person in the <code class="docutils literal notranslate"><span class="pre">people</span></code> list. You can get the eye
+color for the first person with the code:</p>
+<p>You could use this code with a loop that changes the first index (<code class="docutils literal notranslate"><span class="pre">0</span></code>) in order
+to get the eye color of every person. However, you can do the same thing as a
+loop more concisely with a list comprehension. Here’s the code:</p>
+<p>The syntax for a list comprehension includes the keywords <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code>, just
+like a for-loop. The difference is that in the list comprehension, the repeated
+code comes <em>before</em> the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword rather than after it, and the entire
+expression is enclosed in square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
+<p>You can use list comprehensions to get other information as well. For instance,
+here’s the code to get lists of names and heights for each person in the list:</p>
+<p>You can learn more about comprehensions in the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">official Python
+documentation</a>.</p>
 </section>
-<section id="computing-requirements">
-<h2>Computing Requirements<a class="headerlink" href="#computing-requirements" title="Permalink to this heading">#</a></h2>
-<!--
-Before the workshop, please make sure your computer has a working internet
-connection and the most recent versions of the following software:
-
-* [Anaconda Distribution][anaconda], which by default includes:
-  + [Python 3][python]
-  + [conda][]
-  + [JupyterLab][jupyter]
-
-* [R][r]
-
-You can find step-by-step installation instructions in [DataLab's Python
-Install Guide][install-guide]. If you need additional help, come chat with us
-in [DataLab's Office Hours][oh].
-
-[anaconda]: https://www.anaconda.com/
-[python]: https://www.python.org/
-[conda]: https://docs.conda.io/en/latest/
-[jupyter]: https://jupyter.org/
-
-[r]: https://www.r-project.org/
-[rstudio]: https://posit.co/products/open-source/rstudio/
-
-[install-guide]: https://ucdavisdatalab.github.io/install_guides/python-and-python-tools.html#python-and-python-tools
-[oh]: https://datalab.ucdavis.edu/office-hours/
--->
-</section>
-<div class="toctree-wrapper compound">
+<section id="exporting-data">
+<h2><span class="section-number">14.2. </span>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this heading">#</a></h2>
+<p>The extracted <code class="docutils literal notranslate"><span class="pre">names</span></code>, <code class="docutils literal notranslate"><span class="pre">heights</span></code>, and <code class="docutils literal notranslate"><span class="pre">eye_colors</span></code> lists are like columns in a
+DataFrame where each row is one person, so you might as well put them in a
+DataFrame. You can use the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> function and a dictionary of columns
+to do this:</p>
+<p>Pandas provides a variety of methods for saving DataFrames to a file. Most of
+these begin with <code class="docutils literal notranslate"><span class="pre">.to_</span></code>. For example, to save a DataFrame to a CSV file, use
+the <code class="docutils literal notranslate"><span class="pre">.to_csv</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;swapi_people.csv&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>It’s a good idea to save your data sets like this whenever you reach a
+checkpoint in the problem you’re trying to solve.</p>
+</section>
+<section id="practice-exercises">
+<h2><span class="section-number">14.3. </span>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Permalink to this heading">#</a></h2>
+<section id="exercise-1">
+<h3><span class="section-number">14.3.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p>Create a CSV file for the first 15 <em>vehicles</em> in SWAPI. The file should include
+columns for cargo capacity, cost, length, manufacturer, model, and passengers.</p>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">14.3.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p>Create a histogram from the heights of the first 30 people in SWAPI.</p>
+<div class="admonition-hint admonition">
+<p class="admonition-title">Hint</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">float</span></code> function to convert a string to a decimal number.</p>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -480,12 +537,21 @@ in [DataLab's Office Hours][oh].
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="13_web-apis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Surfing the Web</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="01_julia-basics.html"
+       href="15_test.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Getting Started</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,9 +570,13 @@ in [DataLab's Office Hours][oh].
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">14.1. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">14.2. Exporting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">14.3. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.3.2. Exercise 2</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

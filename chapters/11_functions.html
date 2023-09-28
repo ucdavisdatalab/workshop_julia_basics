@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; Julia Basics</title>
+    <title>11. Functions &#8212; Julia Basics</title>
   
   
   
@@ -63,10 +63,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/11_functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Getting Started" href="01_julia-basics.html" />
+    <link rel="next" title="12. Appendix" href="12_more-data-structures.html" />
+    <link rel="prev" title="10. Organizing Code" href="10_if-statements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -160,13 +161,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Overview
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
@@ -177,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
@@ -253,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/11_functions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/index.md" target="_blank"
+      <li><a href="../_sources/chapters/11_functions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview</h1>
+    <h1>Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,9 +376,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">11.1. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">11.1.1. Exercise 1</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -389,65 +391,131 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>YOUR DESCRIPTION</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
-<p>After completing this workshop, learners should be able to:</p>
-<p>LEARNING GOALS</p>
-</section>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
-<!--
-No prior programming experience is necessary. Learners should commit to
-attending all four sessions of this series.
-
-These workshops are not an introduction to Python. Learners must have taken
-[DataLab’s Python Basics workshop series][basics] or have equivalent prior
-experience using Python.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
-
-These workshops are not an introduction to R. Learners must have taken
-[DataLab’s R Basics workshop series][basics] or have equivalent prior
-experience using R.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_r_basics/
+  <!--
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.9
+---
 -->
-<p>YOUR PREQUISITES</p>
-</section>
-<section id="computing-requirements">
-<h2>Computing Requirements<a class="headerlink" href="#computing-requirements" title="Permalink to this heading">#</a></h2>
-<!--
-Before the workshop, please make sure your computer has a working internet
-connection and the most recent versions of the following software:
-
-* [Anaconda Distribution][anaconda], which by default includes:
-  + [Python 3][python]
-  + [conda][]
-  + [JupyterLab][jupyter]
-
-* [R][r]
-
-You can find step-by-step installation instructions in [DataLab's Python
-Install Guide][install-guide]. If you need additional help, come chat with us
-in [DataLab's Office Hours][oh].
-
-[anaconda]: https://www.anaconda.com/
-[python]: https://www.python.org/
-[conda]: https://docs.conda.io/en/latest/
-[jupyter]: https://jupyter.org/
-
-[r]: https://www.r-project.org/
-[rstudio]: https://posit.co/products/open-source/rstudio/
-
-[install-guide]: https://ucdavisdatalab.github.io/install_guides/python-and-python-tools.html#python-and-python-tools
-[oh]: https://datalab.ucdavis.edu/office-hours/
--->
-</section>
-<div class="toctree-wrapper compound">
+<section class="tex2jax_ignore mathjax_ignore" id="functions">
+<span id="id1"></span><h1><span class="section-number">11. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<p>The main way to interact with Python is by calling functions, which was first
+explained back in <a class="reference internal" href="01_julia-basics.html#calling-functions"><span class="std std-numref">Section 1.2.4</span></a>. This section explains how to
+write your own functions.</p>
+<p>First, a review of what functions are and some of the vocabulary associated
+with them:</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong> are placeholder variables for inputs.</p>
+<ul>
+<li><p><strong>Arguments</strong> are the actual values assigned to the parameters in a call.</p></li>
+</ul>
+</li>
+<li><p>The <strong>return value</strong> is the output.</p></li>
+<li><p><strong>Calling</strong> a function means using a function to compute something.</p></li>
+<li><p>The <strong>body</strong> is the code inside.</p></li>
+</ul>
+<p>It’s useful to think of functions as factories, meaning arguments go in and a
+return value comes out. Here’s a visual representation of the idea for a
+function <code class="docutils literal notranslate"><span class="pre">f</span></code>:</p>
+<img alt="A diagram which shows arguments go into a function and a return value comes out." src="img/functions.png" />
+<p>A function definition begins with the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by:</p>
+<ul class="simple">
+<li><p>The name of the function</p></li>
+<li><p>A list of parameters surrounded by parentheses</p></li>
+<li><p>A colon <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+</ul>
+<p>A function can have any number of parameters. Code in the body of the function
+must be indented by 4 spaces. Use the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword to return a result. The
+<code class="docutils literal notranslate"><span class="pre">return</span></code> keyword causes the function to return a result immediately, without
+running any subsequent code in its body.</p>
+<p>For example, let’s create a function that detects negative numbers. It should
+take a Series of numbers as input, compare them to zero, and then return the
+logical result from the comparison as output. Here’s the code to do that:</p>
+<p>The name of the function, <code class="docutils literal notranslate"><span class="pre">is_negative</span></code>, describes what the function does and
+includes a verb. The parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> is the input. The return value is the result
+of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Choosing descriptive names is a good habit. For functions, that means choosing
+a name that describes what the function does. It often makes sense to use verbs
+in function names.</p>
 </div>
+<p>Any time you write a function, the first thing you should do afterwards is test
+that it actually works. Try the <code class="docutils literal notranslate"><span class="pre">is_negative</span></code> function on a few test cases:</p>
+<p>Notice that the parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> inside the function is different from the
+variable <code class="docutils literal notranslate"><span class="pre">x</span></code> you created outside the function. Remember that parameters and
+variables inside of a function are separate from variables outside of a
+function.</p>
+<p>Recall that a default argument is an argument assigned to a parameter if no
+argument is assigned in the call to the function. You can use <code class="docutils literal notranslate"><span class="pre">=</span></code> to assign
+default arguments to parameters when you define a function with the <code class="docutils literal notranslate"><span class="pre">def</span></code>
+keyword.</p>
+<p>For example, suppose you want to write a function that gets the largest values
+in a Series. You can make a parameter for the number of values to get, with a
+default argument of <code class="docutils literal notranslate"><span class="pre">5</span></code>. Here’s the code and some test cases:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword causes a function to return a result immediately, without
+running any subsequent code in its body. So before the end of the function, it
+only makes sense to use <code class="docutils literal notranslate"><span class="pre">return</span></code> from inside of an if-statement.</p>
+</div>
+<p>A function returns one object, but sometimes computations have multiple
+results. In that case, return the results in a container such as a tuple or
+list. See <a class="reference internal" href="05_data-types-structures.html#arrays-lists-sequences"><span class="std std-numref">Section 5.2</span></a> for examples of several different
+containers you can use.</p>
+<p>For example, let’s make a function that computes the mean and median for a
+vector. We’ll return the results in a tuple:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before you write a function, it’s useful to go through several steps:</p>
+<ol class="arabic simple">
+<li><p>Write down what you want to do, in detail. It can also help to
+draw a picture of what needs to happen.</p></li>
+<li><p>Check whether there’s already a built-in function. Search online and in the
+R documentation.</p></li>
+<li><p>Write the code to handle a simple case first. For data science
+problems, use a small dataset at this step.</p></li>
+</ol>
+</div>
+<p>Functions are the building blocks for solving larger problems. Take a
+divide-and-conquer approach, breaking large problems into smaller steps. Use a
+short function for each step. This approach makes it easier to:</p>
+<ul class="simple">
+<li><p>Test that each step works correctly.</p></li>
+<li><p>Modify, reuse, or repurpose a step.</p></li>
+</ul>
+<section id="practice-exercises">
+<h2><span class="section-number">11.1. </span>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Permalink to this heading">#</a></h2>
+<section id="exercise-1">
+<h3><span class="section-number">11.1.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p>Try writing a function <code class="docutils literal notranslate"><span class="pre">is_leap</span></code> that detects leap years. The input to your
+function should be an integer year (or a Series of years), and the output
+should be a Boolean value. A year is a leap year if either of these conditions
+is true:</p>
+<ul class="simple">
+<li><p>It is divisible by 4 and not 100</p></li>
+<li><p>It is divisible by 400</p></li>
+</ul>
+<p>That means the years 2004 and 2000 are leap years, but the year 2200 is not.</p>
+<div class="admonition-hint admonition">
+<p class="admonition-title">Hint</p>
+<p>The modulo operator <code class="docutils literal notranslate"><span class="pre">%</span></code> returns the remainder after divding a number, so
+for example <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">%</span> <span class="pre">3</span></code> returns <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</div>
+<p>Here’s a few test cases for your function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_leap</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">is_leap</span><span class="p">(</span><span class="mi">1997</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -480,12 +548,21 @@ in [DataLab's Office Hours][oh].
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="10_if-statements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Organizing Code</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="01_julia-basics.html"
+       href="12_more-data-structures.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Getting Started</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Appendix</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,9 +581,10 @@ in [DataLab's Office Hours][oh].
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">11.1. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">11.1.1. Exercise 1</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

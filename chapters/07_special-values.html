@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; Julia Basics</title>
+    <title>7. Special Values &#8212; Julia Basics</title>
   
   
   
@@ -63,10 +63,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/07_special-values';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Getting Started" href="01_julia-basics.html" />
+    <link rel="next" title="8. Exploring Data" href="08_iteration-aggregation.html" />
+    <link rel="prev" title="6. Indexing in Pandas" href="06_indexing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -160,20 +161,20 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Overview
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Special Values</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
@@ -253,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/07_special-values.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/index.md" target="_blank"
+      <li><a href="../_sources/chapters/07_special-values.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview</h1>
+    <h1>Special Values</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,9 +376,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-values-considered-missing-by-pandas">7.1. Types of Values Considered Missing by Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-missing-values-from-a-csv-file">7.2. Reading in Missing Values from a CSV file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.3. Detecting Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.4. Replacing Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">7.5. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">7.5.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">7.5.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.5.3. Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -389,65 +397,118 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>YOUR DESCRIPTION</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
-<p>After completing this workshop, learners should be able to:</p>
-<p>LEARNING GOALS</p>
-</section>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
-<!--
-No prior programming experience is necessary. Learners should commit to
-attending all four sessions of this series.
-
-These workshops are not an introduction to Python. Learners must have taken
-[DataLab’s Python Basics workshop series][basics] or have equivalent prior
-experience using Python.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
-
-These workshops are not an introduction to R. Learners must have taken
-[DataLab’s R Basics workshop series][basics] or have equivalent prior
-experience using R.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_r_basics/
+  <!--
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.9
+---
 -->
-<p>YOUR PREQUISITES</p>
+<section class="tex2jax_ignore mathjax_ignore" id="special-values">
+<span id="id1"></span><h1><span class="section-number">7. </span>Special Values<a class="headerlink" href="#special-values" title="Permalink to this heading">#</a></h1>
+<p>You may have noticed that some of the data in <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> is missing. This is
+common, and it’s important to understand how to handle missing or invalid
+values.</p>
+<p>There are many reasons that could cause these values to be missing or
+incomplete, and as a result, Pandas provides lots of flexibility for detecting
+and handling these values.</p>
+<p>In Pandas, these special values are generally treated as missing values in the
+dataset, and are represented by the NumPy <code class="docutils literal notranslate"><span class="pre">nan</span></code> type. This reduces some of the
+nuance of data values and types, but was seemingly done for computational
+performance reasons.</p>
+<section id="types-of-values-considered-missing-by-pandas">
+<h2><span class="section-number">7.1. </span>Types of Values Considered Missing by Pandas<a class="headerlink" href="#types-of-values-considered-missing-by-pandas" title="Permalink to this heading">#</a></h2>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (which displays as NaN), Pandas interprets several
+other values as missing.  This includes Python’s <code class="docutils literal notranslate"><span class="pre">None</span></code> type, as well as
+Pandas’ experimental <code class="docutils literal notranslate"><span class="pre">NA</span></code> types.</p>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">None</span></code> type represents something that has no value. It often comes
+about as the return of a function, if something hasn’t been defined yet, or if
+something wasn’t found.</p>
+<p>When creating a Series, we can pass this value:</p>
+<p>Be aware that <code class="docutils literal notranslate"><span class="pre">None</span></code> is a Python object, and in the above example, the
+datatype of the series became ‘object’. If we specify a datatype explicitly
+then Pandas will convert it to one of its representations:</p>
 </section>
-<section id="computing-requirements">
-<h2>Computing Requirements<a class="headerlink" href="#computing-requirements" title="Permalink to this heading">#</a></h2>
-<!--
-Before the workshop, please make sure your computer has a working internet
-connection and the most recent versions of the following software:
-
-* [Anaconda Distribution][anaconda], which by default includes:
-  + [Python 3][python]
-  + [conda][]
-  + [JupyterLab][jupyter]
-
-* [R][r]
-
-You can find step-by-step installation instructions in [DataLab's Python
-Install Guide][install-guide]. If you need additional help, come chat with us
-in [DataLab's Office Hours][oh].
-
-[anaconda]: https://www.anaconda.com/
-[python]: https://www.python.org/
-[conda]: https://docs.conda.io/en/latest/
-[jupyter]: https://jupyter.org/
-
-[r]: https://www.r-project.org/
-[rstudio]: https://posit.co/products/open-source/rstudio/
-
-[install-guide]: https://ucdavisdatalab.github.io/install_guides/python-and-python-tools.html#python-and-python-tools
-[oh]: https://datalab.ucdavis.edu/office-hours/
--->
+<section id="reading-in-missing-values-from-a-csv-file">
+<h2><span class="section-number">7.2. </span>Reading in Missing Values from a CSV file<a class="headerlink" href="#reading-in-missing-values-from-a-csv-file" title="Permalink to this heading">#</a></h2>
+<p>An obvious source of missing or incomplete values is the data itself.
+When the data was collected, there may have been reasons to code missing data.
+For example, in collection of survey responses, there may be times where the
+answer was not applicable.</p>
+<p>Another example would be if a measurement was not taken on some of the samples.
+Obviously, there are no rules on how this was represented in the data set.
+However there are several conventions, and Pandas is aware of many of them.</p>
+<p>When reading data from a CSV file, Pandas will automatically detect missing
+values. By default, it will convert any empty cell, or string such as ‘na’,
+‘nan’, ‘null’, ‘N/A’, and other variants to NaN.  A full list can be found in
+the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">Pandas documentation</a>.</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section id="id2">
+<h2><span class="section-number">7.3. </span>Detecting Missing Values<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>To detect missing values, Pandas provides two complementary methods: <code class="docutils literal notranslate"><span class="pre">.isna</span></code>
+and <code class="docutils literal notranslate"><span class="pre">.notna</span></code>.</p>
+<p>We can see information about missing values with the <code class="docutils literal notranslate"><span class="pre">.count</span></code> method on
+DataFrames:</p>
+<p>If we look at the <code class="docutils literal notranslate"><span class="pre">hover_text</span></code> columns of the DataFrame, we can see what
+those missing values look like.</p>
+<p>The return of <code class="docutils literal notranslate"><span class="pre">.isna</span></code> is a Boolean Series indicating which of the values are
+considered missing:</p>
+<p>The reverse—to see which values are not considered missing—is returned
+with <code class="docutils literal notranslate"><span class="pre">.notna</span></code>:</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">7.4. </span>Replacing Missing Values<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>We can use this Boolean Series to subset with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>. For example, to keep only
+the values that aren’t missing:</p>
+<p>Pandas also provides a shortcut with the <code class="docutils literal notranslate"><span class="pre">.dropna</span></code> method:</p>
+<p>Another strategy may be to fill the missing values. We could do so using the
+<code class="docutils literal notranslate"><span class="pre">.fillna</span></code> method:</p>
+<p>Additionally, the data set may have its own indicator for missing values, e.g
+“” or 0. We can convert those to missing using the <code class="docutils literal notranslate"><span class="pre">.replace</span></code> method:</p>
+</section>
+<section id="exercises">
+<h2><span class="section-number">7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="exercise">
+<h3><span class="section-number">7.5.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">range</span></code> function offers another way to create a sequence of numbers.
+Read the help file for this function.</p>
+<ol class="arabic simple">
+<li><p>Create an example range. How does this differ from a list?</p></li>
+<li><p>Describe the three arguments that you can use in <code class="docutils literal notranslate"><span class="pre">range</span></code>. Give examples of
+each.</p></li>
+<li><p>Convert one of those ranges to a list and print it to screen. What changes
+in the way Python represents this sequence?</p></li>
+</ol>
+</section>
+<section id="id4">
+<h3><span class="section-number">7.5.2. </span>Exercise<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>Return to the discussion in <a class="reference internal" href="05_data-types-structures.html#coercion-conversion"><span class="std std-numref">Section 5.3.2</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Why does <code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span> <span class="pre">+</span> <span class="pre">4</span></code> raise an error?</p></li>
+<li><p>Why does <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">-</span> <span class="pre">1</span></code> return 0?</p></li>
+<li><p>Why does <code class="docutils literal notranslate"><span class="pre">int(4.6)</span> <span class="pre">&lt;</span> <span class="pre">4.6</span></code> return <code class="docutils literal notranslate"><span class="pre">True</span></code>?</p></li>
+</ol>
+</section>
+<section id="id5">
+<h3><span class="section-number">7.5.3. </span>Exercise<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>Use a search engine or consult StackOverflow to figure out how to subset a
+DataFrame with multiple conditions.</p>
+<ol class="arabic simple">
+<li><p>Create a new DataFrame from <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> with the following conditions:
+current bill value is less than or equal to 20; gender is female; contains
+the columns <code class="docutils literal notranslate"><span class="pre">country</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">comments</span></code>, <code class="docutils literal notranslate"><span class="pre">has_portrait</span></code></p></li>
+<li><p>Use a Pandas function to count the number of entries that have portraits.
+How many are there?</p></li>
+<li><p>Return the last available comment. What does it say?</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -480,12 +541,21 @@ in [DataLab's Office Hours][oh].
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="06_indexing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Indexing in Pandas</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="01_julia-basics.html"
+       href="08_iteration-aggregation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Getting Started</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Exploring Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,9 +574,16 @@ in [DataLab's Office Hours][oh].
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-requirements">Computing Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-values-considered-missing-by-pandas">7.1. Types of Values Considered Missing by Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-missing-values-from-a-csv-file">7.2. Reading in Missing Values from a CSV file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.3. Detecting Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.4. Replacing Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">7.5. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">7.5.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">7.5.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.5.3. Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
