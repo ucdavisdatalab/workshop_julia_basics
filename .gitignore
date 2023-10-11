@@ -1,1 +1,10 @@
 _build/*
+
+# Local data files
+data/
+
+# System files
+.DS_Store
+
+# Jupyter environmental variables
+.ipynb_checkpoints/
