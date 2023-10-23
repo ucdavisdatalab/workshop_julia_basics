@@ -12,73 +12,91 @@ kernelspec:
 ---
 -->
 
-(reading-files)=
-Reading Files
-=============
+Working with Tabular Data
+=========================
 
-The first step in most data analyses is loading the data. The Pandas package
-provides functions to read a variety of data formats. In order to know which
-function to use, you need to identify the data's file format.
-
-Most of the time, you can guess the format of a file by looking at its
-**extension**, the characters (usually three) after the last dot `.` in the
-filename. For example, the extension `.jpg` or `.jpeg` indicates a [JPEG image
-file][jpg]. Some operating systems hide extensions by default, but you can find
-instructions to change this setting online by searching for "show file
-extensions" and your operating system's name. The extension is just part of the
-file's name, so it should be taken as a hint about the file's format rather
-than a guarantee.
-
-[jpg]: https://en.wikipedia.org/wiki/JPEG
+Reading a data set is the first step in most analyses. Members of the Julia
+community have created packages for reading many common formats. To determine
+which package to use, first you need to identify the data set's format.
 
 The table below shows several formats that are frequently used to distribute
-data. Although Pandas provides reader functions for all of these, the lxml
-package and Python's built-in json module are better suited to the last two.
+data sets.
 
-| Name                        | Extension       | Tabular?  | Text? | Pandas Function
-| :-------------------------- | :-------------- | :-------- | :---- | :--------------
-| Comma-separated Values      | `.csv`          | Yes       | Yes   | `read_csv`
-| Tab-separated Values        | `.tsv`          | Yes       | Yes   | `read_table`
-| Fixed-width File            | `.fwf`          | Yes       | Yes   | `read_fwf`
-| Microsoft Excel             | `.xls`, `.xlsx` | Yes       | No    | `read_excel`
-| [Apache Arrow][arrow]       | `.feather`      | Yes       | No    | `read_feather`
-| Extensible Markup Language  | `.xml`          | No        | Yes   | Use lxml package
-| JavaScript Object Notation  | `.json`         | No        | Yes   | Use json module
-| Arbitrary File              |                 |           |       | Use io module
+| Format                      | Extension       | Package
+| :-------------------------- | :-------------- | :--------------
+| [Apache Arrow][arrow]       | `.arrow`        | [Arrow-julia.jl][]
+| Delimited File              | `.csv`, `.tsv`  | [CSV.jl][]
+| Fixed-width File            | `.fwf`          | Planned for [CSV.jl][]
+| HDF5                        | `.hdf5`         | [HDF5.jl][]
+| JavaScript Object Notation  | `.json`         | [JSON.jl][]
+| [Apache Parquet][parquet]   | `.parquet`      | [Parquet.jl][]
+| Microsoft Excel             | `.xls`, `.xlsx` | [XLSX.jl][]
+| Extensible Markup Language  | `.xml`          | [XML.jl][]
+| Arbitrary File              |                 |
+
+[CSV.jl]: https://github.com/JuliaData/CSV.jl
+[XLSX.jl]: https://github.com/felipenoris/XLSX.jl
+[HDF5.jl]: https://github.com/JuliaIO/HDF5.jl
+[Arrow-julia.jl]: https://github.com/apache/arrow-julia
+[Parquet.jl]: https://github.com/JuliaIO/Parquet.jl
+[XML.jl]: https://github.com/JuliaComputing/XML.jl
+[JSON.jl]: https://github.com/JuliaIO/JSON.jl
 
 [arrow]: https://arrow.apache.org/
+[parquet]: https://parquet.apache.org/
 
-A **tabular** data set is one that's structured as a table, with rows and
-columns. We'll focus on tabular data sets for most of this reader, since
-they're easier to get started with. Here's an example of a tabular data set:
-
-| Fruit  | Quantity | Price
-| :----  | -------: | ----:
-| apple  | 32       | 1.49
-| banana | 541      | 0.79
-| pear   | 10       | 1.99
+A tabular data set is one that's structured as a table, with rows and columns.
+We'll focus on tabular data sets for most of this reader, since they're easier
+to get started with.
 
 A **text** file is one that contains human-readable lines of text. You can
 check this by opening the file with a text editor such as Microsoft Notepad or
 macOS TextEdit. Many file formats use text in order to make the format easier
-to work with.
-
-For instance, a **comma-separated values** (CSV) file records a tabular data
-using one line per row, with commas separating columns. If you store the table
-above in a CSV file and open the file in a text editor, here's what you'll see:
-
-```
-Fruit,Quantity,Price
-apple,32,1.49
-banana,541,0.79
-pear,10,1.99
-```
+to work with. For instance, a comma-separated values (CSV) file records a
+tabular data using one line per row, with commas separating columns.
 
 A **binary** file is one that's not human-readable. You can't just read off the
 data if you open a binary file in a text editor, but they have a number of
 other advantages. Compared to text files, binary files are often faster to read
 and take up less storage space (bytes).
 
+
+Ways to Read a CSV
+==================
+
+```julia
+using Pkg
+
+Pkg.add("CSV")
+#Pkg.add("DataFrames")
+```
+
+```julia
+using CSV
+
+path = "data/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2023_1.csv"
+x = CSV.File(path)
+```
+
+What is [Tables.jl][]
+
+```julia
+#Pkg.add("DataFrames")
+using DataFrames
+
+x = CSV.read(path, DataFrame)
+```
+
+
+[Tables.jl]: https://github.com/JuliaData/Tables.jl
+[DataFrames.jl]: https://github.com/JuliaData/DataFrames.jl
+
+<!-- How to read other kinds of delimited data? Other formats? -->
+
+
+(reading-files)=
+Reading Files
+=============
 
 ### Hello, Data!
 
