@@ -1,7 +1,8 @@
 _build/*
 
-# Local data files
+# Local files
 data/
+local/
 
 # System files
 .DS_Store
