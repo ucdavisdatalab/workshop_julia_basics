@@ -9,10 +9,11 @@ options:
 
 # Chapters may be written in either Markdown or as Jupyter Notebooks
 chapters:
+  - file: chapters/21_syntax-features.md
+  - file: chapters/22_reading-files.md
   - file: chapters/01_julia-basics.md
   - file: chapters/02_packages.md
   - file: chapters/03_file-systems.md
-  - file: chapters/04_reading-files.md
   - file: chapters/05_data-types-structures.md
   - file: chapters/06_indexing.md
   - file: chapters/07_special-values.md
