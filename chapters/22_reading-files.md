@@ -1,4 +1,3 @@
-<!--
 ---
 jupytext:
   formats: md:myst
@@ -10,228 +9,331 @@ kernelspec:
   language: julia
   name: julia-1.9
 ---
+
+<!-- Run at top level of repo. -->
+```{code-cell}
+:tags: ["remove-cell"]
+cd("..")
+```
+
+Reading Files
+=============
+
+Reading a data set is the first step in most analyses.
+
+
+Navigating File Systems
+-----------------------
+
+Julia's `Base.Filesystem` module provides functions for working with file
+systems. Here are a few that are useful for checking the working directory and
+that files are where you think they are:
+
+| Function  | Description                          |
+| :-        | :-                                   |
+| `pwd`     | Get the working directory            |
+| `cd`      | Change the working directory         |
+| `readdir` | List files in a directory            |
+| `ispath`  | Check whether a path exists          |
+| `isfile`  | Check whether a path leads to a file |
+| `isdir`   | Check whether a path leads to a file |
+
+The Julia documentation has a [complete list of functions in the
+`Base.Filesystem` module][filesystem].
+
+[filesystem]: https://docs.julialang.org/en/v1/base/file/
+
+<!--
+TODO: Add examples and have the user use `Downloads.download` to download a
+file
 -->
 
-Working with Tabular Data
-=========================
+Example: Reading a CSV File
+---------------------------
 
-Reading a data set is the first step in most analyses. Members of the Julia
-community have created packages for reading many common formats. To determine
-which package to use, first you need to identify the data set's format.
+<!--
+TODO: Host the data somewhere so that folks can follow along more easily.
+-->
 
-The table below shows several formats that are frequently used to distribute
-data sets.
+The [U.S. Bureau of Transportation Statistics][bts] publishes and regularly
+updates the [Airline On-Time Performance Data Set][airline-data], which
+includes departure and arrival times for all domestic flights since 1987. The
+data set is distributed as a collection of comma-separated value (CSV) files,
+with one for each month-year combination. You can download a subset of the data
+set [here][airline-download].
 
-| Format                      | Extension       | Package
-| :-------------------------- | :-------------- | :--------------
-| [Apache Arrow][arrow]       | `.arrow`        | [Arrow-julia.jl][]
-| Delimited File              | `.csv`, `.tsv`  | [CSV.jl][]
-| Fixed-width File            | `.fwf`          | Planned for [CSV.jl][]
-| HDF5                        | `.hdf5`         | [HDF5.jl][]
-| JavaScript Object Notation  | `.json`         | [JSON.jl][]
-| [Apache Parquet][parquet]   | `.parquet`      | [Parquet.jl][]
-| Microsoft Excel             | `.xls`, `.xlsx` | [XLSX.jl][]
-| Extensible Markup Language  | `.xml`          | [XML.jl][]
-| Arbitrary File              |                 |
+[bts]: https://www.bts.gov/
+[airline-data]: https://www.transtats.bts.gov/tables.asp?qo_vq=EFD
+[airline-download]: #
 
-[CSV.jl]: https://github.com/JuliaData/CSV.jl
-[XLSX.jl]: https://github.com/felipenoris/XLSX.jl
-[HDF5.jl]: https://github.com/JuliaIO/HDF5.jl
-[Arrow-julia.jl]: https://github.com/apache/arrow-julia
-[Parquet.jl]: https://github.com/JuliaIO/Parquet.jl
-[XML.jl]: https://github.com/JuliaComputing/XML.jl
-[JSON.jl]: https://github.com/JuliaIO/JSON.jl
+Let's try reading the data set into Julia. There's no built-in function to read
+CSV files, but the [CSV.jl][] package provides one. The CSV format is tabular,
+so let's read the data as a data frame (a tabular data structure). In Julia,
+the [DataFrames.jl][] package provides data frames. Install both packages if
+you haven't already, and then load them:
 
-[arrow]: https://arrow.apache.org/
-[parquet]: https://parquet.apache.org/
+[DataFrames.jl]: https://github.com/JuliaData/DataFrames.jl
 
-A tabular data set is one that's structured as a table, with rows and columns.
-We'll focus on tabular data sets for most of this reader, since they're easier
-to get started with.
+::::{tab-set}
 
-A **text** file is one that contains human-readable lines of text. You can
-check this by opening the file with a text editor such as Microsoft Notepad or
-macOS TextEdit. Many file formats use text in order to make the format easier
-to work with. For instance, a comma-separated values (CSV) file records a
-tabular data using one line per row, with commas separating columns.
+:::{tab-item} Load
+```julia
+using CSV
+using DataFrames
+```
+:::
 
-A **binary** file is one that's not human-readable. You can't just read off the
-data if you open a binary file in a text editor, but they have a number of
-other advantages. Compared to text files, binary files are often faster to read
-and take up less storage space (bytes).
-
-
-Ways to Read a CSV
-==================
-
+:::{tab-item} Install
 ```julia
 using Pkg
 
 Pkg.add("CSV")
-#Pkg.add("DataFrames")
+Pkg.add("DataFrames")
 ```
-
-```julia
-using CSV
-
-path = "data/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2023_1.csv"
-x = CSV.File(path)
-```
-
-What is [Tables.jl][]
-
-```julia
-#Pkg.add("DataFrames")
-using DataFrames
-
-x = CSV.read(path, DataFrame)
-```
-
-
-[Tables.jl]: https://github.com/JuliaData/Tables.jl
-[DataFrames.jl]: https://github.com/JuliaData/DataFrames.jl
-
-<!-- How to read other kinds of delimited data? Other formats? -->
-
-
-(reading-files)=
-Reading Files
-=============
-
-### Hello, Data!
-
-Over the next few sections, you'll explore data about banknotes and the people 
-depicted on them. This data is derived from a data set compiled by [The 
-Pudding][pud], which features [an article][art] about it. To download the 
-version you'll need for this workshop, click [here][data]. You may need to 
-choose `File -> Save As...` in your browser's menu.
-
-[pud]: https://pudding.cool/
-[art]: https://pudding.cool/2022/04/banknotes/
-[data]: https://raw.githubusercontent.com/ucdavisdatalab/workshop_r_basics/dev/data/banknotes.csv
-
-The data set is a file called `banknotes.csv`, which suggests it's a CSV file.
-In this case, the extension is correct, so you can read the file with Pandas'
-`read_csv` function. The first argument is the path to where you saved the
-file, which may be different on your computer. The `read_csv` function returns
-the data set, but Python won't keep the data in memory unless you assign the
-returned result to a variable:
+:::
+::::
 
 ```{code-cell}
-:tags: [output_scroll]
-import pandas as pd
-
-banknotes = pd.read_csv("data/banknotes.csv")
-banknotes
+:tags: ["remove-cell"]
+using CSV
+using DataFrames
 ```
 
-The variable name `banknotes` here is arbitrary; you can choose something
-different if you want. However, in general, it's a good habit to choose
-variable names that describe the contents of the variable somehow.
+You can read a CSV file with the `CSV.read` function:
 
-If you tried running the line of code above and got an error message, pay
-attention to what the error message says, and remember the strategies to get
-help in {numref}`getting-help`. The most common mistake when reading a file is
-incorrectly specifying the path, so first check that you got the path right.
+```{code-cell}
+path = "data/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2023_1.csv"
+air = CSV.read(path, DataFrame)
+typeof(air)
+````
 
-If you ran the line of code, there was no error message, and you can see a
-table of data, then congratulations, you've read your first data set into
-Python!
+The second argument is a **sink function**, a function that converts raw
+tabular data to a specific Julia type. The sink function determines the type of
+the value `CSV.read` returns. In this case, the returned value is a
+`DataFrame`.
 
+:::{note}
+The [Tables.jl][] package defines a standard programming interface for working
+with tabular data in Julia. The CSV.jl and DataFrames.jl packages both use this
+interface, as well as [many other Julia packages][tables-integrations].
+
+Any type that satisfies the Tables.jl interface is called a **source**. For
+example, the CSV.jl package's `CSV.File` type is a source, although the
+`CSV.read` function hides this detail. Any function that can take a source
+instance as input and return a table of a specific type is called a sink. The
+DataFrames.jl package's `DataFrame` function is a sink. Coincidentally, the
+`DataFrame` type is also a source (this facilitates transformations of data
+frames).
+
+The CSV.jl package also provides a way to read a CSV file:
+```julia
+source = CSV.File(path)
+
+# air = DataFrame(source)
+```
+Compared to `CSV.read`, this is less efficient for reading a CSV as a data
+frame: it makes a copy of the data.
+:::
+
+[Tables.jl]: https://github.com/JuliaData/Tables.jl
+[tables-integrations]: https://github.com/JuliaData/Tables.jl/blob/main/INTEGRATIONS.md
+
+You can use the `first` function to get just the first few rows of a data
+frame:
+
+```{code-cell}
+first(air, 5)
+```
+
+The second argument, `5`, is the number of rows to return.
+
+The `describe` function is also useful for inspecting data frames. It provides
+a statistical summary of each column:
+
+```{code-cell}
+describe(air)
+```
+
+:::{tip}
+You can learn more about how to use data frames from the DataFrames.jl
+[documentation][df-docs] and [cheat sheet][df-cheat].
+:::
+
+[df-docs]: https://dataframes.juliadata.org/
+[df-cheat]: https://www.ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v1.x_rev1.pdf
+
+
+Reading and Writing Formatted Files
+-----------------------------------
+
+Functions to read and write popular file formats are generally provided by
+packages rather than built into Julia. Here are a few (find more by searching
+online):
+
+
+| Format                       | Extension               | Package
+| :--------------------------- | :---------------------- | :---------------
+| [Apache Arrow][arrow]        | `.arrow`                | [Arrow-julia.jl][]
+| Delimited File               | `.csv`, `.tsv`, ...     | [CSV.jl][]
+| Fixed-width File             | `.fwf`                  | Planned for [CSV.jl][]
+| Geospatial Vector Data       | `.geojson`, `.shp`, ... | [ArchGDAL.jl][]
+| HDF5                         | `.hdf5`                 | [HDF5.jl][]
+| JavaScript Object Notation   | `.json`                 | [JSON.jl][]
+| [Apache Parquet][parquet]    | `.parquet`              | [Parquet.jl][]
+| Geospatial Raster Data       | `.tiff`, ...            | [ArchGDAL.jl][]
+| [TOML][toml]                 | `.toml`                 | [built-in][toml-jl]
+| Microsoft Excel              | `.xls`, `.xlsx`         | [XLSX.jl][]
+| Extensible Markup Language   | `.xml`                  | [XML.jl][]
+| [YAML][yaml]                 | `.yaml`                 | [YAML.jl][]
+| [MessagePack][msgpack]       |                         | [MsgPack.jl][]
+
+[Arrow-julia.jl]: https://github.com/apache/arrow-julia
+[CSV.jl]: https://github.com/JuliaData/CSV.jl
+[ArchGDAL.jl]: https://github.com/yeesian/ArchGDAL.jl
+[HDF5.jl]: https://github.com/JuliaIO/HDF5.jl
+[JSON.jl]: https://github.com/JuliaIO/JSON.jl
+[Parquet.jl]: https://github.com/JuliaIO/Parquet.jl
+[toml-jl]: https://docs.julialang.org/en/v1/stdlib/TOML/
+[XLSX.jl]: https://github.com/felipenoris/XLSX.jl
+[XML.jl]: https://github.com/JuliaComputing/XML.jl
+[YAML.jl]: https://github.com/JuliaData/YAML.jl
+[MsgPack.jl]: https://github.com/JuliaIO/MsgPack.jl
+
+[arrow]: https://arrow.apache.org/
+[parquet]: https://parquet.apache.org/
+[toml]: https://toml.io/
+[yaml]: https://yaml.org/
+[msgpack]: https://msgpack.org/
+
+Often there's more than one package with functions to read and write a specific
+format. We chose the packages in the table based on popularity and signs of
+active development or maintenance.
+
+
+Reading and Writing Text and Bytes
+----------------------------------
+
+Sometimes you might need to read and write text or bytes directly. For example,
+you might need to work with a file that has an obscure or custom format.
+
+Julia's built-in `open` function opens a file. Let's open a file called
+`hello.txt` in write mode:
+
+```{code-cell}
+file = open("hello.txt", "w")
+```
+
+You can use the `print`, `println`, or `write` function to write to a file. Try
+it out with a few lines:
+
+```{code-cell}
+write(file, "Don't worry, be happy!\n")
+```
+
+```{code-cell}
+println(file, "Hello world!")
+```
+
+```{code-cell}
+print(file, "Print?\n")
+```
+
+:::{important}
+The `print` and `println` functions convert objects to strings in the encoding
+of the open file (set by the call to `open`; the default is UTF-8) before
+output.
+
+The `write` function outputs objects as bytes. For strings, this means the
+encoding is determined by the string itself rather than the file.
+
+In general, use `print` and `println` to write text to files, and use `write`
+to write bytes to files.
+:::
+
+Make sure to use the `close` function to close files when you're finished using
+them. When writing to a file, this ensures that all of the writes are
+completed.
+
+```{code-cell}
+close(file)
+```
+
+Now let's read the file to check that the lines were written. The idiomatic way
+to open a file and do something (read or write) with it is to use a `do` block.
+Try running this code to read the lines from the file:
+
+```{code-cell}
+lines =
+    open("hello.txt") do f
+        readlines(f)
+    end
+```
+
+A `do` block is syntactic sugar for defining an anonymous function and passing
+it as the first argument to another function. As an example, consider this call
+with an anonymous function as the first argument:
+
+```{code-cell}
+map(x -> x^2, [1, 2, 3])
+```
+
+The equivalent using a `do` block is:
+
+```{code-cell}
+map([1, 2, 3]) do x
+    x^2
+end
+```
+
+:::{caution}
+Since a `do` block defines an anonymous function, variables you define inside
+of the block are not visible from outside of the block.
+:::
+
+The `open` function has a method that takes a function as its first argument.
+The file is opened, the function is called on the open file, the file is
+closed, and the result is returned. This approach is safer than manually
+closing the file with `close`, because the `open` function ensures that the
+file is always closed, even if something goes wrong in the computation.
+
+
+
+
+<!--
+`read`
+`readchomp`
+-->
 
 (inspecting-dataframe)=
 Inspecting a DataFrame
 ----------------------
 
-Now that you've loaded the data, you can take a look at it. When working with a
-new data set, it often isn't a good idea to print the whole thing to screen, at
-least until you know how big it is. Large data sets can take a long time to
-print, and the output can be difficult to read.
+:::{warning}
+This section is still a work in progress.
+:::
 
-Instead, use the Pandas `.head` method to print only the beginning, or head, of
-the data.
+Everything looks good here. To see the bottom of this data, use `last`:
 
 ```{code-cell}
-:tags: [output_scroll]
-banknotes.head()
+last(air, 5)
 ```
 
-This data is tabular, as you might have already guessed, since it came from a
-CSV file. Pandas represents it as a **DataFrame**: data structured as rows and
-columns. In general rows are observations and columns are variables. Each entry
-is called a cell.
-
-You can check to make sure Pandas has indeed created a DataFrame with the
-`type` function, which is discussed in more detail in {numref}`data-types`:
+One way to get a quick idea of what your data looks like without having to read
+through all the columns and rows is by inspecting its dimensions. You can use
+the `nrow` and `ncol` functions to do this:
 
 ```{code-cell}
-type(banknotes)
+nrow(air)
 ```
-
-Everything looks good here. To see the bottom of this data, use `tail`:
 
 ```{code-cell}
-:tags: [output_scroll]
-banknotes.tail()
+ncol(air)
 ```
 
-Both `head` and `tail` accept an optional argument that specifies the number of
-rows to print to screen:
+The `names` function returns the names of a data frame's columns:
 
 ```{code-cell}
-:tags: [output_scroll]
-banknotes.head(10)
-```
-
-If there are many columns in your DataFrame, as is the case here, Pandas will
-often squeeze the output into a condensed display, with `...` representing
-additional columns.
-
-One way to get a quick idea of what your data looks like without having to
-shuffle through all the columns and rows is by inspecting its **shape**. This
-is the number of rows and columns in a DataFrame, and you can access this
-information with the `.shape` attribute:
-
-```{code-cell}
-banknotes.shape
-```
-
-```{note}
-Notice how you accessed this DataFrame's `.shape` attribute using a very
-similar syntax to the way you called one of its methods. The key difference is
-the parentheses `()` at the end. Parentheses are necesary when you want to call
-a method, but not when you want just want to access the value of attribute.
-```
-
-To display the names of each column, access the `.columns` attribute:
-
-```{code-cell}
-banknotes.columns
-```
-
-(summarizing-data)=
-### Summarizing Data
-
-More granular information about a DataFrame and its contents is available with
-the `.info` method. In addition to attributes like the DataFrame's shape and
-its column names, `.info` provides a brief summary of the number of cells that
-contain data, the type of data in each cell, and the total memory usage of the
-DataFrame:
-
-```{code-cell}
-banknotes.info()
-```
-
-The next chapter discusses data types in more detail. For now, just take note
-that there are multiple types (`bool`, `float64`, `int64`, and `object` in
-`banknotes`).
-
-In contrast to `.info`, the `.describe` method provides summary statistics
-about a DataFrame. The latter will only return information about numeric
-columns:
-
-```{code-cell}
-banknotes.describe()
+names(air)
 ```
 
 (summarizing-columns)=
@@ -240,36 +342,15 @@ banknotes.describe()
 Individual columns may be selected with **bracket notation**. Put the name of
 the column in quotes and place that inside of square brackets `[]`:
 
-```{code-cell}
-banknotes["current_bill_value"]
 ```
-
-Just as with `.describe`, you can compute information about a column using
-Pandas methods. Here is the mean:
-
-```{code-cell}
-banknotes["current_bill_value"].mean()
-```
-
-And here is the smallest value in the column:
-
-```{code-cell}
-banknotes["current_bill_value"].min()
-```
-
-Functions from other libraries, especially those in the SciPy ecosystem, can
-also (but not always) work with Pandas. Here is the largest value in the
-column, computed with NumPy's `max`:
-
-```{code-cell}
-np.max(banknotes["current_bill_value"])
+air[!, "FlightDate"]
 ```
 
 Finally, you can assign new values to a DataFrame using the same notation as
 above. Below, this code overwrites all the values in the `currency_code`
 column:
 
-```{code-cell}
+```
 banknotes["currency_code"] = "USD"
 banknotes["currency_code"]
 ```
@@ -277,50 +358,3 @@ banknotes["currency_code"]
 The next chapter will return to working with columns, showing you how to
 generate new data from a DataFrame. You'll also learn how to select rows and
 subsets of the data, as well as groups of columns.
-
-
-Exercises
----------
-
-### Exercise
-
-In a string, an **escape sequence** or **escape code** consists of a backslash
-`\` followed by one or more characters. Escape characters make it possible to:
-
-* Write quotes or backslashes in a string
-* Use spaces in file paths
-* Write characters that don't appear on your keyboard (for example characters
-  in a different script system)
-
-For example, the escape sequence `\n` means "newline character." A full list of
-these sequences is available at [W3Schools][w3].
-
-[w3]: https://www.w3schools.com/python/gloss_python_escape_characters.asp
-
-1. Assign a string that contains a newline to the variable `newline`. Then
-  display `newline` via the Python console.
-2. The `print` function renders output in a properly formatted manner. Use this
-  function to print `newline`.
-3. How does the output between these two displays differ? Why do you think this
-  is?
-
-### Exercise
-
-1. Chose a directory on your computer that you're familiar with, such as your
-  current working directory. Determine the path to the directory, then use
-  `os.listdir` to display its contents. Do the files displayed match what you see
-  in your systems file browser?
-2. Send a path to `os.path.exists` and inspect its output. What does this
-  function do? See if you can change its output. If you can, why did it change?
-
-### Exercise
-
-1. Open the help file for the Pandas `read_csv` function. The `sep` parameter
-  controls which characters Pandas looks for when determining the columns in a
-  file. What is the default character?
-2. A TSV file is similar to CSV files, except it uses tabs to delimit columns.
-  Tabs are represented by escape sequences in Python. Find the right sequence
-  and explain how you would load a TSV file with `read_csv`.
-3. Reload the `banknotes` data, but this time specify `\s` for the `sep`
-  parameter. `\s` represents a space. When you load the data using this
-  sequence, what happens? Why?
