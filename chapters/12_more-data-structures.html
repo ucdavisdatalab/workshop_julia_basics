@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>12. Appendix &#8212; Julia Basics</title>
+    <title>13. Appendix &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/12_more-data-structures';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Surfing the Web" href="13_web-apis.html" />
-    <link rel="prev" title="11. Functions" href="11_functions.html" />
+    <link rel="next" title="14. Surfing the Web" href="13_web-apis.html" />
+    <link rel="prev" title="12. Functions" href="11_functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,10 +377,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">12.1. Containers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">12.1.1. Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">12.1.2. Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">12.1.3. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">13.1. Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">13.1.1. Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">13.1.2. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">13.1.3. Dictionaries</a></li>
 </ul>
 </li>
 </ul>
@@ -407,7 +408,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="appendix">
-<h1><span class="section-number">12. </span>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -426,21 +427,21 @@ kernelspec:
 how to use Python to download some non-tabular data from the internet, convert
 it into a tabular format, and save it as a CSV file.</p>
 <section id="containers">
-<span id="id1"></span><h2><span class="section-number">12.1. </span>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">13.1. </span>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">#</a></h2>
 <p>Python provides a variety of containers for data. This section describes the
 three most widely-used containers. You can find even more types of containers
 in the <a class="reference external" href="https://docs.python.org/3/library/collections.html">collections module</a>.</p>
 <section id="lists">
-<h3><span class="section-number">12.1.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
-<p>Lists were introduced in <a class="reference internal" href="05_data-types-structures.html#lists"><span class="std std-numref">Section 5.2.3</span></a>. A list is an ordered collection of
+<h3><span class="section-number">13.1.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
+<p>Lists were introduced in <a class="reference internal" href="05_data-types-structures.html#lists"><span class="std std-numref">Section 6.2.3</span></a>. A list is an ordered collection of
 values. Lists are <strong>mutable</strong>, which means that the elements can be changed.</p>
 <p>Here’s a quick recap of things you can do with lists:</p>
 <p>You can also remove an element of a list with the <code class="docutils literal notranslate"><span class="pre">del</span></code> keyword. For instance:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">del</span></code> keyword can also be used with dictionaries, which are described in
-<a class="reference internal" href="#dictionaries"><span class="std std-numref">Section 12.1.3</span></a>.</p>
+<a class="reference internal" href="#dictionaries"><span class="std std-numref">Section 13.1.3</span></a>.</p>
 </section>
 <section id="tuples">
-<h3><span class="section-number">12.1.2. </span>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.1.2. </span>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
 <p>A <strong>tuple</strong> is an ordered collection of values. Think of coordinates. Tuples
 are <strong>immutable</strong>, which means that the elements of a tuple can’t be changed.</p>
 <p>You can get elements of a tuple with indexing, just like a list:</p>
@@ -451,10 +452,10 @@ unpack values, making sure that the structure on the left-hand side matches the
 structure on the right-hand side:</p>
 <p>Unpacking also works with lists.</p>
 <p>Tuples are slightly more efficient than lists, and are generally the best way
-to return a fixed number of results from a function (see <a class="reference internal" href="11_functions.html#functions"><span class="std std-numref">Section 11</span></a>).</p>
+to return a fixed number of results from a function (see <a class="reference internal" href="11_functions.html#functions"><span class="std std-numref">Section 12</span></a>).</p>
 </section>
 <section id="dictionaries">
-<span id="id2"></span><h3><span class="section-number">12.1.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3><span class="section-number">13.1.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h3>
 <p>A <strong>dictionary</strong> (or <code class="docutils literal notranslate"><span class="pre">dict</span></code>) is a one-to-one map from <strong>keys</strong> to <strong>values</strong>.
 That means that you use keys to look up values in a dictionary. Like lists,
 dictionaries are mutable.</p>
@@ -511,7 +512,7 @@ named results from a function.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Functions</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Functions</p>
       </div>
     </a>
     <a class="right-next"
@@ -519,7 +520,7 @@ named results from a function.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Surfing the Web</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Surfing the Web</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -538,10 +539,10 @@ named results from a function.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">12.1. Containers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">12.1.1. Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">12.1.2. Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">12.1.3. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">13.1. Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">13.1.1. Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">13.1.2. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">13.1.3. Dictionaries</a></li>
 </ul>
 </li>
 </ul>

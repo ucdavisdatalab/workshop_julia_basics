@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Indexing in Pandas &#8212; Julia Basics</title>
+    <title>7. Indexing in Pandas &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06_indexing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Special Values" href="07_special-values.html" />
-    <link rel="prev" title="5. Data Structures" href="05_data-types-structures.html" />
+    <link rel="next" title="8. Special Values" href="07_special-values.html" />
+    <link rel="prev" title="6. Data Structures" href="05_data-types-structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,10 +377,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">6.1. What’s an Index?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2. Indexing by Position</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.3. Indexing by Label</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">6.4. Indexing by a Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">7.1. What’s an Index?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.2. Indexing by Position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.3. Indexing by Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">7.4. Indexing by a Condition</a></li>
 </ul>
             </nav>
         </div>
@@ -405,12 +406,12 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="indexing-in-pandas">
-<span id="id1"></span><h1><span class="section-number">6. </span>Indexing in Pandas<a class="headerlink" href="#indexing-in-pandas" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">7. </span>Indexing in Pandas<a class="headerlink" href="#indexing-in-pandas" title="Permalink to this heading">#</a></h1>
 <p>If you want to inspect the elements of a Series more closely, you can use
 indexing. Conceptually, indexing a Series is very similar to indexing a list or
 tuple, but Pandas offers additional ways to select and subset data via indexes.</p>
 <section id="what-s-an-index">
-<h2><span class="section-number">6.1. </span>What’s an Index?<a class="headerlink" href="#what-s-an-index" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>What’s an Index?<a class="headerlink" href="#what-s-an-index" title="Permalink to this heading">#</a></h2>
 <p>A Pandas index is more than just a positional location. Indexes serve three
 important roles:</p>
 <ol class="arabic simple">
@@ -433,7 +434,7 @@ making a copy first, so that we don’t have to reassign <code class="docutils l
 explicitly.</p>
 </section>
 <section id="id2">
-<h2><span class="section-number">6.2. </span>Indexing by Position<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Indexing by Position<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Changing the index affects how you select elements. There are three main
 methods for accessing specific values in Pandas:</p>
 <ol class="arabic simple">
@@ -452,7 +453,7 @@ sequence. For instance:</p>
 <p>The result is the same as if you had used the <code class="docutils literal notranslate"><span class="pre">.tail</span></code> method:</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">6.3. </span>Indexing by Label<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Indexing by Label<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to index a Series or DataFrame by label:</p>
 <p>You can select specific columns as well:</p>
 <p>Just as with <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>, it’s possible to pass sequences into <code class="docutils literal notranslate"><span class="pre">.loc</span></code>:</p>
@@ -467,7 +468,7 @@ called <strong>chaining</strong>. Below, we use the country-indexed <code class=
 select all rows with “Peru.” Then, we select the second row from this subset.</p>
 </section>
 <section id="indexing-by-a-condition">
-<h2><span class="section-number">6.4. </span>Indexing by a Condition<a class="headerlink" href="#indexing-by-a-condition" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.4. </span>Indexing by a Condition<a class="headerlink" href="#indexing-by-a-condition" title="Permalink to this heading">#</a></h2>
 <p>The last way to index in Pandas is by condition. Pandas does this by evaluating
 a condition and returning a Boolean Series or array. This is by far the most
 powerful method of indexing in Pandas.</p>
@@ -524,7 +525,7 @@ following:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Data Structures</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Data Structures</p>
       </div>
     </a>
     <a class="right-next"
@@ -532,7 +533,7 @@ following:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Special Values</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Special Values</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -551,10 +552,10 @@ following:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">6.1. What’s an Index?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2. Indexing by Position</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.3. Indexing by Label</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">6.4. Indexing by a Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">7.1. What’s an Index?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.2. Indexing by Position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.3. Indexing by Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">7.4. Indexing by a Condition</a></li>
 </ul>
   </nav></div>
 

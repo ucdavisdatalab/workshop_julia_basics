@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>10. Organizing Code &#8212; Julia Basics</title>
+    <title>11. Organizing Code &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10_if-statements';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Functions" href="11_functions.html" />
-    <link rel="prev" title="9. Data Visualization in Python" href="09_visualization.html" />
+    <link rel="next" title="12. Functions" href="11_functions.html" />
+    <link rel="prev" title="10. Data Visualization in Python" href="09_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,7 +377,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">10.1. Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">11.1. Conditional Statements</a></li>
 </ul>
             </nav>
         </div>
@@ -402,7 +403,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="organizing-code">
-<h1><span class="section-number">10. </span>Organizing Code<a class="headerlink" href="#organizing-code" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Organizing Code<a class="headerlink" href="#organizing-code" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -411,7 +412,7 @@ kernelspec:
 </ul>
 </div>
 <section id="conditional-statements">
-<h2><span class="section-number">10.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you’ll need code to do different things depending on a condition. You
 can use an <strong>if-statement</strong> to write conditional code.</p>
 <p>An if-statement begins with the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword, followed by a condition and a
@@ -481,7 +482,7 @@ whether there is a more general strategy or way to write the code.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Data Visualization in Python</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data Visualization in Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -489,7 +490,7 @@ whether there is a more general strategy or way to write the code.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Functions</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -508,7 +509,7 @@ whether there is a more general strategy or way to write the code.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">10.1. Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">11.1. Conditional Statements</a></li>
 </ul>
   </nav></div>
 

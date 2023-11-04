@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Exploring Data &#8212; Julia Basics</title>
+    <title>9. Exploring Data &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/08_iteration-aggregation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Data Visualization in Python" href="09_visualization.html" />
-    <link rel="prev" title="7. Special Values" href="07_special-values.html" />
+    <link rel="next" title="10. Data Visualization in Python" href="09_visualization.html" />
+    <link rel="prev" title="8. Special Values" href="07_special-values.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,19 +377,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">8.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">8.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">8.1.2. Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">9.1.1. Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">9.1.2. Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">8.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">8.2.1. For-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">8.2.2. List Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">9.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">9.2.1. For-Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">9.2.2. List Comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">8.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">8.3.1. Aggregating a Column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">8.3.2. Aggregating within Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">9.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">9.3.1. Aggregating a Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">9.3.2. Aggregating within Groups</a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +417,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="exploring-data">
-<h1><span class="section-number">8. </span>Exploring Data<a class="headerlink" href="#exploring-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Exploring Data<a class="headerlink" href="#exploring-data" title="Permalink to this heading">#</a></h1>
 <p>Now that you have a solid foundation in the basic functions and data structures
 of Python, you can move on to using it for data analysis. In this chapter,
 you’ll learn how to efficiently explore and summarize with visualizations and
@@ -436,31 +437,31 @@ entire sets of data in Pandas DataFrames and Series.</p>
 </ul>
 </div>
 <section id="setup">
-<h2><span class="section-number">8.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <section id="packages">
-<h3><span class="section-number">8.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
 <p>As in the last chapter, you will be working with two primary packages: NumPy
 and Pandas. Later, you will load another set of packages to visualize your
 data.</p>
 </section>
 <section id="data">
-<h3><span class="section-number">8.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
 <p>We will continue working with the banknotes data set. Once you’ve imported your
 packages, load this data in as well.</p>
 <p>You’re now ready to go.</p>
 </section>
 </section>
 <section id="iterating-over-data">
-<span id="iteration"></span><h2><span class="section-number">8.2. </span>Iterating Over Data<a class="headerlink" href="#iterating-over-data" title="Permalink to this heading">#</a></h2>
+<span id="iteration"></span><h2><span class="section-number">9.2. </span>Iterating Over Data<a class="headerlink" href="#iterating-over-data" title="Permalink to this heading">#</a></h2>
 <p>Before we go into data exploration in full, it’s important to understand how
 Python/Pandas computes summary statistics about a data set.
-<a class="reference internal" href="04_reading-files.html#summarizing-columns"><span class="std std-numref">Section 4.2.2</span></a> introduced column-wise operations in Pandas; you
+<a class="reference internal" href="22_reading-files.html#summarizing-columns"><span class="std std-numref">Section 2.5.2</span></a> introduced column-wise operations in Pandas; you
 will learn more of them below. These operations are a convenient and efficient
 way to compute multiple results at once, and with only a few lines of code.</p>
 <p>Under the hood, Pandas has to <strong>iterate</strong> over each value in a cell to perform
 operations like <code class="docutils literal notranslate"><span class="pre">.mean</span></code> or <code class="docutils literal notranslate"><span class="pre">.min</span></code>. We can do this too using a <strong>for-loop</strong>.</p>
 <section id="for-loops">
-<h3><span class="section-number">8.2.1. </span>For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
 <p>For-loops iterate over some object and compute something for each element. Each
 one of these computations is one <strong>iteration</strong>. A for-loop begins with the
 <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword, followed by:</p>
@@ -481,7 +482,7 @@ for-loop. The easiest way to do this is by creating an empty list and using
 <code class="docutils literal notranslate"><span class="pre">append</span></code> to add values to it.</p>
 </section>
 <section id="list-comprehensions">
-<h3><span class="section-number">8.2.2. </span>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this heading">#</a></h3>
 <p>A more efficient and succinct way to perform certain <code class="docutils literal notranslate"><span class="pre">append</span></code> operations is
 with a <strong>list comprehension</strong>. A list comprehension is very similar to a
 for-loop, but it automatically creates a new list based on what your iterations
@@ -502,10 +503,10 @@ documentation</a>.</p>
 </section>
 </section>
 <section id="aggregate-functions">
-<span id="id1"></span><h2><span class="section-number">8.3. </span>Aggregate Functions<a class="headerlink" href="#aggregate-functions" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">9.3. </span>Aggregate Functions<a class="headerlink" href="#aggregate-functions" title="Permalink to this heading">#</a></h2>
 <section id="aggregating-a-column">
-<span id="id2"></span><h3><span class="section-number">8.3.1. </span>Aggregating a Column<a class="headerlink" href="#aggregating-a-column" title="Permalink to this heading">#</a></h3>
-<p>In <a class="reference internal" href="04_reading-files.html#summarizing-columns"><span class="std std-numref">Section 4.2.2</span></a>, you learned how to compute the mean, minimum,
+<span id="id2"></span><h3><span class="section-number">9.3.1. </span>Aggregating a Column<a class="headerlink" href="#aggregating-a-column" title="Permalink to this heading">#</a></h3>
+<p>In <a class="reference internal" href="22_reading-files.html#summarizing-columns"><span class="std std-numref">Section 2.5.2</span></a>, you learned how to compute the mean, minimum,
 and maximum values from a Series. Pandas offers a more generalized way to
 handle these functions through its <code class="docutils literal notranslate"><span class="pre">.aggregate</span></code> method. This method
 <strong>aggregates</strong> the elements of Series, reducing the Series to a smaller number
@@ -520,7 +521,7 @@ standard deviation for <code class="docutils literal notranslate"><span class="p
 <p>Aggregation methods can also work on multiple columns at once:</p>
 </section>
 <section id="aggregating-within-groups">
-<span id="id3"></span><h3><span class="section-number">8.3.2. </span>Aggregating within Groups<a class="headerlink" href="#aggregating-within-groups" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3><span class="section-number">9.3.2. </span>Aggregating within Groups<a class="headerlink" href="#aggregating-within-groups" title="Permalink to this heading">#</a></h3>
 <p>Aggregation is especially useful when combined with grouping. The <code class="docutils literal notranslate"><span class="pre">.groupby</span></code>
 method groups rows of a DataFrame using the columns you specify. The grouping
 columns should generally be categories rather than decimal numbers. For
@@ -583,7 +584,7 @@ corresponding currency code:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Special Values</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Special Values</p>
       </div>
     </a>
     <a class="right-next"
@@ -591,7 +592,7 @@ corresponding currency code:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Data Visualization in Python</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data Visualization in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -610,19 +611,19 @@ corresponding currency code:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">8.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">8.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">8.1.2. Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">9.1.1. Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">9.1.2. Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">8.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">8.2.1. For-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">8.2.2. List Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">9.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">9.2.1. For-Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">9.2.2. List Comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">8.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">8.3.1. Aggregating a Column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">8.3.2. Aggregating within Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">9.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">9.3.1. Aggregating a Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">9.3.2. Aggregating within Groups</a></li>
 </ul>
 </li>
 </ul>

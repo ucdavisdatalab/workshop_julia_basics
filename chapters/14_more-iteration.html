@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Loops &#8212; Julia Basics</title>
+    <title>15. Loops &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/14_more-iteration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Test" href="15_test.html" />
-    <link rel="prev" title="13. Surfing the Web" href="13_web-apis.html" />
+    <link rel="next" title="16. Test" href="15_test.html" />
+    <link rel="prev" title="14. Surfing the Web" href="13_web-apis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">9. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,11 +377,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">14.1. Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">14.2. Exporting Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">14.3. Practice Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.3.1. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.3.2. Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">15.1. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">15.2. Exporting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">15.3. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">15.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">15.3.2. Exercise 2</a></li>
 </ul>
 </li>
 </ul>
@@ -408,7 +409,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="loops">
-<span id="id1"></span><h1><span class="section-number">14. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">15. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h1>
 <p>Now suppose you want to get the information for the first 15 people in SWAPI.
 You could do this by writing 15 calls to <code class="docutils literal notranslate"><span class="pre">get_swapi_person</span></code>, but that would be
 very tedious.</p>
@@ -453,7 +454,7 @@ first 15 people:</p>
 <p>After running the loop, you can inspect the returned information in the list
 <code class="docutils literal notranslate"><span class="pre">people</span></code>:</p>
 <section id="comprehensions">
-<h2><span class="section-number">14.1. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h2>
 <p>Python provides an efficient and powerful alternative to loops called
 <strong>comprehensions</strong>. Comprehensions automatically create a list or dictionary. A
 <strong>list comprehension</strong> creates a list, and a <strong>dictionary comprehension</strong>
@@ -475,7 +476,7 @@ here’s the code to get lists of names and heights for each person in the list:
 documentation</a>.</p>
 </section>
 <section id="exporting-data">
-<h2><span class="section-number">14.2. </span>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this heading">#</a></h2>
 <p>The extracted <code class="docutils literal notranslate"><span class="pre">names</span></code>, <code class="docutils literal notranslate"><span class="pre">heights</span></code>, and <code class="docutils literal notranslate"><span class="pre">eye_colors</span></code> lists are like columns in a
 DataFrame where each row is one person, so you might as well put them in a
 DataFrame. You can use the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> function and a dictionary of columns
@@ -490,14 +491,14 @@ the <code class="docutils literal notranslate"><span class="pre">.to_csv</span><
 checkpoint in the problem you’re trying to solve.</p>
 </section>
 <section id="practice-exercises">
-<h2><span class="section-number">14.3. </span>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Permalink to this heading">#</a></h2>
 <section id="exercise-1">
-<h3><span class="section-number">14.3.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Create a CSV file for the first 15 <em>vehicles</em> in SWAPI. The file should include
 columns for cargo capacity, cost, length, manufacturer, model, and passengers.</p>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">14.3.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>Create a histogram from the heights of the first 30 people in SWAPI.</p>
 <div class="admonition-hint admonition">
 <p class="admonition-title">Hint</p>
@@ -543,7 +544,7 @@ columns for cargo capacity, cost, length, manufacturer, model, and passengers.</
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Surfing the Web</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Surfing the Web</p>
       </div>
     </a>
     <a class="right-next"
@@ -551,7 +552,7 @@ columns for cargo capacity, cost, length, manufacturer, model, and passengers.</
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Test</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -570,11 +571,11 @@ columns for cargo capacity, cost, length, manufacturer, model, and passengers.</
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">14.1. Comprehensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">14.2. Exporting Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">14.3. Practice Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.3.1. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.3.2. Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions">15.1. Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">15.2. Exporting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">15.3. Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">15.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">15.3.2. Exercise 2</a></li>
 </ul>
 </li>
 </ul>

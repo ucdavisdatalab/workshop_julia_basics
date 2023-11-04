@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Data Visualization in Python &#8212; Julia Basics</title>
+    <title>10. Data Visualization in Python &#8212; Julia Basics</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/09_visualization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Organizing Code" href="10_if-statements.html" />
-    <link rel="prev" title="8. Exploring Data" href="08_iteration-aggregation.html" />
+    <link rel="next" title="11. Organizing Code" href="10_if-statements.html" />
+    <link rel="prev" title="9. Exploring Data" href="08_iteration-aggregation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -168,21 +168,22 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">1. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">2. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">3. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_reading-files.html">4. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">5. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">6. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">7. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">8. Exploring Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">10. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">11. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">12. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">13. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">14. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">15. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -376,26 +377,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-visualize">9.1. Preparing to Visualize</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-plotnine">9.1.1. Install and Import plotnine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-jupyter">9.1.2. Configure Jupyter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">9.1.3. Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-visualize">10.1. Preparing to Visualize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-plotnine">10.1.1. Install and Import plotnine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-jupyter">10.1.2. Configure Jupyter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">10.1.3. Data Cleaning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grammar-of-graphics">9.2. The Grammar of Graphics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-data">9.2.1. Layer 1: Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-geometry">9.2.2. Layer 2: Geometry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-aesthetics">9.2.3. Layer 3: Aesthetics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-scales">9.2.4. Layer 4: Scales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">9.2.5. Saving Plots</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bar-plot">9.2.6. Example: Bar Plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-design">9.2.7. Visualization Design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grammar-of-graphics">10.2. The Grammar of Graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-data">10.2.1. Layer 1: Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-geometry">10.2.2. Layer 2: Geometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-aesthetics">10.2.3. Layer 3: Aesthetics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-scales">10.2.4. Layer 4: Scales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">10.2.5. Saving Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bar-plot">10.2.6. Example: Bar Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-design">10.2.7. Visualization Design</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.3. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">9.3.1. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">9.3.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">9.3.3. Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">10.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">10.3.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">10.3.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.3.3. Exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +424,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="data-visualization-in-python">
-<span id="id1"></span><h1><span class="section-number">9. </span>Data Visualization in Python<a class="headerlink" href="#data-visualization-in-python" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">10. </span>Data Visualization in Python<a class="headerlink" href="#data-visualization-in-python" title="Permalink to this heading">#</a></h1>
 <img alt="A network of Python visualization packages." src="img/visualization_landscape.png" />
 <p><em>Image from <a class="reference external" href="http://vanderplas.com/">Jake VanderPlas</a>. See <a class="reference external" href="https://rougier.github.io/python-visualization-landscape/landscape-colors.html">here</a> for a version with links
 to all of the packages!</em></p>
@@ -458,10 +459,10 @@ here will also be relevant if you end up using R or Julia. plotnine has
 detailed <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">documentation</a>. It’s also useful to look at the <a class="reference external" href="https://ggplot2.tidyverse.org/">ggplot2
 documentation</a> and <a class="reference external" href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheatsheet</a>.</p>
 <section id="preparing-to-visualize">
-<span id="id2"></span><h2><span class="section-number">9.1. </span>Preparing to Visualize<a class="headerlink" href="#preparing-to-visualize" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2><span class="section-number">10.1. </span>Preparing to Visualize<a class="headerlink" href="#preparing-to-visualize" title="Permalink to this heading">#</a></h2>
 <p>Before building a visualization, you will need to do a few preparatory steps.</p>
 <section id="install-and-import-plotnine">
-<span id="install-import-plotnine"></span><h3><span class="section-number">9.1.1. </span>Install and Import plotnine<a class="headerlink" href="#install-and-import-plotnine" title="Permalink to this heading">#</a></h3>
+<span id="install-import-plotnine"></span><h3><span class="section-number">10.1.1. </span>Install and Import plotnine<a class="headerlink" href="#install-and-import-plotnine" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As of writing, conda installs plotnine 0.9 and matplotlib 3.6.1 by default.
@@ -506,7 +507,7 @@ module will overwrite objects in your code if they have the same name. However,
 the plotnine package was designed to be imported this way:</p>
 </section>
 <section id="configure-jupyter">
-<span id="id3"></span><h3><span class="section-number">9.1.2. </span>Configure Jupyter<a class="headerlink" href="#configure-jupyter" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3><span class="section-number">10.1.2. </span>Configure Jupyter<a class="headerlink" href="#configure-jupyter" title="Permalink to this heading">#</a></h3>
 <p>Jupyter notebooks can display most static visualizations and some interactive
 visualizations. If you’re going to use visualization packages that depend on
 Matplotlib (such as plotnine), it’s a good idea to set up your notebook by
@@ -523,7 +524,7 @@ StackOverflow question</a>.</p>
 </div>
 </section>
 <section id="data-cleaning">
-<span id="id4"></span><h3><span class="section-number">9.1.3. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3><span class="section-number">10.1.3. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h3>
 <p>Finally, we need to do a small amount of data cleaning. The plots below will
 focus on two variables, <code class="docutils literal notranslate"><span class="pre">death_year</span></code> and <code class="docutils literal notranslate"><span class="pre">scaled_bill_value</span></code>. But some rows
 lack information for these variables, so they need to be removed. Along the
@@ -539,7 +540,7 @@ reassign the altered data to a new variable.</p>
 </section>
 </section>
 <section id="the-grammar-of-graphics">
-<span id="grammar-of-graphics"></span><h2><span class="section-number">9.2. </span>The Grammar of Graphics<a class="headerlink" href="#the-grammar-of-graphics" title="Permalink to this heading">#</a></h2>
+<span id="grammar-of-graphics"></span><h2><span class="section-number">10.2. </span>The Grammar of Graphics<a class="headerlink" href="#the-grammar-of-graphics" title="Permalink to this heading">#</a></h2>
 <p>Recall that plotnine is a clone of ggplot2. The “gg” in ggplot2 stands for
 <em>grammar of graphics</em>. The idea of a grammar of graphics is that visualizations
 can be built up in layers. Visualizations that adhere to this grammar must
@@ -580,7 +581,7 @@ to understand the relationship between a banknote’s value and how long ago the
 person on the banknote died, as well as whether this is affected by gender. One
 way to show this is to make a scatter plot.</p>
 <section id="layer-1-data">
-<h3><span class="section-number">9.2.1. </span>Layer 1: Data<a class="headerlink" href="#layer-1-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>Layer 1: Data<a class="headerlink" href="#layer-1-data" title="Permalink to this heading">#</a></h3>
 <p>The data layer determines the data set used to make the plot. plotnine is
 designed to work with <em>tidy</em> data. Tidy means:</p>
 <ol class="arabic simple">
@@ -595,7 +596,7 @@ sets we work with are tidy.</p>
 <p>This returns a blank plot. We still need to add a few more layers.</p>
 </section>
 <section id="layer-2-geometry">
-<h3><span class="section-number">9.2.2. </span>Layer 2: Geometry<a class="headerlink" href="#layer-2-geometry" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>Layer 2: Geometry<a class="headerlink" href="#layer-2-geometry" title="Permalink to this heading">#</a></h3>
 <p>The geometry layer determines the shape or appearance of the visual elements of
 the plot. In other words, the geometry layer determines what kind of plot to
 make: one with points, lines, boxes, or something else.</p>
@@ -612,7 +613,7 @@ set.</p>
 <p>As we’ll see later, it’s possible to add multiple geometries to a plot.</p>
 </section>
 <section id="layer-3-aesthetics">
-<h3><span class="section-number">9.2.3. </span>Layer 3: Aesthetics<a class="headerlink" href="#layer-3-aesthetics" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>Layer 3: Aesthetics<a class="headerlink" href="#layer-3-aesthetics" title="Permalink to this heading">#</a></h3>
 <p>The aesthetic layer determines the relationship between the data and the
 geometry. Use the aesthetic layer to map features in the data to aesthetics
 (visual elements) of the geometry.</p>
@@ -657,7 +658,7 @@ gender, and you want to make all of the points blue.</p>
 results you get might not be what you expect:</p>
 </section>
 <section id="layer-4-scales">
-<h3><span class="section-number">9.2.4. </span>Layer 4: Scales<a class="headerlink" href="#layer-4-scales" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.4. </span>Layer 4: Scales<a class="headerlink" href="#layer-4-scales" title="Permalink to this heading">#</a></h3>
 <p>The scales layer controls the title, axis labels, and axis scales of the plot.
 Most of the functions in the scales layer are prefixed with <code class="docutils literal notranslate"><span class="pre">scale_</span></code>, but not
 all of them.</p>
@@ -665,7 +666,7 @@ all of them.</p>
 and axis labels. All graphs need a title and axis labels.</p>
 </section>
 <section id="saving-plots">
-<h3><span class="section-number">9.2.5. </span>Saving Plots<a class="headerlink" href="#saving-plots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.5. </span>Saving Plots<a class="headerlink" href="#saving-plots" title="Permalink to this heading">#</a></h3>
 <p>If you assign a plot to a variable, you can use the <code class="docutils literal notranslate"><span class="pre">save</span></code> method or the
 <code class="docutils literal notranslate"><span class="pre">ggsave</span></code> function to save that plot to a file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="p">(</span>
@@ -683,7 +684,7 @@ and axis labels. All graphs need a title and axis labels.</p>
 formats are PNG and PDF.</p>
 </section>
 <section id="example-bar-plot">
-<span id="id5"></span><h3><span class="section-number">9.2.6. </span>Example: Bar Plot<a class="headerlink" href="#example-bar-plot" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3><span class="section-number">10.2.6. </span>Example: Bar Plot<a class="headerlink" href="#example-bar-plot" title="Permalink to this heading">#</a></h3>
 <p>Now suppose you want to plot the number of banknotes with people from each
 profession in the banknotes data set. A bar plot is an appropriate way to
 represent this visually.</p>
@@ -700,7 +701,7 @@ computed. To prevent <code class="docutils literal notranslate"><span class="pre
 <code class="docutils literal notranslate"><span class="pre">stat</span> <span class="pre">=</span> <span class="pre">&quot;identity&quot;</span></code>.</p>
 </section>
 <section id="visualization-design">
-<span id="id6"></span><h3><span class="section-number">9.2.7. </span>Visualization Design<a class="headerlink" href="#visualization-design" title="Permalink to this heading">#</a></h3>
+<span id="id6"></span><h3><span class="section-number">10.2.7. </span>Visualization Design<a class="headerlink" href="#visualization-design" title="Permalink to this heading">#</a></h3>
 <p>Designing high-quality visualizations goes beyond just mastering which Python
 functions to call. You also need to think carefully about what kind of data you
 have and what message you want to convey. This section provides a few
@@ -767,16 +768,16 @@ Visualization Workshop Reader</a>.</p>
 </section>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <section id="exercise">
-<h3><span class="section-number">9.3.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.1. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Compute the number of banknotes that feature a person who died before 1990.</p></li>
 <li><p>Of those people, how many were activists?</p></li>
 </ol>
 </section>
 <section id="id7">
-<h3><span class="section-number">9.3.2. </span>Exercise<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.2. </span>Exercise<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Compute the range of <code class="docutils literal notranslate"><span class="pre">first_appearance_year</span></code> for each country.</p>
 <ul class="simple">
@@ -789,7 +790,7 @@ aggregation…</p></li>
 </ol>
 </section>
 <section id="id8">
-<h3><span class="section-number">9.3.3. </span>Exercise<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.3. </span>Exercise<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Compute the set of banknotes who died in this century.</p></li>
 <li><p>Use plotnine’s <code class="docutils literal notranslate"><span class="pre">geom_segment</span></code> function to create a plot which shows the
@@ -844,7 +845,7 @@ of the arguments is probably not what you’re expecting.</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Exploring Data</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Exploring Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -852,7 +853,7 @@ of the arguments is probably not what you’re expecting.</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Organizing Code</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Organizing Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -871,26 +872,26 @@ of the arguments is probably not what you’re expecting.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-visualize">9.1. Preparing to Visualize</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-plotnine">9.1.1. Install and Import plotnine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-jupyter">9.1.2. Configure Jupyter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">9.1.3. Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-to-visualize">10.1. Preparing to Visualize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-plotnine">10.1.1. Install and Import plotnine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-jupyter">10.1.2. Configure Jupyter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">10.1.3. Data Cleaning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grammar-of-graphics">9.2. The Grammar of Graphics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-data">9.2.1. Layer 1: Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-geometry">9.2.2. Layer 2: Geometry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-aesthetics">9.2.3. Layer 3: Aesthetics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-scales">9.2.4. Layer 4: Scales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">9.2.5. Saving Plots</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bar-plot">9.2.6. Example: Bar Plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-design">9.2.7. Visualization Design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grammar-of-graphics">10.2. The Grammar of Graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-data">10.2.1. Layer 1: Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-geometry">10.2.2. Layer 2: Geometry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-aesthetics">10.2.3. Layer 3: Aesthetics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-scales">10.2.4. Layer 4: Scales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">10.2.5. Saving Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bar-plot">10.2.6. Example: Bar Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-design">10.2.7. Visualization Design</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.3. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">9.3.1. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">9.3.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">9.3.3. Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">10.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">10.3.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">10.3.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.3.3. Exercise</a></li>
 </ul>
 </li>
 </ul>
