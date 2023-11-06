@@ -33,6 +33,7 @@ Some of the "features" discussion seems like a better fit for other sections. Fo
 2. Unicode support: Why Julia, Types
 3. Easy multihreading: Why Julia, Case Study
 
+Yes to all of these.
 
 ### Template
 ```{code-cell}
@@ -73,14 +74,20 @@ println(typeof(d))
 println(d["a"])
 ```
 
-### Arrays (?)
+### Arrays
 
-All the collections appear to be based on Array (?), so how much do we want to say about them specifically?
+1. Array creation
+2. Array broadcasting (e.g. dot operator)
+3. Linear algebra operators
+
+Find out the answer to this - 
 cf. https://docs.julialang.org/en/v1/manual/arrays/
 
 1. Array{T} where T is a concrete immutable type
 2. Operations are matrix-wise by default
+3. column x row n
 
+"Everything is an array?" goes into the Types section
 
 Iteration
 ---------
@@ -108,6 +115,8 @@ We won't cover these, but you may be interested in learning more about:
 2. List comprehensions
 3. Generators
 
+Cover how list comprehensions and generators are different that Python comprehensions and/or R apply
+
 Conditionals and Flow Control
 -----------------------------
 
@@ -126,8 +135,10 @@ end
 
 ### Truth testing
 1. `true`, `false`, `missing`, and `nothing`
-2. Using `Bool` type for testing? This is confusing and should be called out.
+2. Testing should be explicit, don't use `Bool` testing; perform explicit testing that expects a particular type.
+https://docs.julialang.org/en/v1/manual/faq/#faq-nothing
 3. `in()` and `in.()` for collection contents
+
 
 ```{code-cell}
 if 1 in x
@@ -151,9 +162,22 @@ Functions
 
 1. What are good (i.e. useful) examples of built-in functions
 2. What are good examples of built-in functions that use multiple dispatch?
-3. Should we mention the distinction between Functions and Methods?
+3. Should we mention the distinction between Functions and Methods? Skip the deep discussion, probably
+https://docs.julialang.org/en/v1/manual/methods/
 
 ### Writing functions
+
+Modify this to use args of different types
+
+methods(thing) gives you possible methods
+
+append! is Python extend
+push is Python append
+
+This will go into Types section
+push!(convert(Vector{Any}, x), y)
+https://docs.julialang.org/en/v1/manual/conversion-and-promotion/
+
 ```{code-cell}
 function add_missing(item, collection)
     # Mutate collection in place
