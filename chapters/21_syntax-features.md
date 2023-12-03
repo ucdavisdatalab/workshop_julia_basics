@@ -1,4 +1,3 @@
-<!--
 ---
 jupytext:
   formats: md:myst
@@ -10,45 +9,25 @@ kernelspec:
   language: julia
   name: julia-1.9
 ---
--->
+
+<!-- Run at top level of repo. -->
+```{code-cell}
+:tags: ["remove-cell"]
+cd("..")
+```
 
 Syntax and Features
 ===================
 
-
-Tentative Outline
------------------
-
-1. Collections
-2. Iteration
-3. Conditionals and Flow Control
-4. Functions
-
-
-Editorial Comments
-------------------
-
-Some of the "features" discussion seems like a better fit for other sections. For example:
-1. Speed: Why Julia, Case Study
-2. Unicode support: Why Julia, Types
-3. Easy multihreading: Why Julia, Case Study
-
-Yes to all of these.
-
-### Template
-```{code-cell}
-```
-
 Collections
 -----------
 
-The rest of the workshop will focus on working with tabular data, so data frames will be covered in those sections. This is a brief tour of the standard "programmer" collections.
+Julia has most of the standard collection types you would expect in any langague. This section will focus on generic collection types; in a later lesson, we'll discuss Julia's implementation of data frames for working with tabular data.
 
 ### Default ordered collection: Vector
 
-1. Vectors are the default generic collection. A Vector will automatically infer its type based on its contents.
-
-```{code-cell}
+1. Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of `Vector{Int}`, while a Vector containing both integers and strings will have a type of `Vector{Any}`. A Vector will automatically infer its type based on its contents.
+```julia
 x = [1, 2, 3]
 y = ["a", "b", "c"]
 z = [1, "b", x]
@@ -58,70 +37,182 @@ println(typeof(y))
 println(typeof(z))
 ```
 
-2. Ordered collections are indexed from 1.
-
-```{code-cell}
+2. In Julia, ordered collections are indexed from 1.
+```julia
 println(y[1])
 println(z[3][1])
 ```
 
+3. You can slice a collection to return a subset. Slices are inclusive, so this code:
+```julia
+x[1:2]
+```
+...returns all items from the start index (`1`) up to and including the stop index (`2`).
+
 ### Default keyed collection: Dict
 
-```{code-cell}
+1. A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.
+```julia
 d = Dict([("a", 1), ("b", 2), ("c", 3)])
 
 println(typeof(d))
+```
+
+2. Each value is indexed by its unique key.
+```julia
 println(d["a"])
 ```
 
 ### Arrays
-
-1. Array creation
-2. Array broadcasting (e.g. dot operator)
-3. Linear algebra operators
-
-Find out the answer to this - 
 cf. https://docs.julialang.org/en/v1/manual/arrays/
 
-1. Array{T} where T is a concrete immutable type
-2. Operations are matrix-wise by default
-3. column x row n
+1. Arrays are multidimensional ordered collections. They are the most commonly-used collection in Julia (a Vector is actually a 1-dimensional Array). You can create them by hand or by using one of the many built-in functions.
+```julia
+# Create an array of zeros, defaulting to Float64
+zeros(2,4)
 
-"Everything is an array?" goes into the Types section
+# Specify the type of the array
+zeros(Int8, 2, 4)
+```
+
+2. Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
+```julia
+x = reshape(collect(1:10), (2,5))
+x[1,2]
+```
+
+3. You can concatenate arrays vertically or horizontally.
+```julia
+# Concatenate subarrays into a single (vertical) vector using the ; operator
+x = [[1,2] ; [3,4]]
+
+# Concatenate subarrys into a 2x2 matrix using the ;; operator
+y = [[1,2] ;; [3,4]]
+```
+
+4. Arrays are passed by reference. In this example, Arrays `a` and `b` are both Views onto the same contiguous chunk of memory.
+```julia
+a = [3;4;5]
+b = a
+b[1] = 1
+println(a)
+```
+
+5. Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using `copy()` or `deepcopy()`.
+```julia
+# Makes a random 2x2 matrix
+a = rand(2,2)
+
+# Makes a view to the 2x2 matrix which is a 1-dimensional array
+b = vec(a)
+
+display(a)
+display(b)
+b[3] = 0.7
+display(a)
+```
+
+6. Slicing an array returns a copy of the relevant chunk
+```julia
+c = a[1:2, 1]
+a[1] = 0.5
+display(c)
+```
+
+7. Linear algebra operations are matrix-wise by default
+```julia
+a = rand(2,4)
+b = rand(4,2)
+
+# Matrix-wise multiplication
+a * b
+```
+
+8. If you want to do element-wise operations on an Array, you can use the broadcast operator `.` to apply a function to each element of the Array rather than the Array as a whole.
+```julia
+# Generically, apply function `f(x)` to each element of x
+x .= f.(x)
+
+# Example
+x = rand(10)
+x .= x .+ sqrt.(x)
+```
+
+To write this even more concisely you can wrap your code in the broadast macro, which applies the dot operater to all of the operators.
+```julia
+# Template
+@. x = f(x)
+
+# Example
+@. x = x + sqrt(x)
+
+# Or even more concisely
+@. x += sqrt(x)
+```
 
 Iteration
 ---------
 
 ### Iterate over any ordered collection with a `for` loop
-```{code-cell}
+```julia
+x = collect(10)
 for i in x
     println(i)
 end
 ```
 
-Note that loops are fast in Julia, so you should prefer them to "vectorized" operations.
+### (Optional) Iterate over an Array
+Loops are fast in Julia, so you can use them when doing element-wise calculations with Arrays. However, you usually won't want to explicity use the `for` loop syntax. Instead, you should use the broadcast operator, which is a more concise way to write the same code.
+
+```julia
+# Template
+for i = 1:length(x)
+  x[i] = f(x[i])
+end
+
+# Example
+x = rand(10)
+for i = 1:length(x)
+  x[i] = x[i] + sqrt(x[i])
+end
+```
 
 ### Iterate over key/value pairs with a `for` loop
-```{code-cell}
+```julia
 for (key, value) in d
     println(key, ":", value)
 end
 ```
 
-### Other methods of iteration
-We won't cover these, but you may be interested in learning more about:
+### Functional approaches to iteration
+A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension.
 
-1. While loops
-2. List comprehensions
-3. Generators
+1. By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).
+```julia
+vec = [x for x in 1:20 if x % 2 == 0]
+```
 
-Cover how list comprehensions and generators are different that Python comprehensions and/or R apply
+2. A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.
+```julia
+gen = (x for x in 1:20 if x % 2 == 0)
+
+for item in gen
+    println(item)
+end
+```
+
+3. Comprehensions and generator expressions are useful for building custom data structures.
+```julia
+using LinearAlgebra
+
+diag = Diagonal([1/x for x in 1:20 if x % 2 == 0])
+```
 
 Conditionals and Flow Control
 -----------------------------
 
 ### Conditionals (if/then/else)
-```{code-cell}
+```julia
 i = 1
 j = 2
 if i < j
@@ -134,52 +225,30 @@ end
 ```
 
 ### Truth testing
-1. `true`, `false`, `missing`, and `nothing`
-2. Testing should be explicit, don't use `Bool` testing; perform explicit testing that expects a particular type.
-https://docs.julialang.org/en/v1/manual/faq/#faq-nothing
-3. `in()` and `in.()` for collection contents
+1. The built-in Boolean values in Julia are `true` and `false`.
 
+2. Missing data is represented with `missing`.
 
-```{code-cell}
-if 1 in x
-    println("x contains 1")
-else
-    println("x does not contain 1")
+3. Null values are represented with `nothing`.
+
+4. You can check whether a collection includes an item by using the keyword `in` or the `in()` function.
+```julia
+if 1 in v
+    println("v contains 1")
 end
 
-println(in(1, x))
-println(in.(1, x))
+println(in(6, v))
 ```
-
-### Exceptions (try/catch/finally)
-
-The brief introduction states that exceptions are slow and therefore not recommended. Is the preferred style/performance approach to use explicit testing instead?
 
 Functions
 ---------
 
-### Built-in functions and their signatures
-
-1. What are good (i.e. useful) examples of built-in functions
-2. What are good examples of built-in functions that use multiple dispatch?
-3. Should we mention the distinction between Functions and Methods? Skip the deep discussion, probably
-https://docs.julialang.org/en/v1/manual/methods/
-
 ### Writing functions
 
-Modify this to use args of different types
+Julia's function syntax is similar to other languages. If your function mutates an item (i.e. changes it in place), the function name should end with an exclamation point to let the user know this (e.g., `myfun` vs `myfun!`).
 
-methods(thing) gives you possible methods
-
-append! is Python extend
-push is Python append
-
-This will go into Types section
-push!(convert(Vector{Any}, x), y)
-https://docs.julialang.org/en/v1/manual/conversion-and-promotion/
-
-```{code-cell}
-function add_missing(item, collection)
+```julia
+function add_missing!(item, collection)
     # Mutate collection in place
     if item in collection
         return collection
@@ -188,7 +257,29 @@ function add_missing(item, collection)
         return collection
     end
 end
+
+println(v)
+add_missing!(7, v)
+println(v)
 ```
 
-### Namespaces?
+### Exceptions (try/catch/finally)
 
+```julia
+function root(item)
+    try
+        return sqrt(item)
+    catch e
+        println("You should have entered a numeric value")
+    finally
+        println("This always succeeds")
+    end
+end
+
+root(10)
+root("ten")
+```
+
+2. Performance implications of exceptions vs explicit testing?
+
+### Namespaces?
