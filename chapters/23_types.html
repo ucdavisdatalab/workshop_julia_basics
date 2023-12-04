@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>7. Data Structures &#8212; Julia Basics</title>
+    <title>3. Data Types and Structures &#8212; Julia Basics</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/05_data-types-structures';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/23_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Indexing in Pandas" href="06_indexing.html" />
-    <link rel="prev" title="6. File Systems" href="03_file-systems.html" />
+    <link rel="next" title="4. Getting Started" href="01_julia-basics.html" />
+    <link rel="prev" title="2. Reading Files" href="22_reading-files.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -172,11 +172,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Data Types and Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">4. Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
@@ -258,7 +258,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/05_data-types-structures.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/23_types.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/05_data-types-structures.md" target="_blank"
+      <li><a href="../_sources/chapters/23_types.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -372,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Structures</h1>
+    <h1>Data Types and Structures</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -382,24 +382,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">7.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">7.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">7.1.2. Data</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers-for-data">7.2. Containers for Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">7.2.1. Pandas Series</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">7.2.2. NumPy Arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">7.2.3. Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">7.2.4. Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7.2.5. References</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">7.2.6. Tuples</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">7.3. Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-the-object-dtype">7.3.1. Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coercion-conversion">7.3.2. Coercion &amp; Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-sizes-memory">7.3.3. Bit Sizes &amp; Memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.1. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">3.2. Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">3.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.4. Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">3.5. Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-the-object-dtype">3.5.1. Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coercion-conversion">3.5.2. Coercion &amp; Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-sizes-memory">3.5.3. Bit Sizes &amp; Memory</a></li>
 </ul>
 </li>
 </ul>
@@ -426,54 +416,42 @@ kernelspec:
   name: julia-1.9
 ---
 -->
-<section class="tex2jax_ignore mathjax_ignore" id="data-structures">
-<h1><span class="section-number">7. </span>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this heading">#</a></h1>
-<p>The previous chapter introduced Python, providing enough background to do
-simple computations on data sets. This chapter focuses on the foundational
-knowledge and skills you’ll need to use Python effectively in the long term.
-Specifically, it begins with a deep dive into data structures and data types in
-Python and Pandas. Then, it explains how to use this knowledge during data
-analysis.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="data-types-and-structures">
+<h1><span class="section-number">3. </span>Data Types and Structures<a class="headerlink" href="#data-types-and-structures" title="Permalink to this heading">#</a></h1>
+<p>The primary purpose of data typing is to create “variables whose substitution for each other in any context will not result in a compile-time error” <span class="xref myst">[1]</span>. In high-level programming languages this is typically accomplished through the implementation of a <em>type system</em> that formalizes and enforces both the range of values that can be associated with and the operations that can be performed on any term.</p>
+<p>The adoption of a typing system has implications beyond simply preventing compile-time errors as it necessarily limits the range of values that you can and connot store in any variable and also the operations you can and cannot peform on it.  When properly understood and ipmlemented, however, type systems can be exploited to signifcantly improve performance while at the same time ensuring computational accuracy and reducing system error.  This chapter focuses on understanding the structure of Julia’s type system with an particular eye on achieving the above positive outcomes.</p>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
-<li><p>Create Pandas Series, NumPy arrays, lists, and tuples</p></li>
-<li><p>Check the type and class of an object</p></li>
-<li><p>Convert an object into a different type</p></li>
-<li><p>Describe and differentiate <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">NA</span></code>, and <code class="docutils literal notranslate"><span class="pre">NaN</span></code></p></li>
-<li><p>Index sequences with empty, integer, string, and logical arguments</p></li>
-<li><p>Negate or combine conditions with logic operations</p></li>
-<li><p>Subset Series objects and DataFrames</p></li>
-<li><p>Find and remove missing values in a DataFrame and Series</p></li>
+<li><p>Understand how Julia accomodates both Dynamic and Statically typed variables;</p></li>
+<li><p>Identify the Abstract and Primitive data types that comprise Julia’s type system;</p></li>
+<li><p>Understand how Parametric Typing works in Julia;</p></li>
+<li><p>Identify different methods for converting between data types, including the implications of these conversions;</p></li>
+<li><p>Identify common scenarios where data typing can be used to improve code performance and computational accuracy.</p></li>
 </ul>
-</div>
-<section id="setup">
-<h2><span class="section-number">7.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
-<section id="packages">
-<h3><span class="section-number">7.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
+<p><a name="ref1">[1]</a> Parnas, David L.; Shore, John E.; Weiss, David (1976). “Abstract types defined as classes of variables”. Proceedings of the 1976 conference on Data : Abstraction, definition and structure. pp. 149–154. doi:<a class="reference external" href="https://dl.acm.org/doi/10.1145/942574.807133">10.1145/800237.807133 </a></p>
+<hr class="docutils" />
+<p class="rubric">Old Python Content Below</p>
+<hr class="docutils" />
+<p class="rubric">Setup</p>
+<p class="rubric">Packages</p>
 <p>We will be working with two packages in this chapter, NumPy and Pandas. Start
 by using what you learned in <code class="xref std std-numref docutils literal notranslate"><span class="pre">modules</span></code> to load these packages with
 their conventional aliases:</p>
-</section>
-<section id="data">
-<h3><span class="section-number">7.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<p class="rubric">Data</p>
 <p><a class="reference internal" href="01_julia-basics.html#getting-started"><span class="std std-numref">Section 4</span></a> described how to use the Pandas package to load a
 tabular dataset into a DataFrame. As an example, you saw how to load the
 banknotes dataset. You’ll need that dataset for the examples in this chapter as
 well, so load a fresh copy of it:</p>
 <p>Now you’re ready for the chapter.</p>
-</section>
-</section>
-<section id="containers-for-data">
-<span id="arrays-lists-sequences"></span><h2><span class="section-number">7.2. </span>Containers for Data<a class="headerlink" href="#containers-for-data" title="Permalink to this heading">#</a></h2>
+<p class="rubric" id="arrays-lists-sequences">Containers for Data</p>
 <p>A <strong>data structure</strong> is a collection of data organized in a particular way. In
 Python, data structures are also called <strong>containers</strong>, because they contain
 data. Containers make working with lots of data manageable and efficient.
 DataFrames, introduced in the previous chapter, are an example of a
 two-dimensional data structure. In this section, you’ll learn about several
 one-dimensional data structures that are fundamental to programming in Python.</p>
-<section id="pandas-series">
-<span id="id1"></span><h3><span class="section-number">7.2.1. </span>Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this heading">#</a></h3>
+<p class="rubric" id="pandas-series">Pandas Series</p>
 <p>Recall that you can select a single column from a DataFrame with the square
 brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>. Select the <code class="docutils literal notranslate"><span class="pre">current_bill_value</span></code> column from the banknotes
 dataset:</p>
@@ -509,10 +487,8 @@ contains (more on this later):</p>
 given Series, the elements will usually all be the same qualitative type of
 data (integers, decimal numbers, strings, and so on). In other words, the
 elements are usually <strong>homogeneous</strong>. There are some exceptions, and you’ll
-learn more about element types in <a class="reference internal" href="23_types.html#data-types"><span class="std std-numref">Section 3.5</span></a>.</p>
-</section>
-<section id="numpy-arrays">
-<span id="id2"></span><h3><span class="section-number">7.2.2. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h3>
+learn more about element types in <a class="reference internal" href="#data-types"><span class="std std-numref">Section 3.5</span></a>.</p>
+<p class="rubric" id="numpy-arrays">NumPy Arrays</p>
 <p>Under the hood, Pandas Series are based on other data structure, the NumPy
 <strong>array</strong> (or <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>). You can think of a NumPy array as a stripped-down
 Series: an ordered, one-dimensional container for values without the extra
@@ -522,14 +498,14 @@ metadata and functionality.</p>
 <p>Series tend to be a good choice for data analysis, while arrays tend to be a
 good choice for sophisticated mathematical computations (such as simulations).</p>
 </div>
+</div>
 <p>Most examples in this reader use Series and DataFrames, but it will be pointed
 out anywhere it’s important to use a NumPy array.</p>
 <p>You can convert a Series to an array with the <code class="docutils literal notranslate"><span class="pre">.to_numpy</span></code> method:</p>
 <p>Conversely, you can convert an array into a Series with the <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>
 function. You’ll see some examples of this function later on.</p>
-</section>
 <section id="lists">
-<span id="id3"></span><h3><span class="section-number">7.2.3. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h2><span class="section-number">3.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
 <p>Series and arrays are designed for data analysis and mathematical computations,
 respectively. In contrast, a <strong>list</strong> is a general-purpose one-dimensional
 container. Lists are built into Python, so they’re probably the most common
@@ -546,7 +522,7 @@ is no expectation that they will be homogeneous. For instance, this list
 contains a number, string, and another list (with one element):</p>
 </section>
 <section id="indexing">
-<span id="id4"></span><h3><span class="section-number">7.2.4. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h2><span class="section-number">3.2. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h2>
 <p>So far you’ve learned two ways to use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p>
 <ol class="arabic simple">
 <li><p>To select columns from a DataFrame, as in <code class="docutils literal notranslate"><span class="pre">banknotes[&quot;country&quot;]</span></code></p></li>
@@ -577,7 +553,7 @@ example, to get the value stored in the list inside of <code class="docutils lit
 code to change the first element of <code class="docutils literal notranslate"><span class="pre">x</span></code> to the string “hi” is:</p>
 </section>
 <section id="references">
-<span id="id5"></span><h3><span class="section-number">7.2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h2><span class="section-number">3.3. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>Assigning elements of a container is not without complication. Suppose you
 assign a list to a variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and then create a new variable, <code class="docutils literal notranslate"><span class="pre">y</span></code>, from <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 If you change an element of <code class="docutils literal notranslate"><span class="pre">y</span></code>, it will also change <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
@@ -596,7 +572,7 @@ than a reference, you need to use a function or method to explicitly make a
 copy. Many containers have a <code class="docutils literal notranslate"><span class="pre">.copy</span></code> method that makes a copy:</p>
 </section>
 <section id="tuples">
-<h3><span class="section-number">7.2.6. </span>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.4. </span>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h2>
 <p>References can be confusing, and if you know that the elements of a container
 shouldn’t change, one way to prevent problems is to use a <strong>tuple</strong>. Like a
 list, a tuple is a one-dimensional container. The key difference is that tuples
@@ -606,9 +582,8 @@ elements.</p>
 like this:</p>
 <p>You can also convert another container into a tuple with the <code class="docutils literal notranslate"><span class="pre">tuple</span></code> function:</p>
 </section>
-</section>
 <section id="data-types">
-<span id="id6"></span><h2><span class="section-number">7.3. </span>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
+<span id="id4"></span><h2><span class="section-number">3.5. </span>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
 <p>Data can be categorized into different <strong>types</strong> based on sets of shared
 characteristics. For instance, statisticians tend to think about whether data
 are numeric or categorical:</p>
@@ -712,10 +687,10 @@ decimal point are removed.</p>
 <p>Decimal numbers like <code class="docutils literal notranslate"><span class="pre">4.67</span></code> are better represented by a floating point number,
 or <code class="docutils literal notranslate"><span class="pre">float</span></code>. Use this when you need decimal precision of any kind:</p>
 <p>Notice that the Pandas/NumPy types have the same names as the built-in types,
-but with a number appended to the end. <a class="reference internal" href="23_types.html#bit-sizes"><span class="std std-numref">Section 3.5.3</span></a> explains what those
+but with a number appended to the end. <a class="reference internal" href="#bit-sizes"><span class="std std-numref">Section 3.5.3</span></a> explains what those
 numbers mean.</p>
 <section id="strings-the-object-dtype">
-<span id="id7"></span><h3><span class="section-number">7.3.1. </span>Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype<a class="headerlink" href="#strings-the-object-dtype" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3><span class="section-number">3.5.1. </span>Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype<a class="headerlink" href="#strings-the-object-dtype" title="Permalink to this heading">#</a></h3>
 <p>Strings (type <code class="docutils literal notranslate"><span class="pre">str</span></code>), which were introduced in <a class="reference internal" href="01_julia-basics.html#getting-help"><span class="std std-numref">Section 4.3</span></a>, are a
 bit more complicated than Boolean values and numbers because they have many
 attributes and methods associated with them.</p>
@@ -752,7 +727,7 @@ to handle strings rather than an experimental feature.</p>
 </div>
 </section>
 <section id="coercion-conversion">
-<span id="id8"></span><h3><span class="section-number">7.3.2. </span>Coercion &amp; Conversion<a class="headerlink" href="#coercion-conversion" title="Permalink to this heading">#</a></h3>
+<span id="id6"></span><h3><span class="section-number">3.5.2. </span>Coercion &amp; Conversion<a class="headerlink" href="#coercion-conversion" title="Permalink to this heading">#</a></h3>
 <p>Although <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, and <code class="docutils literal notranslate"><span class="pre">float</span></code> are different types, in most situations
 Python will automatically convert between them as needed. For example, you can
 multiply a floating point number by an integer and then add a Boolean value:</p>
@@ -772,7 +747,7 @@ can multiply <code class="docutils literal notranslate"><span class="pre">bill_v
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> has changed from <code class="docutils literal notranslate"><span class="pre">int64</span></code> to <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
 <p><strong>Type conversion</strong> is when you explicitly convert an object from one type to
 another. You already saw examples of this with the <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code> functions
-in <a class="reference internal" href="23_types.html#data-types"><span class="std std-numref">Section 3.5</span></a>. Here are a few more:</p>
+in <a class="reference internal" href="#data-types"><span class="std std-numref">Section 3.5</span></a>. Here are a few more:</p>
 <p>Python can even convert strings into numbers and Boolean values:</p>
 <p>Note however that such operations have to be logically sound. This will not
 work:</p>
@@ -782,9 +757,9 @@ as a string. For example, here’s how to convert the <code class="docutils lite
 <code class="docutils literal notranslate"><span class="pre">float64</span></code>:</p>
 </section>
 <section id="bit-sizes-memory">
-<span id="bit-sizes"></span><h3><span class="section-number">7.3.3. </span>Bit Sizes &amp; Memory<a class="headerlink" href="#bit-sizes-memory" title="Permalink to this heading">#</a></h3>
+<span id="bit-sizes"></span><h3><span class="section-number">3.5.3. </span>Bit Sizes &amp; Memory<a class="headerlink" href="#bit-sizes-memory" title="Permalink to this heading">#</a></h3>
 <p>Recall the table of types from the beginning of this Section
-(<a class="reference internal" href="23_types.html#data-types"><span class="std std-numref">Section 3.5</span></a>). The names of the Pandas/NumPy types in the table all
+(<a class="reference internal" href="#data-types"><span class="std std-numref">Section 3.5</span></a>). The names of the Pandas/NumPy types in the table all
 end in numbers such as <code class="docutils literal notranslate"><span class="pre">32</span></code> or <code class="docutils literal notranslate"><span class="pre">64</span></code>. These numbers indicate the <strong>bit size</strong>,
 the number of bits of memory used to store a value of that type.</p>
 <p>For example, a single value with type <code class="docutils literal notranslate"><span class="pre">int64</span></code> uses 64 bits of memory. So the
@@ -874,20 +849,20 @@ type(coded_in_java)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_file-systems.html"
+       href="22_reading-files.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>File Systems</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Reading Files</p>
       </div>
     </a>
     <a class="right-next"
-       href="06_indexing.html"
+       href="01_julia-basics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Indexing in Pandas</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Getting Started</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -906,24 +881,14 @@ type(coded_in_java)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">7.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">7.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">7.1.2. Data</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#containers-for-data">7.2. Containers for Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">7.2.1. Pandas Series</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">7.2.2. NumPy Arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">7.2.3. Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">7.2.4. Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7.2.5. References</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">7.2.6. Tuples</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">7.3. Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-the-object-dtype">7.3.1. Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coercion-conversion">7.3.2. Coercion &amp; Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-sizes-memory">7.3.3. Bit Sizes &amp; Memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.1. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">3.2. Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">3.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.4. Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">3.5. Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-the-object-dtype">3.5.1. Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coercion-conversion">3.5.2. Coercion &amp; Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-sizes-memory">3.5.3. Bit Sizes &amp; Memory</a></li>
 </ul>
 </li>
 </ul>

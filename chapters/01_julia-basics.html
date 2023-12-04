@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" >
+<html lang="en-us" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Getting Started &#8212; Julia Basics</title>
+    <title>4. Getting Started &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/01_julia-basics';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Packages" href="02_packages.html" />
-    <link rel="prev" title="2. Reading Files" href="22_reading-files.html" />
+    <link rel="next" title="5. Packages" href="02_packages.html" />
+    <link rel="prev" title="3. Data Types and Structures" href="23_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -142,9 +142,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -154,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
   
   
 </a></div>
@@ -172,20 +174,21 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">11. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">12. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">13. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">14. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">15. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">16. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
 </ul>
 
     </div>
@@ -339,6 +342,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -348,6 +352,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -379,17 +384,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">3.1. Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-console">3.2. The Python Console</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">3.2.1. Variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">3.2.2. Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">3.2.3. Comparisons</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">3.2.4. Calling Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-attributes">3.2.5. Objects &amp; Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.1. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-console">4.2. The Python Console</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">4.2.1. Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">4.2.2. Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">4.2.3. Comparisons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">4.2.4. Calling Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-attributes">4.2.5. Objects &amp; Attributes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.3. Getting Help</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-something-goes-wrong">3.3.1. When Something Goes Wrong</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">4.3. Getting Help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-something-goes-wrong">4.3.1. When Something Goes Wrong</a></li>
 </ul>
 </li>
 </ul>
@@ -417,7 +422,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
-<span id="id1"></span><h1><span class="section-number">3. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">4. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -463,7 +468,7 @@ other programming languages, Python’s particular strengths are its:</p>
 <li><p>Easy-to-learn syntax that encourages good habits</p></li>
 </ul>
 <section id="prerequisites">
-<h2><span class="section-number">3.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
 <p>Rather than installing Python directly, install <strong><a class="reference external" href="https://www.anaconda.com/">Anaconda</a></strong>, a collection
 of free and open-source data science software. Anaconda includes three things
 you’ll need to follow along with this reader:</p>
@@ -493,7 +498,7 @@ an install guide [here][vscode-guide].
 -->
 </section>
 <section id="the-python-console">
-<h2><span class="section-number">3.2. </span>The Python Console<a class="headerlink" href="#the-python-console" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>The Python Console<a class="headerlink" href="#the-python-console" title="Permalink to this heading">#</a></h2>
 <p>The first time you open JupyterLab, you’ll see a window that looks like this:</p>
 <img alt="The JupyterLab startup screen." src="img/jupyterlab_startup.png" />
 <p>Don’t worry if the text in the panes isn’t exactly the same on your computer;
@@ -544,7 +549,7 @@ so it’s good to make it a habit. Put a single space on each side of most
 operators, after commas, and after keywords. Later on, you’ll learn about other
 kinds of expressions where the spacing does matter.</p>
 <section id="variables">
-<h3><span class="section-number">3.2.1. </span>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h3>
 <p>Python and most other programming languages allow you to create named values
 called <strong>variables</strong>. You can create a variable with the assignment operator
 <code class="docutils literal notranslate"><span class="pre">=</span></code> by writing a name on the left-hand side and a value or expression on the
@@ -574,7 +579,7 @@ multiple problems can be a big time-saver in the long run. Later on, you’ll se
 ways to make this code even easier to reuse.</p>
 </section>
 <section id="strings">
-<span id="id2"></span><h3><span class="section-number">3.2.2. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3><span class="section-number">4.2.2. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <p>Python treats anything inside single or double quotes as literal text rather
 than as an expression to evaluate. In programming jargon, a piece of literal
 text is called a <strong>string</strong>. You can use whichever kind of quotes you prefer,
@@ -583,13 +588,13 @@ but the quote at the beginning of the string must match the quote at the end.</p
 different from <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>.</p>
 </section>
 <section id="comparisons">
-<span id="id3"></span><h3><span class="section-number">3.2.3. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3><span class="section-number">4.2.3. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this heading">#</a></h3>
 <p>Besides arithmetic, you an also use Python to compare values. Programming tasks
 often involve comparing values. Use <strong>comparison operators</strong> to do so:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-center head"><p>Symbol</p></th>
-<th class="text-left head"><p>Meaning</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Symbol</p></th>
+<th class="head text-left"><p>Meaning</p></th>
 </tr>
 </thead>
 <tbody>
@@ -623,7 +628,7 @@ expressions with yes-or-no responses.</p>
 example:</p>
 </section>
 <section id="calling-functions">
-<span id="id4"></span><h3><span class="section-number">3.2.4. </span>Calling Functions<a class="headerlink" href="#calling-functions" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3><span class="section-number">4.2.4. </span>Calling Functions<a class="headerlink" href="#calling-functions" title="Permalink to this heading">#</a></h3>
 <p>Python can do a lot more than just arithmetic. Most of Python’s features are
 provided through <strong>functions</strong>, pieces of reusable code. You can think of a
 function as a machine that takes some inputs and uses them to produce some
@@ -642,14 +647,14 @@ with commas. So to round <code class="docutils literal notranslate"><span class=
 <strong>parameters</strong>. Parameters are special variables that represent the inputs to a
 function and only exist while that function runs. For example, the <code class="docutils literal notranslate"><span class="pre">round</span></code>
 function has parameters <code class="docutils literal notranslate"><span class="pre">number</span></code> and <code class="docutils literal notranslate"><span class="pre">ndigits</span></code>. The next section,
-<a class="reference internal" href="#getting-help"><span class="std std-numref">Section 3.3</span></a>, explains how to look up the parameters for a function.</p>
+<a class="reference internal" href="#getting-help"><span class="std std-numref">Section 4.3</span></a>, explains how to look up the parameters for a function.</p>
 <p>Some parameters have <strong>default arguments</strong>. A parameter is automatically
 assigned its default argument whenever the parameter’s argument is not
 specified explicitly. As a result, assigning arguments to these parameters is
 optional. For instance, the <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">round</span></code> has a default
 argument (round to the nearest integer), so it is okay to call <code class="docutils literal notranslate"><span class="pre">round</span></code> without
 setting <code class="docutils literal notranslate"><span class="pre">ndigits</span></code>, as in <code class="docutils literal notranslate"><span class="pre">round(8.153)</span></code>. In contrast, the <code class="docutils literal notranslate"><span class="pre">numbers</span></code> parameter
-does not have a default argument. <a class="reference internal" href="#getting-help"><span class="std std-numref">Section 3.3</span></a> explains how to look
+does not have a default argument. <a class="reference internal" href="#getting-help"><span class="std std-numref">Section 4.3</span></a> explains how to look
 up the default arguments for a function.</p>
 <p>Python normally assigns arguments to parameters based on their position. The
 first argument is assigned to the function’s first parameter, the second to the
@@ -672,7 +677,7 @@ have the same name. The variable <code class="docutils literal notranslate"><spa
 parameter <code class="docutils literal notranslate"><span class="pre">number</span></code>.</p>
 </section>
 <section id="objects-attributes">
-<span id="id5"></span><h3><span class="section-number">3.2.5. </span>Objects &amp; Attributes<a class="headerlink" href="#objects-attributes" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3><span class="section-number">4.2.5. </span>Objects &amp; Attributes<a class="headerlink" href="#objects-attributes" title="Permalink to this heading">#</a></h3>
 <p>Python represents data as <strong>objects</strong>. Numbers, strings, data structures, and
 functions are all examples of objects.</p>
 <p>An <strong>attribute</strong> is an object attached to another object. An attribute usually
@@ -688,7 +693,7 @@ and are usually not intended to be accessed directly.</p>
 </section>
 </section>
 <section id="getting-help">
-<span id="id6"></span><h2><span class="section-number">3.3. </span>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
+<span id="id6"></span><h2><span class="section-number">4.3. </span>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
 <p>Learning and using a language is hard, so it’s important to know how to get
 help. The first place to look for help is Python’s built-in documentation. In
 the console, you can access the help pages with the <code class="docutils literal notranslate"><span class="pre">help</span></code> function.</p>
@@ -701,7 +706,7 @@ that there are two parameters <code class="docutils literal notranslate"><span c
 <code class="docutils literal notranslate"><span class="pre">ndigits=None</span></code>, meaning the default argument for <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> is the special
 <code class="docutils literal notranslate"><span class="pre">None</span></code> value, which you’ll learn more about on day 2.</p>
 <p>There are also help pages for other topics, such as built-in operators and
-modules (you’ll learn more about modules in <a class="reference internal" href="02_packages.html#modules-packages"><span class="std std-numref">Section 4</span></a>). To
+modules (you’ll learn more about modules in <a class="reference internal" href="02_packages.html#modules-packages"><span class="std std-numref">Section 5</span></a>). To
 look up the help page for an operator, put the operator’s name in single or
 double quotes. For example, this code opens the help page for the arithmetic
 operators:</p>
@@ -719,7 +724,7 @@ documentation shows the version in the upper left corner.</p>
 that case it’s best to use an online search engine. When you search for help
 with Python online, include “Python” as a search term.</p>
 <section id="when-something-goes-wrong">
-<h3><span class="section-number">3.3.1. </span>When Something Goes Wrong<a class="headerlink" href="#when-something-goes-wrong" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>When Something Goes Wrong<a class="headerlink" href="#when-something-goes-wrong" title="Permalink to this heading">#</a></h3>
 <p>As a programmer, sooner or later you’ll run some code and get an error message
 or result you didn’t expect. Don’t panic! Even experienced programmers make
 mistakes regularly, so learning how to diagnose and fix problems is vital.</p>
@@ -770,15 +775,15 @@ to read about <a class="reference external" href="https://stackoverflow.com/help
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
-       href="22_reading-files.html"
+       href="23_types.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Reading Files</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Data Types and Structures</p>
       </div>
     </a>
     <a class="right-next"
@@ -786,7 +791,7 @@ to read about <a class="reference external" href="https://stackoverflow.com/help
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Packages</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Packages</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -805,17 +810,17 @@ to read about <a class="reference external" href="https://stackoverflow.com/help
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">3.1. Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-console">3.2. The Python Console</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">3.2.1. Variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">3.2.2. Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">3.2.3. Comparisons</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">3.2.4. Calling Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-attributes">3.2.5. Objects &amp; Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.1. Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-console">4.2. The Python Console</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">4.2.1. Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">4.2.2. Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">4.2.3. Comparisons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">4.2.4. Calling Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-attributes">4.2.5. Objects &amp; Attributes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">3.3. Getting Help</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-something-goes-wrong">3.3.1. When Something Goes Wrong</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">4.3. Getting Help</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-something-goes-wrong">4.3.1. When Something Goes Wrong</a></li>
 </ul>
 </li>
 </ul>
@@ -839,6 +844,7 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -864,8 +870,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

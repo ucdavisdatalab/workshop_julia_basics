@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" >
+<html lang="en-us" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Surfing the Web &#8212; Julia Basics</title>
+    <title>15. Surfing the Web &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/13_web-apis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Loops" href="14_more-iteration.html" />
-    <link rel="prev" title="13. Appendix" href="12_more-data-structures.html" />
+    <link rel="next" title="16. Loops" href="14_more-iteration.html" />
+    <link rel="prev" title="14. Appendix" href="12_more-data-structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,9 +140,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -152,8 +154,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
   
   
 </a></div>
@@ -170,20 +172,21 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">4. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">11. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">12. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">13. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">14. Appendix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">16. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
 </ul>
 
     </div>
@@ -337,6 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -346,6 +350,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -377,11 +382,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">14.1. The requests Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.2. Request Etiquette</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">14.3. Web APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">14.4. JavaScript Object Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">14.5. Using Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">15.1. The requests Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.2. Request Etiquette</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">15.3. Web APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">15.4. JavaScript Object Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">15.5. Using Endpoints</a></li>
 </ul>
             </nav>
         </div>
@@ -407,7 +412,7 @@ kernelspec:
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="surfing-the-web">
-<h1><span class="section-number">14. </span>Surfing the Web<a class="headerlink" href="#surfing-the-web" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Surfing the Web<a class="headerlink" href="#surfing-the-web" title="Permalink to this heading">#</a></h1>
 <p>The <strong>hypertext transfer protocol</strong> (HTTP) is a set of rules for communication
 between computers on a network. HTTP has a request-response model:</p>
 <ol class="arabic simple">
@@ -445,7 +450,7 @@ website.</p>
 <p>After you make an HTTP request, the server will send a response. Every HTTP
 response includes a 3-digit status code to summarize the meaning of the
 response:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Range</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -485,7 +490,7 @@ formats for the content are:</p>
 <li><p>JavaScript Object Notation (JSON)</p></li>
 </ul>
 <section id="the-requests-package">
-<h2><span class="section-number">14.1. </span>The requests Package<a class="headerlink" href="#the-requests-package" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>The requests Package<a class="headerlink" href="#the-requests-package" title="Permalink to this heading">#</a></h2>
 <p>The <strong>requests</strong> package provides functions for making HTTP requests from
 Python. You can use requests to make a GET request with the <code class="docutils literal notranslate"><span class="pre">get</span></code> function:</p>
 <p>The status code of the response is in the <code class="docutils literal notranslate"><span class="pre">.status_code</span></code> attribute:</p>
@@ -498,13 +503,13 @@ site or file you requested. Web pages (<code class="docutils literal notranslate
 the DataLab site it makes more sense to use <code class="docutils literal notranslate"><span class="pre">.text</span></code> to access the content:</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">14.2. </span>Request Etiquette<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Request Etiquette<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Making an HTTP request is not free. It has a real cost in CPU time and
 electricity. Server administrators will not appreciate it if you make too many
 requests or make requests too quickly. So:</p>
 <ul class="simple">
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">time.sleep</span></code> function to slow down any requests you make in a loop
-(<a class="reference internal" href="14_more-iteration.html#loops"><span class="std std-numref">Section 15</span></a> explains loops). Aim for no more than 20-30 requests per
+(<a class="reference internal" href="14_more-iteration.html#loops"><span class="std std-numref">Section 16</span></a> explains loops). Aim for no more than 20-30 requests per
 second.</p></li>
 <li><p>Install and use the <strong>requests_cache</strong> package to avoid downloading extra
 data when you make the same request twice.</p></li>
@@ -521,7 +526,7 @@ data when you make the same request twice.</p></li>
 </div>
 </section>
 <section id="web-apis">
-<h2><span class="section-number">14.3. </span>Web APIs<a class="headerlink" href="#web-apis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Web APIs<a class="headerlink" href="#web-apis" title="Permalink to this heading">#</a></h2>
 <p>An <strong>application programming interface</strong> (API) is a collection of functions and
 data structures for communicating with other software. For instance, whenever
 you use a Python package, you’re using the API created by the package’s
@@ -553,11 +558,11 @@ Here’s the content of the response:</p>
 documentation, all of the SWAPI endpoints return text.</p>
 <p>Although the response content is text, it isn’t ordinary English text. It’s
 full of curly braces, square brackets, quotes, and other punctuation. If you
-think back to the beginning (<a class="reference internal" href="12_more-data-structures.html#containers"><span class="std std-numref">Section 13.1</span></a>) of this chapter, the way the
+think back to the beginning (<a class="reference internal" href="12_more-data-structures.html#containers"><span class="std std-numref">Section 14.1</span></a>) of this chapter, the way the
 punctuation is arranged might start to look familiar…</p>
 </section>
 <section id="javascript-object-notation">
-<h2><span class="section-number">14.4. </span>JavaScript Object Notation<a class="headerlink" href="#javascript-object-notation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>JavaScript Object Notation<a class="headerlink" href="#javascript-object-notation" title="Permalink to this heading">#</a></h2>
 <p>The response content looks a lot like Python lists and dictionaries! The
 response is not actually Python code, but it <em>is</em> JavaScript code. In
 JavaScript, lists and dictionaries are written the same way as in Python. The
@@ -584,7 +589,7 @@ lists. Remember that you can use indexing with square brackets <code class="docu
 navigate these.</p>
 </section>
 <section id="using-endpoints">
-<h2><span class="section-number">14.5. </span>Using Endpoints<a class="headerlink" href="#using-endpoints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Using Endpoints<a class="headerlink" href="#using-endpoints" title="Permalink to this heading">#</a></h2>
 <p>The SWAPI endpoint <code class="docutils literal notranslate"><span class="pre">/people/</span></code> returns information in JSON format about
 different people in the Star Wars universe. An ID number after <code class="docutils literal notranslate"><span class="pre">/people/</span></code>
 determines the person for which the endpoint returns information. Think of the
@@ -639,7 +644,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="12_more-data-structures.html"
@@ -647,7 +652,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Appendix</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Appendix</p>
       </div>
     </a>
     <a class="right-next"
@@ -655,7 +660,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Loops</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -674,11 +679,11 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">14.1. The requests Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.2. Request Etiquette</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">14.3. Web APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">14.4. JavaScript Object Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">14.5. Using Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">15.1. The requests Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.2. Request Etiquette</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">15.3. Web APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">15.4. JavaScript Object Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">15.5. Using Endpoints</a></li>
 </ul>
   </nav></div>
 
@@ -700,6 +705,7 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -725,8 +731,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
