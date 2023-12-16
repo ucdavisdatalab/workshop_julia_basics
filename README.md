@@ -18,6 +18,25 @@ _Maintainer: Nick Ulle <<naulle@ucdavis.edu>>_
 
 :warning: This workshop is still in development!
 
+This workshop is an introduction to the Julia programming language for people
+familiar R, Python, or MATLAB. Compared to those languages, Julia code
+typically runs orders of magnitude faster but has a similar level of
+abstraction, so you can focus on your research problem rather than hardware
+minutiae. Julia also provides out-of-the-box Unicode support, an easy-to-use
+package manager, multithreading facilities, a macro system, and a rich type
+system to optimize and prevent bugs in your code. Workshop topics include a
+concise overview of Julia's syntax and features, an end-to-end introduction to
+using built-in functions and contributed packages to read, summarize, and
+visualize tabular data, real-world examples where we've found Julia beneficial.
+
+After this workshop, learners will be able to describe Julia's strengths and
+weaknesses relative to other programming languages and get started using Julia
+in their own research projects.
+
+Learners must already be proficient in a language like R or Python. All
+learners will need access to an internet-connected computer with the latest
+versions of Zoom and Julia.
+
 
 ## Contributing
 
