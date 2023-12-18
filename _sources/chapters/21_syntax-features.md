@@ -26,7 +26,7 @@ Julia has most of the standard collection types you would expect in any langague
 
 ### Default ordered collection: Vector
 
-1. Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of `Vector{Int}`, while a Vector containing both integers and strings will have a type of `Vector{Any}`. A Vector will automatically infer its type based on its contents.
+Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of `Vector{Int}`, while a Vector containing both integers and strings will have a type of `Vector{Any}`. A Vector will automatically infer its type based on its contents.
 ```julia
 x = [1, 2, 3]
 y = ["a", "b", "c"]
@@ -37,13 +37,13 @@ println(typeof(y))
 println(typeof(z))
 ```
 
-2. In Julia, ordered collections are indexed from 1.
+In Julia, ordered collections are indexed from 1.
 ```julia
 println(y[1])
 println(z[3][1])
 ```
 
-3. You can slice a collection to return a subset. Slices are inclusive, so this code:
+You can slice a collection to return a subset. Slices are inclusive, so this code:
 ```julia
 x[1:2]
 ```
@@ -51,22 +51,23 @@ x[1:2]
 
 ### Default keyed collection: Dict
 
-1. A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.
+A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.
 ```julia
 d = Dict([("a", 1), ("b", 2), ("c", 3)])
 
 println(typeof(d))
 ```
 
-2. Each value is indexed by its unique key.
+Each value is indexed by its unique key.
 ```julia
 println(d["a"])
 ```
 
 ### Arrays
+
 cf. https://docs.julialang.org/en/v1/manual/arrays/
 
-1. Arrays are multidimensional ordered collections. They are the most commonly-used collection in Julia (a Vector is actually a 1-dimensional Array). You can create them by hand or by using one of the many built-in functions.
+Arrays are multidimensional ordered collections. They are the most commonly-used collection in Julia (a Vector is actually a 1-dimensional Array). You can create them by hand or by using one of the many built-in functions.
 ```julia
 # Create an array of zeros, defaulting to Float64
 zeros(2,4)
@@ -75,13 +76,13 @@ zeros(2,4)
 zeros(Int8, 2, 4)
 ```
 
-2. Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
+Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
 ```julia
 x = reshape(collect(1:10), (2,5))
 x[1,2]
 ```
 
-3. You can concatenate arrays vertically or horizontally.
+You can concatenate arrays vertically or horizontally.
 ```julia
 # Concatenate subarrays into a single (vertical) vector using the ; operator
 x = [[1,2] ; [3,4]]
@@ -90,7 +91,7 @@ x = [[1,2] ; [3,4]]
 y = [[1,2] ;; [3,4]]
 ```
 
-4. Arrays are passed by reference. In this example, Arrays `a` and `b` are both Views onto the same contiguous chunk of memory.
+Arrays are passed by reference. In this example, Arrays `a` and `b` are both Views onto the same contiguous chunk of memory.
 ```julia
 a = [3;4;5]
 b = a
@@ -98,7 +99,7 @@ b[1] = 1
 println(a)
 ```
 
-5. Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using `copy()` or `deepcopy()`.
+Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using `copy()` or `deepcopy()`.
 ```julia
 # Makes a random 2x2 matrix
 a = rand(2,2)
@@ -112,14 +113,14 @@ b[3] = 0.7
 display(a)
 ```
 
-6. Slicing an array returns a copy of the relevant chunk
+Slicing an array returns a copy of the relevant chunk
 ```julia
 c = a[1:2, 1]
 a[1] = 0.5
 display(c)
 ```
 
-7. Linear algebra operations are matrix-wise by default
+Linear algebra operations are matrix-wise by default
 ```julia
 a = rand(2,4)
 b = rand(4,2)
@@ -128,7 +129,7 @@ b = rand(4,2)
 a * b
 ```
 
-8. If you want to do element-wise operations on an Array, you can use the broadcast operator `.` to apply a function to each element of the Array rather than the Array as a whole.
+If you want to do element-wise operations on an Array, you can use the broadcast operator `.` to apply a function to each element of the Array rather than the Array as a whole.
 ```julia
 # Generically, apply function `f(x)` to each element of x
 x .= f.(x)
@@ -154,6 +155,7 @@ Iteration
 ---------
 
 ### Iterate over any ordered collection with a `for` loop
+
 ```julia
 x = collect(10)
 for i in x
@@ -162,8 +164,8 @@ end
 ```
 
 ### (Optional) Iterate over an Array
-Loops are fast in Julia, so you can use them when doing element-wise calculations with Arrays. However, you usually won't want to explicity use the `for` loop syntax. Instead, you should use the broadcast operator, which is a more concise way to write the same code.
 
+Loops are fast in Julia, so you can use them when doing element-wise calculations with Arrays. However, you usually won't want to explicity use the `for` loop syntax. Instead, you should use the broadcast operator, which is a more concise way to write the same code.
 ```julia
 # Template
 for i = 1:length(x)
@@ -178,6 +180,7 @@ end
 ```
 
 ### Iterate over key/value pairs with a `for` loop
+
 ```julia
 for (key, value) in d
     println(key, ":", value)
@@ -185,14 +188,15 @@ end
 ```
 
 ### Functional approaches to iteration
-A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension.
 
-1. By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).
+A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension (cf. https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions).
+
+By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).
 ```julia
 vec = [x for x in 1:20 if x % 2 == 0]
 ```
 
-2. A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.
+A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.
 ```julia
 gen = (x for x in 1:20 if x % 2 == 0)
 
@@ -201,17 +205,20 @@ for item in gen
 end
 ```
 
-3. Comprehensions and generator expressions are useful for building custom data structures.
+Comprehensions and generator expressions are useful for building custom data structures.
 ```julia
 using LinearAlgebra
 
 diag = Diagonal([1/x for x in 1:20 if x % 2 == 0])
 ```
 
+Julia has a large collection of higher-level functions (functions that act on functions), including `map`, `reduce`, `foldl`, `accumulate`, and various derivatives (e.g., `mapreduce`).
+
 Conditionals and Flow Control
 -----------------------------
 
 ### Conditionals (if/then/else)
+
 ```julia
 i = 1
 j = 2
@@ -225,13 +232,14 @@ end
 ```
 
 ### Truth testing
-1. The built-in Boolean values in Julia are `true` and `false`.
 
-2. Missing data is represented with `missing`.
+The built-in Boolean values in Julia are `true` and `false`.
 
-3. Null values are represented with `nothing`.
+Missing data is represented with `missing`.
 
-4. You can check whether a collection includes an item by using the keyword `in` or the `in()` function.
+Null values are represented with `nothing`.
+
+You can check whether a collection includes an item by using the keyword `in` or the `in()` function:
 ```julia
 if 1 in v
     println("v contains 1")
@@ -246,7 +254,6 @@ Functions
 ### Writing functions
 
 Julia's function syntax is similar to other languages. If your function mutates an item (i.e. changes it in place), the function name should end with an exclamation point to let the user know this (e.g., `myfun` vs `myfun!`).
-
 ```julia
 function add_missing!(item, collection)
     # Mutate collection in place
@@ -265,12 +272,15 @@ println(v)
 
 ### Exceptions (try/catch/finally)
 
+cf. https://docs.julialang.org/en/v1/manual/control-flow/#Exception-Handling
+
 ```julia
 function root(item)
     try
         return sqrt(item)
     catch e
         println("You should have entered a numeric value")
+        println(e)
     finally
         println("This always succeeds")
     end
@@ -280,6 +290,8 @@ root(10)
 root("ten")
 ```
 
-2. Performance implications of exceptions vs explicit testing?
+The Julia documentation cautions against overusing exceptions: "One thing to think about when deciding how to handle unexpected situations is that using a try/catch block is much slower than using conditional branching to handle those situations."
 
-### Namespaces?
+### Modules and Namespaces
+
+Julia allows you to define custom modules and import them. Julia offers fine-grained control over what is imported (individual elements vs. entire module) and how it is imported (qualified by module namespace or unqualified). Read the documentation here: https://docs.julialang.org/en/v1/manual/modules/

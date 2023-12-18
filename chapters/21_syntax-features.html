@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>1. Syntax and Features &#8212; Julia Basics</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -172,21 +170,20 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">4. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">11. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">12. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">13. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">14. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">15. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">16. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -340,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -350,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -403,7 +398,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">1.4. Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-functions">1.4.1. Writing functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions-try-catch-finally">1.4.2. Exceptions (try/catch/finally)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">1.4.3. Namespaces?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-namespaces">1.4.3. Modules and Namespaces</a></li>
 </ul>
 </li>
 </ul>
@@ -424,9 +419,7 @@ document.write(`
 <p>Julia has most of the standard collection types you would expect in any langague. This section will focus on generic collection types; in a later lesson, we’ll discuss Julia’s implementation of data frames for working with tabular data.</p>
 <section id="default-ordered-collection-vector">
 <h3><span class="section-number">1.1.1. </span>Default ordered collection: Vector<a class="headerlink" href="#default-ordered-collection-vector" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of <code class="docutils literal notranslate"><span class="pre">Vector{Int}</span></code>, while a Vector containing both integers and strings will have a type of <code class="docutils literal notranslate"><span class="pre">Vector{Any}</span></code>. A Vector will automatically infer its type based on its contents.</p></li>
-</ol>
+<p>Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of <code class="docutils literal notranslate"><span class="pre">Vector{Int}</span></code>, while a Vector containing both integers and strings will have a type of <code class="docutils literal notranslate"><span class="pre">Vector{Any}</span></code>. A Vector will automatically infer its type based on its contents.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
 <span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
 <span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">]</span>
@@ -436,16 +429,12 @@ document.write(`
 <span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>In Julia, ordered collections are indexed from 1.</p></li>
-</ol>
+<p>In Julia, ordered collections are indexed from 1.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">println</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>You can slice a collection to return a subset. Slices are inclusive, so this code:</p></li>
-</ol>
+<p>You can slice a collection to return a subset. Slices are inclusive, so this code:</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -453,17 +442,13 @@ document.write(`
 </section>
 <section id="default-keyed-collection-dict">
 <h3><span class="section-number">1.1.2. </span>Default keyed collection: Dict<a class="headerlink" href="#default-keyed-collection-dict" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.</p></li>
-</ol>
+<p>A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">([(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)])</span>
 
 <span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Each value is indexed by its unique key.</p></li>
-</ol>
+<p>Each value is indexed by its unique key.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -471,9 +456,7 @@ document.write(`
 <section id="arrays">
 <h3><span class="section-number">1.1.3. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading">#</a></h3>
 <p>cf. <a class="reference external" href="https://docs.julialang.org/en/v1/manual/arrays/">https://docs.julialang.org/en/v1/manual/arrays/</a></p>
-<ol class="arabic simple">
-<li><p>Arrays are multidimensional ordered collections. They are the most commonly-used collection in Julia (a Vector is actually a 1-dimensional Array). You can create them by hand or by using one of the many built-in functions.</p></li>
-</ol>
+<p>Arrays are multidimensional ordered collections. They are the most commonly-used collection in Julia (a Vector is actually a 1-dimensional Array). You can create them by hand or by using one of the many built-in functions.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Create an array of zeros, defaulting to Float64</span>
 <span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
@@ -481,16 +464,12 @@ document.write(`
 <span class="n">zeros</span><span class="p">(</span><span class="kt">Int8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">println()</span></code> functions will print them horizontally in the Julia REPL.</p></li>
-</ol>
+<p>Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">println()</span></code> functions will print them horizontally in the Julia REPL.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reshape</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>You can concatenate arrays vertically or horizontally.</p></li>
-</ol>
+<p>You can concatenate arrays vertically or horizontally.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Concatenate subarrays into a single (vertical) vector using the ; operator</span>
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
 
@@ -498,18 +477,14 @@ document.write(`
 <span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Arrays are passed by reference. In this example, Arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are both Views onto the same contiguous chunk of memory.</p></li>
-</ol>
+<p>Arrays are passed by reference. In this example, Arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are both Views onto the same contiguous chunk of memory.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">;</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using <code class="docutils literal notranslate"><span class="pre">copy()</span></code> or <code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>.</p></li>
-</ol>
+<p>Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using <code class="docutils literal notranslate"><span class="pre">copy()</span></code> or <code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Makes a random 2x2 matrix</span>
 <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
@@ -522,17 +497,13 @@ document.write(`
 <span class="n">display</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="6">
-<li><p>Slicing an array returns a copy of the relevant chunk</p></li>
-</ol>
+<p>Slicing an array returns a copy of the relevant chunk</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
 <span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="7">
-<li><p>Linear algebra operations are matrix-wise by default</p></li>
-</ol>
+<p>Linear algebra operations are matrix-wise by default</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
@@ -540,9 +511,7 @@ document.write(`
 <span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="8">
-<li><p>If you want to do element-wise operations on an Array, you can use the broadcast operator <code class="docutils literal notranslate"><span class="pre">.</span></code> to apply a function to each element of the Array rather than the Array as a whole.</p></li>
-</ol>
+<p>If you want to do element-wise operations on an Array, you can use the broadcast operator <code class="docutils literal notranslate"><span class="pre">.</span></code> to apply a function to each element of the Array rather than the Array as a whole.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Generically, apply function `f(x)` to each element of x</span>
 <span class="n">x</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -601,16 +570,12 @@ document.write(`
 </section>
 <section id="functional-approaches-to-iteration">
 <h3><span class="section-number">1.2.4. </span>Functional approaches to iteration<a class="headerlink" href="#functional-approaches-to-iteration" title="Permalink to this heading">#</a></h3>
-<p>A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension.</p>
-<ol class="arabic simple">
-<li><p>By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).</p></li>
-</ol>
+<p>A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension (cf. <a class="reference external" href="https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions">https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions</a>).</p>
+<p>By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.</p></li>
-</ol>
+<p>A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 
 <span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gen</span>
@@ -618,14 +583,13 @@ document.write(`
 <span class="k">end</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Comprehensions and generator expressions are useful for building custom data structures.</p></li>
-</ol>
+<p>Comprehensions and generator expressions are useful for building custom data structures.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">LinearAlgebra</span>
 
 <span class="n">diag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Diagonal</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+<p>Julia has a large collection of higher-level functions (functions that act on functions), including <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">reduce</span></code>, <code class="docutils literal notranslate"><span class="pre">foldl</span></code>, <code class="docutils literal notranslate"><span class="pre">accumulate</span></code>, and various derivatives (e.g., <code class="docutils literal notranslate"><span class="pre">mapreduce</span></code>).</p>
 </section>
 </section>
 <section id="conditionals-and-flow-control">
@@ -646,12 +610,10 @@ document.write(`
 </section>
 <section id="truth-testing">
 <h3><span class="section-number">1.3.2. </span>Truth testing<a class="headerlink" href="#truth-testing" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>The built-in Boolean values in Julia are <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
-<li><p>Missing data is represented with <code class="docutils literal notranslate"><span class="pre">missing</span></code>.</p></li>
-<li><p>Null values are represented with <code class="docutils literal notranslate"><span class="pre">nothing</span></code>.</p></li>
-<li><p>You can check whether a collection includes an item by using the keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> or the <code class="docutils literal notranslate"><span class="pre">in()</span></code> function.</p></li>
-</ol>
+<p>The built-in Boolean values in Julia are <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Missing data is represented with <code class="docutils literal notranslate"><span class="pre">missing</span></code>.</p>
+<p>Null values are represented with <code class="docutils literal notranslate"><span class="pre">nothing</span></code>.</p>
+<p>You can check whether a collection includes an item by using the keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> or the <code class="docutils literal notranslate"><span class="pre">in()</span></code> function:</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v</span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;v contains 1&quot;</span><span class="p">)</span>
 <span class="k">end</span>
@@ -684,11 +646,13 @@ document.write(`
 </section>
 <section id="exceptions-try-catch-finally">
 <h3><span class="section-number">1.4.2. </span>Exceptions (try/catch/finally)<a class="headerlink" href="#exceptions-try-catch-finally" title="Permalink to this heading">#</a></h3>
+<p>cf. <a class="reference external" href="https://docs.julialang.org/en/v1/manual/control-flow/#Exception-Handling">https://docs.julialang.org/en/v1/manual/control-flow/#Exception-Handling</a></p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">root</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 <span class="w">    </span><span class="k">try</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 <span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="n">e</span>
 <span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;You should have entered a numeric value&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="k">finally</span>
 <span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;This always succeeds&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
@@ -698,12 +662,11 @@ document.write(`
 <span class="n">root</span><span class="p">(</span><span class="s">&quot;ten&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Performance implications of exceptions vs explicit testing?</p></li>
-</ol>
+<p>The Julia documentation cautions against overusing exceptions: “One thing to think about when deciding how to handle unexpected situations is that using a try/catch block is much slower than using conditional branching to handle those situations.”</p>
 </section>
-<section id="namespaces">
-<h3><span class="section-number">1.4.3. </span>Namespaces?<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h3>
+<section id="modules-and-namespaces">
+<h3><span class="section-number">1.4.3. </span>Modules and Namespaces<a class="headerlink" href="#modules-and-namespaces" title="Permalink to this heading">#</a></h3>
+<p>Julia allows you to define custom modules and import them. Julia offers fine-grained control over what is imported (individual elements vs. entire module) and how it is imported (qualified by module namespace or unqualified). Read the documentation here: <a class="reference external" href="https://docs.julialang.org/en/v1/manual/modules/">https://docs.julialang.org/en/v1/manual/modules/</a></p>
 </section>
 </section>
 </section>
@@ -736,7 +699,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -792,7 +755,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">1.4. Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-functions">1.4.1. Writing functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions-try-catch-finally">1.4.2. Exceptions (try/catch/finally)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">1.4.3. Namespaces?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-namespaces">1.4.3. Modules and Namespaces</a></li>
 </ul>
 </li>
 </ul>
@@ -816,7 +779,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -842,8 +804,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
