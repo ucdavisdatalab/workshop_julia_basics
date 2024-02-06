@@ -8,20 +8,32 @@ options:
   numbered: true
 
 # Chapters may be written in either Markdown or as Jupyter Notebooks
-chapters:
-  - file: chapters/21_syntax-features.md
-  - file: chapters/22_reading-files.md
-  - file: chapters/01_julia-basics.md
-  - file: chapters/02_packages.md
-  - file: chapters/03_file-systems.md
-  - file: chapters/05_data-types-structures.md
-  - file: chapters/06_indexing.md
-  - file: chapters/07_special-values.md
-  - file: chapters/08_iteration-aggregation.md
-  - file: chapters/09_visualization.md
-  - file: chapters/10_if-statements.md
-  - file: chapters/11_functions.md
-  - file: chapters/12_more-data-structures.md
-  - file: chapters/13_web-apis.md
-  - file: chapters/14_more-iteration.md
-  - file: chapters/15_test.md
+parts:
+  - caption: Julia Basics
+    numbered: true
+    chapters:
+      - file: chapters/21_syntax-features.md
+      - file: chapters/23_types.md
+      - file: chapters/22_reading-files.md
+      - file: chapters/24_data-frames.md
+      - file: chapters/25_data-viz.md
+      - file: chapters/26_case-studies.md
+  - caption: Backmatter
+    chapters:
+      - file: chapters/15_test.md
+  - caption: Python Basics (old material)
+    numbered: true
+    chapters:
+      - file: chapters/01_julia-basics.md
+      - file: chapters/02_packages.md
+      - file: chapters/03_file-systems.md
+      - file: chapters/05_data-types-structures.md
+      - file: chapters/06_indexing.md
+      - file: chapters/07_special-values.md
+      - file: chapters/08_iteration-aggregation.md
+      - file: chapters/09_visualization.md
+      - file: chapters/10_if-statements.md
+      - file: chapters/11_functions.md
+      - file: chapters/12_more-data-structures.md
+      - file: chapters/13_web-apis.md
+      - file: chapters/14_more-iteration.md
