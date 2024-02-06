@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" >
+<html lang="en-us" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Reading Files &#8212; Julia Basics</title>
+    <title>3. Reading Files &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/22_reading-files';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Getting Started" href="01_julia-basics.html" />
-    <link rel="prev" title="1. Syntax and Features" href="21_syntax-features.html" />
+    <link rel="next" title="17. Test" href="15_test.html" />
+    <link rel="prev" title="2. Data Types and Structures" href="23_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,9 +140,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -152,8 +154,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
   
   
 </a></div>
@@ -167,23 +169,31 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Reading Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Reading Files</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">4. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">11. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">12. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">13. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">14. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">15. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">16. Loops</a></li>
 </ul>
 
     </div>
@@ -337,6 +347,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -346,6 +357,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -377,12 +389,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">2.1. Navigating File Systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">2.2. Example: Reading a CSV File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-formatted-files">2.3. Reading and Writing Formatted Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-and-bytes">2.4. Reading and Writing Text and Bytes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-dataframe">2.5. Inspecting a DataFrame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-columns">2.5.1. Selecting Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">3.1. Navigating File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">3.2. Example: Reading a CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-formatted-files">3.3. Reading and Writing Formatted Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-and-bytes">3.4. Reading and Writing Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-dataframe">3.5. Inspecting a DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-columns">3.5.1. Selecting Columns</a></li>
 </ul>
 </li>
 </ul>
@@ -397,10 +409,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <!-- Run at top level of repo. --><section class="tex2jax_ignore mathjax_ignore" id="reading-files">
-<h1><span class="section-number">2. </span>Reading Files<a class="headerlink" href="#reading-files" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Reading Files<a class="headerlink" href="#reading-files" title="Permalink to this heading">#</a></h1>
 <p>Reading a data set is the first step in most analyses.</p>
 <section id="navigating-file-systems">
-<h2><span class="section-number">2.1. </span>Navigating File Systems<a class="headerlink" href="#navigating-file-systems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Navigating File Systems<a class="headerlink" href="#navigating-file-systems" title="Permalink to this heading">#</a></h2>
 <p>Julia’s <code class="docutils literal notranslate"><span class="pre">Base.Filesystem</span></code> module provides functions for working with file
 systems. Here are a few that are useful for checking the working directory and
 that files are where you think they are:</p>
@@ -439,7 +451,7 @@ file
 -->
 </section>
 <section id="example-reading-a-csv-file">
-<h2><span class="section-number">2.2. </span>Example: Reading a CSV File<a class="headerlink" href="#example-reading-a-csv-file" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Example: Reading a CSV File<a class="headerlink" href="#example-reading-a-csv-file" title="Permalink to this heading">#</a></h2>
 <!--
 TODO: Host the data somewhere so that folks can follow along more easily.
 -->
@@ -535,7 +547,7 @@ a statistical summary of each column:</p>
 </div>
 </section>
 <section id="reading-and-writing-formatted-files">
-<h2><span class="section-number">2.3. </span>Reading and Writing Formatted Files<a class="headerlink" href="#reading-and-writing-formatted-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Reading and Writing Formatted Files<a class="headerlink" href="#reading-and-writing-formatted-files" title="Permalink to this heading">#</a></h2>
 <p>Functions to read and write popular file formats are generally provided by
 packages rather than built into Julia. Here are a few (find more by searching
 online):</p>
@@ -606,7 +618,7 @@ format. We chose the packages in the table based on popularity and signs of
 active development or maintenance.</p>
 </section>
 <section id="reading-and-writing-text-and-bytes">
-<h2><span class="section-number">2.4. </span>Reading and Writing Text and Bytes<a class="headerlink" href="#reading-and-writing-text-and-bytes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Reading and Writing Text and Bytes<a class="headerlink" href="#reading-and-writing-text-and-bytes" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you might need to read and write text or bytes directly. For example,
 you might need to work with a file that has an obscure or custom format.</p>
 <p>Julia’s built-in <code class="docutils literal notranslate"><span class="pre">open</span></code> function opens a file. Let’s open a file called
@@ -710,7 +722,7 @@ file is always closed, even if something goes wrong in the computation.</p>
 -->
 </section>
 <section id="inspecting-a-dataframe">
-<span id="inspecting-dataframe"></span><h2><span class="section-number">2.5. </span>Inspecting a DataFrame<a class="headerlink" href="#inspecting-a-dataframe" title="Permalink to this heading">#</a></h2>
+<span id="inspecting-dataframe"></span><h2><span class="section-number">3.5. </span>Inspecting a DataFrame<a class="headerlink" href="#inspecting-a-dataframe" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This section is still a work in progress.</p>
@@ -749,7 +761,7 @@ the <code class="docutils literal notranslate"><span class="pre">nrow</span></co
 </div>
 </div>
 <section id="selecting-columns">
-<span id="summarizing-columns"></span><h3><span class="section-number">2.5.1. </span>Selecting Columns<a class="headerlink" href="#selecting-columns" title="Permalink to this heading">#</a></h3>
+<span id="summarizing-columns"></span><h3><span class="section-number">3.5.1. </span>Selecting Columns<a class="headerlink" href="#selecting-columns" title="Permalink to this heading">#</a></h3>
 <p>Individual columns may be selected with <strong>bracket notation</strong>. Put the name of
 the column in quotes and place that inside of square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>air[!, &quot;FlightDate&quot;]
@@ -778,16 +790,16 @@ subsets of the data, as well as groups of columns.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "julia-1.9"
+            mode: "julia-1.10"
         },
         kernelOptions: {
-            name: "julia-1.9",
+            name: "julia-1.10",
             path: "./chapters"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'julia-1.9'</script>
+    <script>kernelName = 'julia-1.10'</script>
 
                 </article>
               
@@ -797,23 +809,23 @@ subsets of the data, as well as groups of columns.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
-       href="21_syntax-features.html"
+       href="23_types.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Syntax and Features</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Data Types and Structures</p>
       </div>
     </a>
     <a class="right-next"
-       href="01_julia-basics.html"
+       href="15_test.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Getting Started</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -832,12 +844,12 @@ subsets of the data, as well as groups of columns.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">2.1. Navigating File Systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">2.2. Example: Reading a CSV File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-formatted-files">2.3. Reading and Writing Formatted Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-and-bytes">2.4. Reading and Writing Text and Bytes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-dataframe">2.5. Inspecting a DataFrame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-columns">2.5.1. Selecting Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">3.1. Navigating File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">3.2. Example: Reading a CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-formatted-files">3.3. Reading and Writing Formatted Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-text-and-bytes">3.4. Reading and Writing Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-dataframe">3.5. Inspecting a DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-columns">3.5.1. Selecting Columns</a></li>
 </ul>
 </li>
 </ul>
@@ -861,6 +873,7 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -886,8 +899,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

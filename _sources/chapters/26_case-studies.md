@@ -10,8 +10,11 @@ kernelspec:
   name: julia-1.10
 ---
 
-# Test
-
+<!-- Run at top level of repo. -->
 ```{code-cell}
-print("Hello world!")
+:tags: ["remove-cell"]
+cd("..")
 ```
+
+Case Studies
+============

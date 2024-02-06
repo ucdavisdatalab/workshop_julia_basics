@@ -12,26 +12,32 @@ kernelspec:
 ---
 -->
 
-Data Structures
+Data Types and Structures
 ===============
 
-The previous chapter introduced Python, providing enough background to do
-simple computations on data sets. This chapter focuses on the foundational
-knowledge and skills you'll need to use Python effectively in the long term.
-Specifically, it begins with a deep dive into data structures and data types in
-Python and Pandas. Then, it explains how to use this knowledge during data
-analysis.
+The primary purpose of data typing is to create "variables whose substitution for each other in any context will not result in a compile-time error" [[1]](#ref1). In high-level programming languages this is typically accomplished through the implementation of a *type system* that formalizes and enforces both the range of values that can be associated with and the operations that can be performed on any term. 
+
+The adoption of a typing system has implications beyond simply preventing compile-time errors as it necessarily limits the range of values that you can and connot store in any variable and also the operations you can and cannot peform on it.  When properly understood and ipmlemented, however, type systems can be exploited to signifcantly improve performance while at the same time ensuring computational accuracy and reducing system error.  This chapter focuses on understanding the structure of Julia's type system with an particular eye on achieving the above positive outcomes.  
 
 :::{admonition} Learning Objectives
-* Create Pandas Series, NumPy arrays, lists, and tuples
-* Check the type and class of an object
-* Convert an object into a different type
-* Describe and differentiate `None`, `NA`, and `NaN`
-* Index sequences with empty, integer, string, and logical arguments
-* Negate or combine conditions with logic operations
-* Subset Series objects and DataFrames
-* Find and remove missing values in a DataFrame and Series
-:::
+
+* Understand how Julia accomodates both Dynamic and Statically typed variables;
+* Identify the Abstract and Primitive data types that comprise Julia's type system;
+* Understand how Parametric Typing works in Julia;
+* Identify different methods for converting between data types, including the implications of these conversions;
+* Identify common scenarios where data typing can be used to improve code performance and computational accuracy.
+
+
+<a name="ref1">[1]</a> Parnas, David L.; Shore, John E.; Weiss, David (1976). "Abstract types defined as classes of variables". Proceedings of the 1976 conference on Data : Abstraction, definition and structure. pp. 149–154. doi:[10.1145/800237.807133 ](https://dl.acm.org/doi/10.1145/942574.807133)
+
+
+
+
+
+-----
+# Old Python Content Below
+
+-----
 
 
 Setup
