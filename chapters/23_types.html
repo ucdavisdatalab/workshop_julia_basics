@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/23_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Reading Files" href="22_reading-files.html" />
+    <link rel="next" title="3. Reading and Writing Data" href="22_reading-files.html" />
     <link rel="prev" title="1. Syntax and Features" href="21_syntax-features.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
@@ -169,31 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">4. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">5. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">6. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">7. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">8. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">9. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">10. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">11. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">12. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">13. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">14. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">15. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">16. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_references.html">References</a></li>
 </ul>
 
     </div>
@@ -446,7 +433,7 @@ kernelspec:
 by using what you learned in <code class="xref std std-numref docutils literal notranslate"><span class="pre">modules</span></code> to load these packages with
 their conventional aliases:</p>
 <p class="rubric">Data</p>
-<p><a class="reference internal" href="01_julia-basics.html#getting-started"><span class="std std-numref">Section 4</span></a> described how to use the Pandas package to load a
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">getting-started</span></code> described how to use the Pandas package to load a
 tabular dataset into a DataFrame. As an example, you saw how to load the
 banknotes dataset. You’ll need that dataset for the examples in this chapter as
 well, so load a fresh copy of it:</p>
@@ -488,7 +475,7 @@ positions. The 1st element in <code class="docutils literal notranslate"><span c
 Python’s built-in <code class="docutils literal notranslate"><span class="pre">len</span></code> function:</p>
 <p>A Series can also contain <strong>metadata</strong>, extra information about its elements.
 Metadata can usually be accessed through attributes (see
-<a class="reference internal" href="01_julia-basics.html#objects-attributes"><span class="std std-numref">Section 4.2.5</span></a>). Here are a few examples of metadata this Series
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">objects-attributes</span></code>). Here are a few examples of metadata this Series
 contains (more on this later):</p>
 <p>Finally, notice that the elements of <code class="docutils literal notranslate"><span class="pre">bill_value</span></code> are all integers. For any
 given Series, the elements will usually all be the same qualitative type of
@@ -614,7 +601,7 @@ useful for reasoning about which methods to apply to which data.</p>
 <p>Python and most other programming languages also categorize data by type. To
 check the type of an object in Python, use the built-in <code class="docutils literal notranslate"><span class="pre">type</span></code> function. Recall
 you used this function to check the type of the banknotes DataFrame in
-<a class="reference internal" href="22_reading-files.html#inspecting-dataframe"><span class="std std-numref">Section 3.5</span></a>:</p>
+<a class="reference internal" href="24_data-frames.html#inspecting-dataframe"><span class="std std-numref">Section 4.1</span></a>:</p>
 <p>Take a look at the types of a few other objects:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -698,7 +685,7 @@ but with a number appended to the end. <a class="reference internal" href="#bit-
 numbers mean.</p>
 <section id="strings-the-object-dtype">
 <span id="id5"></span><h3><span class="section-number">2.5.1. </span>Strings &amp; The <code class="docutils literal notranslate"><span class="pre">object</span></code> Dtype<a class="headerlink" href="#strings-the-object-dtype" title="Permalink to this heading">#</a></h3>
-<p>Strings (type <code class="docutils literal notranslate"><span class="pre">str</span></code>), which were introduced in <a class="reference internal" href="01_julia-basics.html#getting-help"><span class="std std-numref">Section 4.3</span></a>, are a
+<p>Strings (type <code class="docutils literal notranslate"><span class="pre">str</span></code>), which were introduced in <code class="xref std std-numref docutils literal notranslate"><span class="pre">getting-help</span></code>, are a
 bit more complicated than Boolean values and numbers because they have many
 attributes and methods associated with them.</p>
 <!--
@@ -869,7 +856,7 @@ type(coded_in_java)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Reading Files</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Reading and Writing Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

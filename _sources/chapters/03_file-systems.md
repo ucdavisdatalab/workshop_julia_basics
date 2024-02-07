@@ -231,7 +231,7 @@ to write in the script (notes, documentation, etc.) must be placed in a
 **comment**. In Python, comments begin with `#` and extend to the end of the
 line:
 
-```{code-cell}
+```
 # This is a comment.
 ```
 
@@ -315,7 +315,7 @@ added.
 
 ### The Working Directory
 
-```{code-cell}
+```
 :tags: [remove-cell]
 # Save working dir to reset at the end of this section.
 import os
@@ -332,7 +332,7 @@ Python's built-in `os` module provides functions to manipulate the working
 directory. The function `os.getcwd` returns the absolute path for the current
 working directory, as a string. It doesn't require any arguments:
 
-```{code-cell}
+```
 import os
 
 os.getcwd()
@@ -346,7 +346,7 @@ to do is check the working directory.
 The related `os.chdir` function changes the working directory. It takes one
 argument: a path to the new working directory. Here's an example:
 
-```{code-cell}
+```
 os.chdir("..")
 
 # Now check the working directory.
@@ -366,7 +366,7 @@ the files and directories inside of a directory. It accepts a path to a
 directory as an argument, or assumes the working directory if you don't pass a
 path. For instance:
 
-```{code-cell}
+```
 # List files and directories in /home/.
 os.listdir("/home/")
 
@@ -378,12 +378,12 @@ As usual, since you have a different computer, you're likely to see different
 output if you run this code. If you call `os.listdir` with an invalid path or
 an empty directory, Python raises a `FileNotFoundError`:
 
-```{code-cell}
+```
 :tags: [raises-exception]
 os.listdir("/this/path/is/fake/")
 ```
 
-```{code-cell}
+```
 :tags: [remove-cell]
 # Reset the working dir.
 os.chdir(_wd)

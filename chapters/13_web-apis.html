@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -501,16 +501,40 @@ formats for the content are:</p>
 </ul>
 <section id="the-requests-package">
 <h2><span class="section-number">18.1. </span>The requests Package<a class="headerlink" href="#the-requests-package" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">requests_cache</span>
+
+<span class="n">requests_cache</span><span class="o">.</span><span class="n">install_cache</span><span class="p">(</span><span class="s2">&quot;day4_http_cache&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The <strong>requests</strong> package provides functions for making HTTP requests from
 Python. You can use requests to make a GET request with the <code class="docutils literal notranslate"><span class="pre">get</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://datalab.ucdavis.edu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The status code of the response is in the <code class="docutils literal notranslate"><span class="pre">.status_code</span></code> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+</div>
 <p>If you want Python to raise an error any time the status code indicates a
 problem, you can use the <code class="docutils literal notranslate"><span class="pre">.raise_for_status</span></code> method. It doesn’t do anything if
 the status code is okay:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>The content of the response is stored as bytes in the <code class="docutils literal notranslate"><span class="pre">.contents</span></code> attribute and
 as text in the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute. Choose which one to use based on what kind of
 site or file you requested. Web pages (<code class="docutils literal notranslate"><span class="pre">.html</span></code>) are usually text files, so for
 the DataLab site it makes more sense to use <code class="docutils literal notranslate"><span class="pre">.text</span></code> to access the content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+<span class="c1"># Only display the first 200 characters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>
+</pre></div>
+</div>
 </section>
 <section id="id1">
 <h2><span class="section-number">18.2. </span>Request Etiquette<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -556,7 +580,14 @@ how to use a web API is to read its documentation, and fortunately the Star
 Wars API is <a class="reference external" href="https://swapi.dev/documentation">well-documented</a>.</p>
 <p>Try making a request to SWAPI’s “people” endpoint (the endpoint URL comes from
 the SWAPI documentation):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/1/&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Don’t forget to check the status of the response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+</div>
 <p>A 200 status code means the request was successful, so the next step is to take
 a look at the content of the response.</p>
 <p>Unless you’ve already read through the SWAPI documentation, you probably don’t
@@ -564,6 +595,9 @@ know whether the content will be bytes or text. When you’re unsure, you can tr
 printing the <code class="docutils literal notranslate"><span class="pre">.text</span></code> value to check whether the content looks like text. Byte
 content will usually look like gibberish if you try to display it as text.
 Here’s the content of the response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
 <p>This is text about Luke Skywalker. In fact, according to the SWAPI
 documentation, all of the SWAPI endpoints return text.</p>
 <p>Although the response content is text, it isn’t ordinary English text. It’s
@@ -591,9 +625,23 @@ in JSON format.</p>
 <p>When you know the content of a response is in JSON format, you can use the
 <code class="docutils literal notranslate"><span class="pre">.json</span></code> method on the response to convert it into Python lists and
 dictionaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">luke</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">luke</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">luke</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>In this case, the outer object is a dictionary. The keys in the dictionary are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">luke</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
 <p>These keys describe the included information about Luke. For example, to get
 his eye color, you can use indexing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">luke</span><span class="p">[</span><span class="s2">&quot;eye_color&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Sometimes data in JSON format will contain several layers of dictionaries and
 lists. Remember that you can use indexing with square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> to
 navigate these.</p>
@@ -611,15 +659,43 @@ number is <code class="docutils literal notranslate"><span class="pre">1</span><
 <p>A good way to work with an endpoint that accepts arguments is to use Python to
 paste the arguments onto the end. For example, this code pastes the number <code class="docutils literal notranslate"><span class="pre">2</span></code>
 onto the end of the string <code class="docutils literal notranslate"><span class="pre">endpoint</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/&quot;</span>
+<span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> function converts the ID number into a string, and <code class="docutils literal notranslate"><span class="pre">+</span></code> pastes the two
 strings together.</p>
 <p>Now try getting the information for the person with ID number <code class="docutils literal notranslate"><span class="pre">2</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Raise an error if the request failed</span>
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">person</span>
+</pre></div>
+</div>
 <p>So the “person” with ID number <code class="docutils literal notranslate"><span class="pre">2</span></code> is actually the android C3-PO.</p>
 <p>You can make using the endpoint more convenient by writing a Python function
 that takes an ID number as input, makes a request to the endpoint, and then
 returns the result. Here’s the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_swapi_person</span><span class="p">(</span><span class="n">id_num</span><span class="p">):</span>
+    <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/&quot;</span>
+
+    <span class="c1"># Note that &#39;id_num&#39; replaces &#39;2&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">id_num</span><span class="p">))</span>
+
+    <span class="c1"># Raise an error if the request failed</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>As always, when you write a function, it’s important to test it out. For
 example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_swapi_person</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>When you’re working with a web API, it’s generally a good idea to create
 <strong>wrapper functions</strong>, like <code class="docutils literal notranslate"><span class="pre">get_swapi_person</span></code>, that turn each endpoint into an
 actual Python function by wrapping up (or encapsulating) the requests code.</p>

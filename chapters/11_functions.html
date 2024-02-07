@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -454,6 +454,10 @@ running any subsequent code in its body.</p>
 <p>For example, let’s create a function that detects negative numbers. It should
 take a Series of numbers as input, compare them to zero, and then return the
 logical result from the comparison as output. Here’s the code to do that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_negative</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
 <p>The name of the function, <code class="docutils literal notranslate"><span class="pre">is_negative</span></code>, describes what the function does and
 includes a verb. The parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> is the input. The return value is the result
 of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>.</p>
@@ -465,6 +469,19 @@ in function names.</p>
 </div>
 <p>Any time you write a function, the first thing you should do afterwards is test
 that it actually works. Try the <code class="docutils literal notranslate"><span class="pre">is_negative</span></code> function on a few test cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">is_negative</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_negative</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_negative</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Notice that the parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> inside the function is different from the
 variable <code class="docutils literal notranslate"><span class="pre">x</span></code> you created outside the function. Remember that parameters and
 variables inside of a function are separate from variables outside of a
@@ -476,6 +493,18 @@ keyword.</p>
 <p>For example, suppose you want to write a function that gets the largest values
 in a Series. You can make a parameter for the number of values to get, with a
 default argument of <code class="docutils literal notranslate"><span class="pre">5</span></code>. Here’s the code and some test cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_largest</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">sorted</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">get_largest</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_largest</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword causes a function to return a result immediately, without
@@ -488,6 +517,16 @@ list. See <a class="reference internal" href="05_data-types-structures.html#arra
 containers you can use.</p>
 <p>For example, let’s make a function that computes the mean and median for a
 vector. We’ll return the results in a tuple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">compute_mean_med</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span>
+
+<span class="n">compute_mean_med</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Before you write a function, it’s useful to go through several steps:</p>
@@ -528,6 +567,24 @@ for example <code class="docutils literal notranslate"><span class="pre">4</span
 <p>Here’s a few test cases for your function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_leap</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
 <span class="n">is_leap</span><span class="p">(</span><span class="mi">1997</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
+<span class="c1"># If year is divisible by 4 and not 100 -&gt; leap</span>
+<span class="c1"># If year is divisible by 400 -&gt; leap</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2004</span>
+
+<span class="k">def</span> <span class="nf">is_leap</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">leap</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">leap</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">leap</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">leap</span>
+
+<span class="n">is_leap</span><span class="p">(</span><span class="mi">2200</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

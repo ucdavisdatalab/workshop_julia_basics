@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -436,17 +436,62 @@ colon <code class="docutils literal notranslate"><span class="pre">:</span></cod
 when the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. Code in the body must be indented by 4 spaces.</p>
 <p>For example, suppose you want your code to generate a different greeting
 depending on an input name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
+
+<span class="c1"># Default greeting</span>
+<span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
+
+<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
+
+<span class="n">greeting</span>
+</pre></div>
+</div>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword (and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>) if you want to add an alternative when
 the condition is false. So the previous code can also be written as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
+
+<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Default greeting</span>
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
+
+<span class="n">greeting</span>
+</pre></div>
+</div>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword with a condition (and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>) if you want to add an
 alternative to the first condition that also has its own condition. Only the
 first case where a condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> will run. You can use <code class="docutils literal notranslate"><span class="pre">elif</span></code> as many
 times as you want, and can also use <code class="docutils literal notranslate"><span class="pre">else</span></code>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Susan&quot;</span>
+
+<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
+   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
+<span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Peter&quot;</span><span class="p">:</span>
+   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Go away Peter, I&#39;m busy!&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
+
+<span class="n">greeting</span>
+</pre></div>
+</div>
 <p>You can create compound conditions with the keywords <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>. The
 <code class="docutils literal notranslate"><span class="pre">not</span></code> keyword inverts a condition. The <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword combines two conditions
 and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if both are <code class="docutils literal notranslate"><span class="pre">True</span></code>. The <code class="docutils literal notranslate"><span class="pre">or</span></code> keyword combines two
 conditions and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if either or both are <code class="docutils literal notranslate"><span class="pre">True</span></code>.
 For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name1</span> <span class="o">=</span> <span class="s2">&quot;Arthur&quot;</span>
+<span class="n">name2</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
+
+<span class="k">if</span> <span class="n">name1</span> <span class="o">==</span> <span class="s2">&quot;Arthur&quot;</span> <span class="ow">and</span> <span class="n">name2</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;These are the authors.&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Who are these people?!&quot;</span>
+
+<span class="n">greeting</span>
+</pre></div>
+</div>
 <p>You can write an if-statement inside of another if-statement. This is called
 <strong>nesting</strong> if-statements. Nesting is useful when you want to check a
 condition, do some computations, and then check another condition under the

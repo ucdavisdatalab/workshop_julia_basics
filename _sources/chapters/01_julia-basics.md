@@ -178,7 +178,7 @@ subtraction.
 For example, to compute the area of a triangle with base 3 and height 4, you
 can write:
 
-```{code-cell}
+```
 0.5 * 3 * 4
 ```
 
@@ -198,7 +198,7 @@ called **variables**. You can create a variable with the assignment operator
 right hand side. For example, to save the estimated area of the triangle in a
 variable called `area`, you can write:
 
-```{code-cell}
+```
 area = 3 * 4 / 2
 ```
 
@@ -214,7 +214,7 @@ Notice that when you assign a result to a variable, Python doesn't
 automatically display that result. If you want to see the result as well, you
 have to enter the variable's name as a separate expression:
 
-```{code-cell}
+```
 area
 ```
 
@@ -227,7 +227,7 @@ understand, because the reader does not have to intuit that `3` and `4` are the
 base and height in the formula. Here's the new code to compute and display the
 area of a triangle with base 3 and height 4:
 
-```{code-cell}
+```
 base = 3
 height = 4
 area = base * height / 2
@@ -249,11 +249,11 @@ than as an expression to evaluate. In programming jargon, a piece of literal
 text is called a **string**. You can use whichever kind of quotes you prefer,
 but the quote at the beginning of the string must match the quote at the end. 
 
-```{code-cell}
+```
 'Hi'
 ```
 
-```{code-cell}
+```
 "Hello!"
 ```
 
@@ -281,19 +281,19 @@ it from the assignment `=` operator.
 
 Here are a few examples:
 
-```{code-cell}
+```
 1.5 < 3
 ```
 
-```{code-cell}
+```
 "a" > "b"
 ```
 
-```{code-cell}
+```
 3 == 3.14
 ```
 
-```{code-cell}
+```
 "hi" == "hi"
 ```
 
@@ -304,11 +304,11 @@ expressions with yes-or-no responses.
 Boolean values are values, so you can use them in other computations. For
 example:
 
-```{code-cell}
+```
 True
 ```
 
-```{code-cell}
+```
 True == False
 ```
 
@@ -328,7 +328,7 @@ to the function inside the parentheses. For example, the function to round a
 number to a specified decimal place is named `round`. So you can round the
 number `8.153` to the nearest integer with this code:
 
-```{code-cell}
+```
 round(8.153)
 ```
 
@@ -337,7 +337,7 @@ accepts two arguments: the number to round, and the number of decimal places to
 keep. When you call a function with multiple arguments, separate the arguments
 with commas. So to round `8.153` to 1 decimal place:
 
-```{code-cell}
+```
 round(8.153, 1)
 ```
 
@@ -364,15 +364,15 @@ second, and so on. So in the code above, `8.153` is assigned to `number` and
 You can make Python assign arguments to parameters by name with `=`, overriding
 their positions. So two other ways you can write the call above are:
 
-```{code-cell}
+```
 round(8.153, ndigits = 1)
 ```
 
-```{code-cell}
+```
 round(number = 8.153, ndigits = 1)
 ```
 
-```{code-cell}
+```
 round(ndigits = 1, number = 8.153)
 ```
 
@@ -384,7 +384,7 @@ Parameters are not regular variables, and only exist while their associated
 function runs. You can't set them before a call, nor can you access them after
 a call. So this code causes an error:
 
-```{code-cell}
+```
 :tags: [raises-exception]
 number = 4.755
 round(ndigits = 2)
@@ -394,13 +394,13 @@ In the error message, Python says that you forgot to assign an argument to the
 parameter `number`. You can keep the variable `number` and correct the call by
 making `number` an argument (for the parameter `number`):
 
-```{code-cell}
+```
 round(number, ndigits = 2)
 ```
 
 Or, written more explicitly:
 
-```{code-cell}
+```
 round(number = number, ndigits = 2)
 ```
 
@@ -423,14 +423,14 @@ For example, all strings have a `capitalize` method. You can access attributes
 and methods by typing a `.` after an object. Here's the code to capitalize a
 string:
 
-```{code-cell}
+```
 "snakes everywhere!".capitalize()
 ```
 
 The built-in `dir` function lists all of the attributes attached to
 an object. Here are the attributes for a string:
 
-```{code-cell}
+```
 dir("hi")
 ```
 
@@ -450,7 +450,7 @@ There are help pages for all of Python's built-in functions, usually with the
 same name as the function itself. So the code to open the help page for the
 `round` function is:
 
-```{code-cell}
+```
 :tags: [output_scroll]
 help(round)
 ```
@@ -467,7 +467,7 @@ look up the help page for an operator, put the operator's name in single or
 double quotes. For example, this code opens the help page for the arithmetic
 operators:
 
-```{code-cell}
+```
 :tags: [output_scroll]
 help("+")
 ```

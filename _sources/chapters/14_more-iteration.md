@@ -42,7 +42,7 @@ Code in the body of the loop must be indented by 4 spaces.
 
 For example, to print out the names in a list `names`, you can write:
 
-```{code-cell}
+```
 names = ["Arthur", "Nick", "Cameron", "Pamela"]
 
 for name in names:
@@ -57,7 +57,7 @@ sequence of numbers. Then you can use the numbers to index other objects. In
 Python, the `range` function generates a sequence of numbers starting from 0.
 As an example, here's a version of the loop above that uses indexes:
 
-```{code-cell}
+```
 for i in range(4):
     print(names[i])
 ```
@@ -66,7 +66,7 @@ Sometimes you might want both the indexes and the values for an object. In that
 case, you can use the `enumerate` function. When you use `enumerate` in a
 loop, the loop syntax is slightly different:
 
-```{code-cell}
+```
 for i, name in enumerate(names):
     print("This is iteration " + str(i))
     print(name)
@@ -79,7 +79,7 @@ this is to create an empty list before the loop, and then append to it with the
 `.append` method. For example, here's a loop that computes the cumulative sums
 from left to right for the numbers in a list:
 
-```{code-cell}
+```
 nums = [1, 3, 2, -2, 10]
 
 sums = []
@@ -99,7 +99,7 @@ loop, be careful to follow the guidelines for request etiquette described in
 second is especially important. Here's the code to get the information for the
 first 15 people:
 
-```{code-cell}
+```
 import time
 
 people = []
@@ -116,7 +116,7 @@ for i in range(15):
 After running the loop, you can inspect the returned information in the list
 `people`:
 
-```{code-cell}
+```
 people[0]
 ```
 
@@ -133,7 +133,7 @@ to transform each element in the same way. For instance, suppose you want to
 get the eye color for each person in the `people` list. You can get the eye
 color for the first person with the code:
 
-```{code-cell}
+```
 people[0]["eye_color"]
 ```
 
@@ -141,7 +141,7 @@ You could use this code with a loop that changes the first index (`0`) in order
 to get the eye color of every person. However, you can do the same thing as a
 loop more concisely with a list comprehension. Here's the code:
 
-```{code-cell}
+```
 eye_colors = [person["eye_color"] for person in people]
 
 eye_colors[0]
@@ -155,7 +155,7 @@ expression is enclosed in square brackets `[ ]`.
 You can use list comprehensions to get other information as well. For instance,
 here's the code to get lists of names and heights for each person in the list:
 
-```{code-cell}
+```
 names = [person["name"] for person in people]
 heights = [person["height"] for person in people]
 ```
@@ -174,7 +174,7 @@ DataFrame where each row is one person, so you might as well put them in a
 DataFrame. You can use the `pd.DataFrame` function and a dictionary of columns
 to do this:
 
-```{code-cell}
+```
 import pandas as pd
 
 people_df = pd.DataFrame({"name": names, "height": heights,

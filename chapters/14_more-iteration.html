@@ -168,18 +168,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -445,28 +445,71 @@ the beginning of each iteration</p></li>
 </ul>
 <p>Code in the body of the loop must be indented by 4 spaces.</p>
 <p>For example, to print out the names in a list <code class="docutils literal notranslate"><span class="pre">names</span></code>, you can write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Arthur&quot;</span><span class="p">,</span> <span class="s2">&quot;Nick&quot;</span><span class="p">,</span> <span class="s2">&quot;Cameron&quot;</span><span class="p">,</span> <span class="s2">&quot;Pamela&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The code in the body of the loop is evaluated once for each name in the list
 (that is, once for each iteration).</p>
 <p>A common technique when programming with for-loops is to iterate over a
 sequence of numbers. Then you can use the numbers to index other objects. In
 Python, the <code class="docutils literal notranslate"><span class="pre">range</span></code> function generates a sequence of numbers starting from 0.
 As an example, here’s a version of the loop above that uses indexes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>Sometimes you might want both the indexes and the values for an object. In that
 case, you can use the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function. When you use <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> in a
 loop, the loop syntax is slightly different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is iteration &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Most of the time, you’ll want to save the results from the iterations into a
 variable for use later on, rather than print them all out. The best way to do
 this is to create an empty list before the loop, and then append to it with the
 <code class="docutils literal notranslate"><span class="pre">.append</span></code> method. For example, here’s a loop that computes the cumulative sums
 from left to right for the numbers in a list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">sums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">num</span>
+    <span class="n">sums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+<span class="n">sums</span>
+</pre></div>
+</div>
 <p>You can use a loop to get the information about the first 15 people in SWAPI.
 When you send HTTP requests (or call a function that sends HTTP requests) in a
 loop, be careful to follow the guidelines for request etiquette described in
 <code class="xref std std-numref docutils literal notranslate"><span class="pre">request-etiquette</span></code>. For loops, limiting the number of requests per
 second is especially important. Here’s the code to get the information for the
 first 15 people:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="c1"># i + 1 because range starts from 0</span>
+    <span class="n">person</span> <span class="o">=</span> <span class="n">get_swapi_person</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">people</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+
+    <span class="c1"># Do nothing for 1/10 of a second, to prevent making requests too quickly</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>After running the loop, you can inspect the returned information in the list
 <code class="docutils literal notranslate"><span class="pre">people</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
 <section id="comprehensions">
 <h2><span class="section-number">19.1. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h2>
 <p>Python provides an efficient and powerful alternative to loops called
@@ -477,15 +520,27 @@ creates a dictionary.</p>
 to transform each element in the same way. For instance, suppose you want to
 get the eye color for each person in the <code class="docutils literal notranslate"><span class="pre">people</span></code> list. You can get the eye
 color for the first person with the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;eye_color&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>You could use this code with a loop that changes the first index (<code class="docutils literal notranslate"><span class="pre">0</span></code>) in order
 to get the eye color of every person. However, you can do the same thing as a
 loop more concisely with a list comprehension. Here’s the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eye_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;eye_color&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">]</span>
+
+<span class="n">eye_colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>The syntax for a list comprehension includes the keywords <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code>, just
 like a for-loop. The difference is that in the list comprehension, the repeated
 code comes <em>before</em> the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword rather than after it, and the entire
 expression is enclosed in square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
 <p>You can use list comprehensions to get other information as well. For instance,
 here’s the code to get lists of names and heights for each person in the list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">]</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>You can learn more about comprehensions in the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">official Python
 documentation</a>.</p>
 </section>
@@ -495,6 +550,14 @@ documentation</a>.</p>
 DataFrame where each row is one person, so you might as well put them in a
 DataFrame. You can use the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> function and a dictionary of columns
 to do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">people_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">heights</span><span class="p">,</span>
+    <span class="s2">&quot;eye_color&quot;</span><span class="p">:</span> <span class="n">eye_colors</span><span class="p">})</span>
+
+<span class="n">people_df</span>
+</pre></div>
+</div>
 <p>Pandas provides a variety of methods for saving DataFrames to a file. Most of
 these begin with <code class="docutils literal notranslate"><span class="pre">.to_</span></code>. For example, to save a DataFrame to a CSV file, use
 the <code class="docutils literal notranslate"><span class="pre">.to_csv</span></code> method:</p>

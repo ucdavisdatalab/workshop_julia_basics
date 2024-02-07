@@ -75,7 +75,7 @@ a module called `pandas`. You can use the `import` command to load a module
 from an installed package. Anaconda installs NumPy by default, so try loading
 the `numpy` module:
 
-```{code-cell}
+```
 import numpy
 ```
 
@@ -88,7 +88,7 @@ Once a module is loaded, you can access its functions by typing the name of the
 module, a dot `.`, and then the name of the function. For instance, to use the
 `round` function provided by NumPy:
 
-```{code-cell}
+```
 numpy.round(3.3)
 ```
 
@@ -99,13 +99,13 @@ alias for `numpy` is `np`. Using the conventional alias is a good habit,
 because it makes it easier for other people to understand your code. Use the
 `as` keyword to set an alias when you import a module:
 
-```{code-cell}
+```
 import numpy as np
 ```
 
 Now you can call NumPy functions by typing `np` instead of `numpy`:
 
-```{code-cell}
+```
 np.round(3.4)
 ```
 

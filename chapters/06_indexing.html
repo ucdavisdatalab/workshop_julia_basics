@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -435,15 +435,29 @@ important roles:</p>
 <li><p>As a convenience for getting and setting subsets of data</p></li>
 </ol>
 <p>The index of a series is available via the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
 <p>Index labels can be numbers, strings, dates, or other values. Pandas provides
 subclasses of <code class="docutils literal notranslate"><span class="pre">Index</span></code> for specific purposes, which you can read more about
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Index.html">here</a>.</p>
 <p>Indexes, like tuples, are <strong>immutable</strong>. The labels in an index cannot be
 changed. That said, every index also has a name that <em>can</em> be changed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bill_value&quot;</span>
+<span class="n">bill_value</span>
+</pre></div>
+</div>
 <p>The above also applies to DataFrames:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
 <p>Oftentimes, an index is a range of numbers, but this can be changed. The code
 below uses the <code class="docutils literal notranslate"><span class="pre">.set_index</span></code> method to change the index of <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> to
 <code class="docutils literal notranslate"><span class="pre">country</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">banknotes</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">inplace</span></code> argument instructs Pandas to change the index directly without
 making a copy first, so that we don’t have to reassign <code class="docutils literal notranslate"><span class="pre">banknotes.index</span></code>
 explicitly.</p>
@@ -458,29 +472,71 @@ methods for accessing specific values in Pandas:</p>
 <li><p>By a condition</p></li>
 </ol>
 <p>To access elements in a series by integer position, use <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> is extensible to sequences of values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]]</span>
+</pre></div>
+</div>
 <p>Use a <strong>slice</strong> to select a range of elements. The syntax for a slice is
 <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>, with the second colon <code class="docutils literal notranslate"><span class="pre">:</span></code> and arguments being optional. This
 syntax also applies to lists. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Below, we use a slice to get every twentieth element in the Series:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Slices also accept negative values. This counts back from the end of a
 sequence. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+</pre></div>
+</div>
 <p>The result is the same as if you had used the <code class="docutils literal notranslate"><span class="pre">.tail</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="id3">
 <h2><span class="section-number">11.3. </span>Indexing by Label<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to index a Series or DataFrame by label:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
+<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>You can select specific columns as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
+<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Just as with <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>, it’s possible to pass sequences into <code class="docutils literal notranslate"><span class="pre">.loc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
+<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;Serbia&quot;</span><span class="p">,</span> <span class="s2">&quot;Ukraine&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
 <p>This can be a very powerful operation, but it’s easy to get mixed up when
 labels are integers, as with the <code class="docutils literal notranslate"><span class="pre">bill_value</span></code> data.</p>
 <p>For example, this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Is <em>NOT</em> the same as this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Recall that bracket notation selects columns in DataFrames. With a Series, the
 same notation acts as another way to perform <code class="docutils literal notranslate"><span class="pre">.loc</span></code> operations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Finally, <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> and <code class="docutils literal notranslate"><span class="pre">.loc</span></code> can be used in tandem with one another. This is
 called <strong>chaining</strong>. Below, we use the country-indexed <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> DataFrame to
 select all rows with “Peru.” Then, we select the second row from this subset.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="indexing-by-a-condition">
 <h2><span class="section-number">11.4. </span>Indexing by a Condition<a class="headerlink" href="#indexing-by-a-condition" title="Permalink to this heading">#</a></h2>
@@ -490,17 +546,37 @@ powerful method of indexing in Pandas.</p>
 <p>For example, suppose you want to find bill values that are divisible by 25. You
 can use the modulo operator <code class="docutils literal notranslate"><span class="pre">%</span></code> to get the remainder when one positive integer
 is divided by another. So the condition to test for divisibility by 25 is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span> <span class="o">%</span> <span class="mi">25</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
 <p>The result is a Boolean Series with as many elements as <code class="docutils literal notranslate"><span class="pre">bill_value</span></code>. You can
 use this condition in <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to get only the elements where the result was
 <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bill_value</span> <span class="o">%</span> <span class="mi">25</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
 <!--
 This is a **subset** of the Series.
 -->
 <p>You can also use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> without <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to index by condition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="p">[</span><span class="n">bill_value</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>With a DataFrame, indexing by condition gives you a subset of the rows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
+<span class="n">banknotes</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;currency_code&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MWK&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>If you want to specify specific columns, use <code class="docutils literal notranslate"><span class="pre">.loc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s2">&quot;currency_name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>The above lets you select multiple columns, but you could also do the
 following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;currency_code&quot;</span><span class="p">,</span> <span class="s2">&quot;currency_name&quot;</span><span class="p">]</span>
+<span class="n">banknotes</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.0</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 </section>
 

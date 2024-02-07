@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -520,6 +520,9 @@ object that you want to import.</p>
 wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code>. Generally you shouldn’t do this, because objects in a
 module will overwrite objects in your code if they have the same name. However,
 the plotnine package was designed to be imported this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
 </section>
 <section id="configure-jupyter">
 <span id="id3"></span><h3><span class="section-number">14.1.2. </span>Configure Jupyter<a class="headerlink" href="#configure-jupyter" title="Permalink to this heading">#</a></h3>
@@ -527,6 +530,12 @@ the plotnine package was designed to be imported this way:</p>
 visualizations. If you’re going to use visualization packages that depend on
 Matplotlib (such as plotnine), it’s a good idea to set up your notebook by
 running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>The last line sets the default size of plots. You can increase the numbers to
 make plots larger, or decrease them to make plots smaller.</p>
 <div class="admonition note">
@@ -550,7 +559,16 @@ way, we will ensure that the variables’ datatypes are set correctly.</p>
 reassign the altered data to a new variable.</p>
 </div>
 <p><strong>Death year</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">no_death</span> <span class="o">=</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;death_year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">])</span>
+<span class="n">to_plot</span> <span class="o">=</span> <span class="n">banknotes</span><span class="p">[</span><span class="n">no_death</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">to_plot</span><span class="p">[</span><span class="s2">&quot;death_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_plot</span><span class="p">[</span><span class="s2">&quot;death_year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Scaled bill value</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">no_scaled</span> <span class="o">=</span> <span class="n">to_plot</span><span class="p">[</span><span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+<span class="n">to_plot</span> <span class="o">=</span> <span class="n">to_plot</span><span class="p">[</span><span class="n">no_scaled</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>You are now ready to make a plot.</p>
 </section>
 </section>
@@ -608,6 +626,9 @@ designed to work with <em>tidy</em> data. Tidy means:</p>
 an untidy data set tidy. Until then, we’ll take it for granted that the data
 sets we work with are tidy.</p>
 <p>To set up the data layer, call the ``ggplot` function on a Data Frame:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>This returns a blank plot. We still need to add a few more layers.</p>
 </section>
 <section id="layer-2-geometry">
@@ -619,6 +640,10 @@ make: one with points, lines, boxes, or something else.</p>
 a function for each geometry, always prefixed with <code class="docutils literal notranslate"><span class="pre">geom_</span></code>.</p>
 <p>To add a geometry layer to the plot, choose the <code class="docutils literal notranslate"><span class="pre">geom_</span></code> function you want and
 add it to the plot with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">raises</span><span class="o">-</span><span class="n">exception</span><span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>This returns an error message that we’re missing aesthetics <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. We’ll
 learn more about aesthetics in the next section, but this error message is
 especially helpful: it tells us exactly what we’re missing. When you use a
@@ -647,11 +672,22 @@ Yen, for example. Below, we will set the aesthetics for both of these values.
 Notice however that the aesthetic layer is not added to the plot with the <code class="docutils literal notranslate"><span class="pre">+</span></code>
 operator. Instead, it is passed as the second argument to the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code>
 function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span>
+    <span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">)</span>
+<span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
+</pre></div>
+</div>
 <p><strong>Per-geometry Aesthetics</strong></p>
 <p>When you add the aesthetic layer or pass it to the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> function, it
 applies to the entire plot. You can also set an aesthetic layer individually
 for each geometry by passing the layer as the first argument in the <code class="docutils literal notranslate"><span class="pre">geom_</span></code>
 function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Enclose expressions with <code class="docutils literal notranslate"><span class="pre">()</span></code> to create multiline code. It would be possible to
@@ -661,16 +697,50 @@ readability.</p>
 <p>This is really only useful when you have multiple geometries. As an example,
 let’s color-code the points by gender. To do so, we need to convert <code class="docutils literal notranslate"><span class="pre">gender</span></code> to
 <em>categorical</em> data, which measures a qualitative category.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>Now let’s add labels to each point. To do this, we need to add another
 geometry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">,</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="n">geom_text</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>Where you put the aesthetics matters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> 
+    <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Constant Aesthetics</strong></p>
 <p>If you want to set an aesthetic to a constant value, rather than one that’s
 data dependent, do so in the geometry layer rather than the aesthetic layer.
 For instance, suppose you want to use point shape rather than color to indicate
 gender, and you want to make all of the points blue.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_point</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>If you set an aesthetic to a constant value inside of the aesthetic layer, the
 results you get might not be what you expect:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">raises</span><span class="o">-</span><span class="n">exception</span><span class="p">]</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_point</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="layer-4-scales">
 <h3><span class="section-number">14.2.4. </span>Layer 4: Scales<a class="headerlink" href="#layer-4-scales" title="Permalink to this heading">#</a></h3>
@@ -679,6 +749,14 @@ Most of the functions in the scales layer are prefixed with <code class="docutil
 all of them.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">labs</span></code> function is especially important, because it’s used to set the title
 and axis labels. All graphs need a title and axis labels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;death_year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span>
+    <span class="n">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Death Year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Scaled Bill Value&quot;</span><span class="p">,</span>
+         <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Does death year affect bill value?&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;Gender&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="saving-plots">
 <h3><span class="section-number">14.2.5. </span>Saving Plots<a class="headerlink" href="#saving-plots" title="Permalink to this heading">#</a></h3>
@@ -708,6 +786,13 @@ display frequencies, the <code class="docutils literal notranslate"><span class=
 when used in conjunction with the <code class="docutils literal notranslate"><span class="pre">factor()</span></code> syntax from above.</p>
 <p>We can also use a fill color to further breakdown the bars by gender. Here’s
 the code to make the bar plot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">to_plot</span><span class="p">,</span>
+    <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;factor(profession)&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;factor(gender)&quot;</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;dodge&quot;</span><span class="p">)</span> <span class="o">+</span> 
+    <span class="n">theme</span><span class="p">(</span><span class="n">axis_text_x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>The setting <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;dodge&quot;</span></code> instructs <code class="docutils literal notranslate"><span class="pre">geom_bar</span></code> to put the bars
 side-by-side rather than stacking them. Adding <code class="docutils literal notranslate"><span class="pre">theme</span></code> allows you to change how
 the axis labels and ticks are formatted.</p>

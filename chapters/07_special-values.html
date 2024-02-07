@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -438,6 +438,9 @@ and handling these values.</p>
 dataset, and are represented by the NumPy <code class="docutils literal notranslate"><span class="pre">nan</span></code> type. This reduces some of the
 nuance of data values and types, but was seemingly done for computational
 performance reasons.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
 <section id="types-of-values-considered-missing-by-pandas">
 <h2><span class="section-number">12.1. </span>Types of Values Considered Missing by Pandas<a class="headerlink" href="#types-of-values-considered-missing-by-pandas" title="Permalink to this heading">#</a></h2>
 <p>In addition to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (which displays as NaN), Pandas interprets several
@@ -447,9 +450,15 @@ Pandas’ experimental <code class="docutils literal notranslate"><span class="p
 about as the return of a function, if something hasn’t been defined yet, or if
 something wasn’t found.</p>
 <p>When creating a Series, we can pass this value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>Be aware that <code class="docutils literal notranslate"><span class="pre">None</span></code> is a Python object, and in the above example, the
 datatype of the series became ‘object’. If we specify a datatype explicitly
 then Pandas will convert it to one of its representations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="reading-in-missing-values-from-a-csv-file">
 <h2><span class="section-number">12.2. </span>Reading in Missing Values from a CSV file<a class="headerlink" href="#reading-in-missing-values-from-a-csv-file" title="Permalink to this heading">#</a></h2>
@@ -471,22 +480,48 @@ the <a class="reference external" href="https://pandas.pydata.org/docs/reference
 and <code class="docutils literal notranslate"><span class="pre">.notna</span></code>.</p>
 <p>We can see information about missing values with the <code class="docutils literal notranslate"><span class="pre">.count</span></code> method on
 DataFrames:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>If we look at the <code class="docutils literal notranslate"><span class="pre">hover_text</span></code> columns of the DataFrame, we can see what
 those missing values look like.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span> <span class="o">=</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;hover_text&quot;</span><span class="p">]</span>
+<span class="n">ht</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>The return of <code class="docutils literal notranslate"><span class="pre">.isna</span></code> is a Boolean Series indicating which of the values are
 considered missing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>The reverse—to see which values are not considered missing—is returned
 with <code class="docutils literal notranslate"><span class="pre">.notna</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="id3">
 <h2><span class="section-number">12.4. </span>Replacing Missing Values<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>We can use this Boolean Series to subset with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>. For example, to keep only
 the values that aren’t missing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ht</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</pre></div>
+</div>
 <p>Pandas also provides a shortcut with the <code class="docutils literal notranslate"><span class="pre">.dropna</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>Another strategy may be to fill the missing values. We could do so using the
 <code class="docutils literal notranslate"><span class="pre">.fillna</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ht</span>
+</pre></div>
+</div>
 <p>Additionally, the data set may have its own indicator for missing values, e.g
 “” or 0. We can convert those to missing using the <code class="docutils literal notranslate"><span class="pre">.replace</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="exercises">
 <h2><span class="section-number">12.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
@@ -504,7 +539,7 @@ in the way Python represents this sequence?</p></li>
 </section>
 <section id="id4">
 <h3><span class="section-number">12.5.2. </span>Exercise<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<p>Return to the discussion in <a class="reference internal" href="23_types.html#coercion-conversion"><span class="std std-numref">Section 2.5.2</span></a>.</p>
+<p>Return to the discussion in <a class="reference internal" href="05_data-types-structures.html#coercion-conversion"><span class="std std-numref">Section 10.3.2</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Why does <code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span> <span class="pre">+</span> <span class="pre">4</span></code> raise an error?</p></li>
 <li><p>Why does <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">-</span> <span class="pre">1</span></code> return 0?</p></li>

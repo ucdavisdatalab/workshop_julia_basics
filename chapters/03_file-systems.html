@@ -169,18 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Julia</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">17. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
 <ul class="current nav bd-sidenav">
@@ -591,6 +591,9 @@ delete, copy, cut, and paste code.</p>
 to write in the script (notes, documentation, etc.) must be placed in a
 <strong>comment</strong>. In Python, comments begin with <code class="docutils literal notranslate"><span class="pre">#</span></code> and extend to the end of the
 line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment.</span>
+</pre></div>
+</div>
 <p>Python will ignore comments when you run your code.</p>
 <p>Arrange your code in the order of the steps to solve the problem, even if you
 write some parts before others. Comment out or delete any lines of code that
@@ -645,6 +648,13 @@ added.</p>
 </section>
 <section id="the-working-directory">
 <h2><span class="section-number">9.3. </span>The Working Directory<a class="headerlink" href="#the-working-directory" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
+<span class="c1"># Save working dir to reset at the end of this section.</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">_wd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">absolute-relative-paths</span></code> explained that relative paths have a
 starting point that depends on the context where the path is used. The <em>working
 directory</em> is the starting point Python uses for relative paths. Think of the
@@ -652,12 +662,23 @@ working directory as the directory Python is currently “at” or watching.</p>
 <p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">os</span></code> module provides functions to manipulate the working
 directory. The function <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code> returns the absolute path for the current
 working directory, as a string. It doesn’t require any arguments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>On your computer, the output from <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code> will likely be different. This is
 a very useful function for getting your bearings when you write relative paths.
 If you write a relative path and it doesn’t work as expected, the first thing
 to do is check the working directory.</p>
 <p>The related <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> function changes the working directory. It takes one
 argument: a path to the new working directory. Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+
+<span class="c1"># Now check the working directory.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>Generally, you should avoid using calls to <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> in your Jupyter notebooks
 and Python scripts. Calling <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> makes your code more difficult to
 understand, and can always be avoided by using appropriate relative paths. If
@@ -669,9 +690,25 @@ system is <code class="docutils literal notranslate"><span class="pre">os.listdi
 the files and directories inside of a directory. It accepts a path to a
 directory as an argument, or assumes the working directory if you don’t pass a
 path. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># List files and directories in /home/.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/home/&quot;</span><span class="p">)</span>
+
+<span class="c1"># List files and directories in the working directory.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>As usual, since you have a different computer, you’re likely to see different
 output if you run this code. If you call <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> with an invalid path or
 an empty directory, Python raises a <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">raises</span><span class="o">-</span><span class="n">exception</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/this/path/is/fake/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
+<span class="c1"># Reset the working dir.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">_wd</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
