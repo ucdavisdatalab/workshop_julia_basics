@@ -12,6 +12,7 @@ parts:
   - caption: Julia Basics
     numbered: true
     chapters:
+      - file: chapters/20_introduction.md
       - file: chapters/21_syntax-features.md
       - file: chapters/23_types.md
       - file: chapters/22_reading-files.md

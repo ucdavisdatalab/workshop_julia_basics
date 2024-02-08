@@ -19,6 +19,8 @@ cd("..")
 Syntax and Features
 ===================
 
+This section is a brief tour of common programming idioms as implemented in Julia. Most of them should be conceptually familiar from your previous programming experience.
+
 Collections
 -----------
 
@@ -28,24 +30,24 @@ Julia has most of the standard collection types you would expect in any langague
 
 Vectors are the simplest kind of collection. Every collection in Julia has a type that includes the type of its contents. For example, a Vector containing only integers has a type of `Vector{Int}`, while a Vector containing both integers and strings will have a type of `Vector{Any}`. A Vector will automatically infer its type based on its contents.
 ```julia
-x = [1, 2, 3]
-y = ["a", "b", "c"]
-z = [1, "b", x]
+v1 = [1, 2, 3]
+v2 = ["a", "b", "c"]
+v3 = [1, "b", v1]
 
-println(typeof(x))
-println(typeof(y))
-println(typeof(z))
+println(typeof(v1))
+println(typeof(v2))
+println(typeof(v3))
 ```
 
 In Julia, ordered collections are indexed from 1.
 ```julia
-println(y[1])
-println(z[3][1])
+println(v2[1])
+println(v3[3][1])
 ```
 
 You can slice a collection to return a subset. Slices are inclusive, so this code:
 ```julia
-x[1:2]
+v1[1:2]
 ```
 ...returns all items from the start index (`1`) up to and including the stop index (`2`).
 
@@ -78,17 +80,17 @@ zeros(Int8, 2, 4)
 
 Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
 ```julia
-x = reshape(collect(1:10), (2,5))
-x[1,2]
+a = reshape(collect(1:10), (2,5))
+a[1,2]
 ```
 
 You can concatenate arrays vertically or horizontally.
 ```julia
 # Concatenate subarrays into a single (vertical) vector using the ; operator
-x = [[1,2] ; [3,4]]
+a1 = [[1,2] ; [3,4]]
 
 # Concatenate subarrys into a 2x2 matrix using the ;; operator
-y = [[1,2] ;; [3,4]]
+a2 = [[1,2] ;; [3,4]]
 ```
 
 Arrays are passed by reference. In this example, Arrays `a` and `b` are both Views onto the same contiguous chunk of memory.
