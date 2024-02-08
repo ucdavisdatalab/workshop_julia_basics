@@ -84,7 +84,8 @@ Gadfly.plot(df, x = :Dose, y = :len, color = :Supp, Geom.point,
     Guide.xticks(ticks = [0.5, 1.0, 1.5, 2.0]),
     Theme(panel_fill = nothing, highlight_width = 0mm, point_size = 0.5mm,
     key_position = :inside, 
-    grid_line_width = 0mm, panel_stroke = colorant"black"),
+    grid_line_width = 0mm, 
+    panel_stroke = "black"),
     Geom.line, Geom.errorbar, ymin = :ymin, ymax = :ymax, 
     Scale.color_discrete_manual("orange", "skyblue"))
 ```
