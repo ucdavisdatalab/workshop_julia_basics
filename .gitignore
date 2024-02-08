@@ -9,3 +9,4 @@ local/
 
 # Jupyter environmental variables
 .ipynb_checkpoints/
+.Rproj.user
