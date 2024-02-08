@@ -28,7 +28,7 @@ Let's load some data into Julia:
 # Pkg.add("RDatasets")
 using RDatasets, DataFrames
 df0 = RDatasets.dataset("datasets", "ToothGrowth")
-last(df0, 5)
+describe(df0)
 ```
 
 Now let's summarize that data, grouping by `Supp` and `Dose`:
@@ -50,7 +50,7 @@ df
 
 ```
 
-## Gadfly
+## Gadfly.jl
 
 `Gadfly.jl` is like `ggplot2` in R:
 
