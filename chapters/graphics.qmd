@@ -1,10 +1,18 @@
 ---
 title: "graphics"
 format: html
+    
 project:
   execute-dir: project
-  
+jupyter: julia-1.9
 ---
+Adapted from https://ucla-biostat-257.github.io/2023spring/slides/04-juliaplot/juliaplots.html
+
+System information (for reproducibility):
+
+```{julia}
+versioninfo()
+```
 
 ```{julia}
 using CSV
@@ -12,14 +20,102 @@ using DataFrames
 ```
 
 ```{julia}
-1+1
-pwd()
-```
-
-
-```{julia}
 #| eval: true
 path = "../data/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2023_1.csv"
 air = CSV.read(path, DataFrame)
 typeof(air)
 ```
+
+```{julia}
+#| eval: false
+using Pkg
+Pkg.add("RCall")
+Pkg.build("RCall")
+```
+
+
+```{julia}
+#| label: "load graphics packages"
+#| eval: true
+using Gadfly, Plots, PlotlyJS, PyPlot, Random, RCall
+```
+
+```{r}
+#| label: "RCall"
+#| eval: true
+
+library(ggplot2)
+library(dplyr)
+
+df <- ToothGrowth %>%
+  group_by(supp, dose) %>%
+  summarise(
+    se = sd(len) / n(), 
+    len = mean(len), 
+    n = n())
+
+ggplot(df, aes(x = dose, y = len, group = supp, color = supp)) + 
+  geom_line() +
+  geom_point() +
+  geom_errorbar(aes(ymin = len - se, ymax = len + se), width = 0.1, alpha = 0.5,
+  position = position_dodge(0.005)) +  
+  scale_color_manual(values = c(VC = "skyblue", OJ = "orange")) + 
+  labs(x = "Dose", y = "Tooth Length")
+
+```
+
+
+```{julia}
+#| label: "prep-data-julia"
+using RDatasets, DataFramesMeta, Statistics
+df = 
+  @chain RDatasets.dataset("datasets", "ToothGrowth") begin
+    groupby([:Supp, :Dose])
+    @combine begin
+      :se = std(:Len) / length(:Len)
+      :len = mean(:Len)
+      :n = length(:Len)
+    end
+  end
+
+df
+
+
+```
+
+## Gadfly
+
+```{julia}
+#| label: gadfly
+using Gadfly
+df[!, :ymin] = df[!, :len] - df[!, :se]
+df[!, :ymax] = df[!, :len] + df[!, :se]
+Gadfly.plot(df, 
+    x = :Dose, 
+    y = :len, 
+    color = :Supp, 
+    Geom.point,
+    Guide.xlabel("Dose"), 
+    Guide.ylabel("Tooth Length"), 
+    Guide.xticks(ticks = [0.5, 1.0, 1.5, 2.0]),
+    Geom.line, 
+    Geom.errorbar, 
+    ymin = :ymin, 
+    ymax = :ymax, 
+    Scale.color_discrete_manual("orange", "skyblue"))
+```
+
+Gadfly provides many customization options:
+
+```{julia}
+Gadfly.plot(df, x = :Dose, y = :len, color = :Supp, Geom.point,
+    Guide.xlabel("Dose"), Guide.ylabel("Tooth Length"), 
+    Guide.xticks(ticks = [0.5, 1.0, 1.5, 2.0]),
+    Theme(panel_fill = nothing, highlight_width = 0mm, point_size = 0.5mm,
+    key_position = :inside, 
+    grid_line_width = 0mm, panel_stroke = colorant"black"),
+    Geom.line, Geom.errorbar, ymin = :ymin, ymax = :ymax, 
+    Scale.color_discrete_manual("orange", "skyblue"))
+```
+
+## 
