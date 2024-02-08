@@ -6,44 +6,14 @@ project:
   execute-dir: project
 jupyter: julia-1.9
 ---
+
 Adapted from https://ucla-biostat-257.github.io/2023spring/slides/04-juliaplot/juliaplots.html
 
-System information (for reproducibility):
-
-```{julia}
-versioninfo()
-```
-
-```{julia}
-using CSV
-using DataFrames
-```
-
-```{julia}
-#| eval: true
-path = "../data/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2023_1.csv"
-air = CSV.read(path, DataFrame)
-typeof(air)
-```
-
-```{julia}
-#| eval: false
-using Pkg
-Pkg.add("RCall")
-Pkg.build("RCall")
-```
-
-
-```{julia}
-#| label: "load graphics packages"
-#| eval: true
+```{julia "load graphics packages"}
 using Gadfly, Plots, PlotlyJS, PyPlot, Random, RCall
 ```
 
-```{r}
-#| label: "RCall"
-#| eval: true
-
+```{r "RCall"}
 library(ggplot2)
 library(dplyr)
 
@@ -65,8 +35,7 @@ ggplot(df, aes(x = dose, y = len, group = supp, color = supp)) +
 ```
 
 
-```{julia}
-#| label: "prep-data-julia"
+```{julia "prep-data-julia"}
 using RDatasets, DataFramesMeta, Statistics
 df = 
   @chain RDatasets.dataset("datasets", "ToothGrowth") begin
@@ -85,8 +54,9 @@ df
 
 ## Gadfly
 
-```{julia}
-#| label: gadfly
+`Gadfly.jl` is like `ggplot2` in R:
+
+```{julia "gadfly"}
 using Gadfly
 df[!, :ymin] = df[!, :len] - df[!, :se]
 df[!, :ymax] = df[!, :len] + df[!, :se]
@@ -118,4 +88,34 @@ Gadfly.plot(df, x = :Dose, y = :len, color = :Supp, Geom.point,
     Scale.color_discrete_manual("orange", "skyblue"))
 ```
 
-## 
+## Plots.jl
+
+```{julia}
+using Plots, Random
+
+Random.seed!(123) # set seed
+x = cumsum(randn(50, 2), dims=1);
+```
+
+### Plots.jl using `PyPlot` backend
+```{julia}
+# Pkg.add("PyPlot")
+pyplot()  # set the backend to PyPlot
+Plots.plot(x, title="Random walk", xlab="time")
+```
+
+### Plots.jl using `GR` backend
+
+```{julia}
+gr()   # change backend to GR
+Plots.plot(x, title="Random walk", xlab="time")
+```
+
+### Plotly backend
+
+```{julia}
+# Pkg.add("PlotlyJS")
+plotlyjs()  # change backend to PlotlyJS
+Plots.plot(x, title="Random walk", xlab="time")
+```
+
