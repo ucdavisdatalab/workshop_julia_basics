@@ -16,10 +16,13 @@ kernelspec:
 cd("..")
 ```
 
-Reading Files
-=============
+Reading and Writing Data
+========================
 
-Reading a data set is the first step in most analyses.
+In order to use Julia for research computing projects, you'll need to know how
+to read and write data. Julia provides functions to read and write bytes and
+text, while community-contributed packages provide functions to handle a wide
+variety of structured data formats.
 
 
 Navigating File Systems
@@ -38,8 +41,8 @@ that files are where you think they are:
 | `isfile`  | Check whether a path leads to a file |
 | `isdir`   | Check whether a path leads to a file |
 
-The Julia documentation has a [complete list of functions in the
-`Base.Filesystem` module][filesystem].
+The Julia documentation has [a complete list of functions][filesystem] in the
+`Base.Filesystem` module.
 
 [filesystem]: https://docs.julialang.org/en/v1/base/file/
 
@@ -69,8 +72,8 @@ set [here][airline-download].
 Let's try reading the data set into Julia. There's no built-in function to read
 CSV files, but the [CSV.jl][] package provides one. The CSV format is tabular,
 so let's read the data as a data frame (a tabular data structure). In Julia,
-the [DataFrames.jl][] package provides data frames. Install both packages if
-you haven't already, and then load them:
+the [DataFrames.jl][] package provides data frames. Install both packages (if
+you haven't yet), and then load them:
 
 [DataFrames.jl]: https://github.com/JuliaData/DataFrames.jl
 
@@ -154,19 +157,14 @@ a statistical summary of each column:
 describe(air)
 ```
 
-:::{tip}
-You can learn more about how to use data frames from the DataFrames.jl
-[documentation][df-docs] and [cheat sheet][df-cheat].
-:::
-
-[df-docs]: https://dataframes.juliadata.org/
-[df-cheat]: https://www.ahsmart.com/assets/pages/data-wrangling-with-data-frames-jl-cheat-sheet/DataFramesCheatSheet_v1.x_rev1.pdf
+We'll learn more about working with data frames in {numref}`data-frames`.
 
 
-Reading and Writing Formatted Files
------------------------------------
 
-Functions to read and write popular file formats are generally provided by
+Structured Data
+---------------
+
+Functions to read and write structured file formats are generally provided by
 packages rather than built into Julia. Here are a few (find more by searching
 online):
 
@@ -180,6 +178,7 @@ online):
 | HDF5                         | `.hdf5`                 | [HDF5.jl][]
 | JavaScript Object Notation   | `.json`                 | [JSON.jl][]
 | [Apache Parquet][parquet]    | `.parquet`              | [Parquet.jl][]
+| Images                       | `.png`, `.jpg`, ...     | [Images.jl][]
 | Geospatial Raster Data       | `.tiff`, ...            | [ArchGDAL.jl][]
 | [TOML][toml]                 | `.toml`                 | [built-in][toml-jl]
 | Microsoft Excel              | `.xls`, `.xlsx`         | [XLSX.jl][]
@@ -191,6 +190,7 @@ online):
 [CSV.jl]: https://github.com/JuliaData/CSV.jl
 [ArchGDAL.jl]: https://github.com/yeesian/ArchGDAL.jl
 [HDF5.jl]: https://github.com/JuliaIO/HDF5.jl
+[Images.jl]: https://github.com/JuliaImages/Images.jl
 [JSON.jl]: https://github.com/JuliaIO/JSON.jl
 [Parquet.jl]: https://github.com/JuliaIO/Parquet.jl
 [toml-jl]: https://docs.julialang.org/en/v1/stdlib/TOML/
@@ -210,8 +210,8 @@ format. We chose the packages in the table based on popularity and signs of
 active development or maintenance.
 
 
-Reading and Writing Text and Bytes
-----------------------------------
+Text and Bytes
+--------------
 
 Sometimes you might need to read and write text or bytes directly. For example,
 you might need to work with a file that has an obscure or custom format.
@@ -304,57 +304,3 @@ file is always closed, even if something goes wrong in the computation.
 `readchomp`
 -->
 
-(inspecting-dataframe)=
-Inspecting a DataFrame
-----------------------
-
-:::{warning}
-This section is still a work in progress.
-:::
-
-Everything looks good here. To see the bottom of this data, use `last`:
-
-```{code-cell}
-last(air, 5)
-```
-
-One way to get a quick idea of what your data looks like without having to read
-through all the columns and rows is by inspecting its dimensions. You can use
-the `nrow` and `ncol` functions to do this:
-
-```{code-cell}
-nrow(air)
-```
-
-```{code-cell}
-ncol(air)
-```
-
-The `names` function returns the names of a data frame's columns:
-
-```{code-cell}
-names(air)
-```
-
-(summarizing-columns)=
-### Selecting Columns
-
-Individual columns may be selected with **bracket notation**. Put the name of
-the column in quotes and place that inside of square brackets `[]`:
-
-```
-air[!, "FlightDate"]
-```
-
-Finally, you can assign new values to a DataFrame using the same notation as
-above. Below, this code overwrites all the values in the `currency_code`
-column:
-
-```
-banknotes["currency_code"] = "USD"
-banknotes["currency_code"]
-```
-
-The next chapter will return to working with columns, showing you how to
-generate new data from a DataFrame. You'll also learn how to select rows and
-subsets of the data, as well as groups of columns.
