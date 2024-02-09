@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -34,7 +34,7 @@ when the condition is `True`. Code in the body must be indented by 4 spaces.
 For example, suppose you want your code to generate a different greeting
 depending on an input name:
 
-```
+```{code-cell}
 name = "Nick"
 
 # Default greeting
@@ -49,7 +49,7 @@ greeting
 Use the `else` keyword (and a colon `:`) if you want to add an alternative when
 the condition is false. So the previous code can also be written as:
 
-```
+```{code-cell}
 name = "Nick"
 
 if name == "Nick":
@@ -66,7 +66,7 @@ alternative to the first condition that also has its own condition. Only the
 first case where a condition is `True` will run. You can use `elif` as many
 times as you want, and can also use `else`. For example:
 
-```
+```{code-cell}
 name = "Susan"
 
 if name == "Nick":
@@ -85,7 +85,7 @@ and returns `True` only if both are `True`. The `or` keyword combines two
 conditions and returns `True` if either or both are `True`.
 For example:
 
-```
+```{code-cell}
 name1 = "Arthur"
 name2 = "Nick"
 

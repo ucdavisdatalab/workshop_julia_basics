@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>13. Exploring Data &#8212; Julia Basics</title>
+    <title>9. Exploring Data &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/08_iteration-aggregation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. Data Visualization in Python" href="09_visualization.html" />
-    <link rel="prev" title="12. Special Values" href="07_special-values.html" />
+    <link rel="next" title="10. Data Visualization in Python" href="09_visualization.html" />
+    <link rel="prev" title="8. Special Values" href="07_special-values.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -169,34 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">7. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">8. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">9. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">10. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">11. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">12. Special Values</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">14. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">15. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">16. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">17. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">18. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">19. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -350,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -392,19 +377,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">13.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">13.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">13.1.2. Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">9.1.1. Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">9.1.2. Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">13.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">13.2.1. For-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">13.2.2. List Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">9.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">9.2.1. For-Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">9.2.2. List Comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">13.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">13.3.1. Aggregating a Column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">13.3.2. Aggregating within Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">9.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">9.3.1. Aggregating a Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">9.3.2. Aggregating within Groups</a></li>
 </ul>
 </li>
 </ul>
@@ -428,11 +413,11 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="exploring-data">
-<h1><span class="section-number">13. </span>Exploring Data<a class="headerlink" href="#exploring-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Exploring Data<a class="headerlink" href="#exploring-data" title="Permalink to this heading">#</a></h1>
 <p>Now that you have a solid foundation in the basic functions and data structures
 of Python, you can move on to using it for data analysis. In this chapter,
 you’ll learn how to efficiently explore and summarize with visualizations and
@@ -452,38 +437,31 @@ entire sets of data in Pandas DataFrames and Series.</p>
 </ul>
 </div>
 <section id="setup">
-<h2><span class="section-number">13.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <section id="packages">
-<h3><span class="section-number">13.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
 <p>As in the last chapter, you will be working with two primary packages: NumPy
 and Pandas. Later, you will load another set of packages to visualize your
 data.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
 </section>
 <section id="data">
-<h3><span class="section-number">13.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
 <p>We will continue working with the banknotes data set. Once you’ve imported your
 packages, load this data in as well.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/banknotes.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>You’re now ready to go.</p>
 </section>
 </section>
 <section id="iterating-over-data">
-<span id="iteration"></span><h2><span class="section-number">13.2. </span>Iterating Over Data<a class="headerlink" href="#iterating-over-data" title="Permalink to this heading">#</a></h2>
+<span id="iteration"></span><h2><span class="section-number">9.2. </span>Iterating Over Data<a class="headerlink" href="#iterating-over-data" title="Permalink to this heading">#</a></h2>
 <p>Before we go into data exploration in full, it’s important to understand how
 Python/Pandas computes summary statistics about a data set.
-<a class="reference internal" href="24_data-frames.html#summarizing-columns"><span class="std std-numref">Section 4.1.1</span></a> introduced column-wise operations in Pandas; you
+<a class="reference internal" href="22_reading-files.html#summarizing-columns"><span class="std std-numref">Section 2.5.1</span></a> introduced column-wise operations in Pandas; you
 will learn more of them below. These operations are a convenient and efficient
 way to compute multiple results at once, and with only a few lines of code.</p>
 <p>Under the hood, Pandas has to <strong>iterate</strong> over each value in a cell to perform
 operations like <code class="docutils literal notranslate"><span class="pre">.mean</span></code> or <code class="docutils literal notranslate"><span class="pre">.min</span></code>. We can do this too using a <strong>for-loop</strong>.</p>
 <section id="for-loops">
-<h3><span class="section-number">13.2.1. </span>For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
 <p>For-loops iterate over some object and compute something for each element. Each
 one of these computations is one <strong>iteration</strong>. A for-loop begins with the
 <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword, followed by:</p>
@@ -497,33 +475,14 @@ the beginning of each iteration</p></li>
 <p>Code in the body of the loop must be indented by 4 spaces.</p>
 <p>For example, to print out all the column names in <code class="docutils literal notranslate"><span class="pre">banknotes.columns</span></code>, you can
 write:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>Within the indented part of a for-loop, you can compute values, check
 conditions, etc.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;bill_count&quot;</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>Oftentimes you want to save the result of the code you perform within a
 for-loop. The easiest way to do this is by creating an empty list and using
 <code class="docutils literal notranslate"><span class="pre">append</span></code> to add values to it.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">25</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-
-<span class="n">result</span>
-</pre></div>
-</div>
 </section>
 <section id="list-comprehensions">
-<h3><span class="section-number">13.2.2. </span>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this heading">#</a></h3>
 <p>A more efficient and succinct way to perform certain <code class="docutils literal notranslate"><span class="pre">append</span></code> operations is
 with a <strong>list comprehension</strong>. A list comprehension is very similar to a
 for-loop, but it automatically creates a new list based on what your iterations
@@ -534,83 +493,44 @@ code comes <em>before</em> the <code class="docutils literal notranslate"><span 
 expression is enclosed in square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
 <p>Here’s a list comprehension that divides each value in the <code class="docutils literal notranslate"><span class="pre">current_bill_value</span></code>
 column by 2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="p">[</span><span class="n">value</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]]</span>
-</pre></div>
-</div>
 <p>List comprehensions can optionally include the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword and a condition at
 the end, to filter out some elements of the list:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="p">[</span><span class="n">year</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;first_appearance_year&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2012</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>This is similar to subsetting in Pandas.</p>
 <p>Note that you can assign the results of a list comprehension to a new variable
 and then perform further computations on them:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_years</span> <span class="o">=</span> <span class="p">[</span><span class="n">year</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;first_appearance_year&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2012</span><span class="p">]</span>
-<span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">recent_years</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>You can learn more about comprehensions in the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">official Python
 documentation</a>.</p>
 </section>
 </section>
 <section id="aggregate-functions">
-<span id="id1"></span><h2><span class="section-number">13.3. </span>Aggregate Functions<a class="headerlink" href="#aggregate-functions" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2><span class="section-number">9.3. </span>Aggregate Functions<a class="headerlink" href="#aggregate-functions" title="Permalink to this heading">#</a></h2>
 <section id="aggregating-a-column">
-<span id="id2"></span><h3><span class="section-number">13.3.1. </span>Aggregating a Column<a class="headerlink" href="#aggregating-a-column" title="Permalink to this heading">#</a></h3>
-<p>In <a class="reference internal" href="24_data-frames.html#summarizing-columns"><span class="std std-numref">Section 4.1.1</span></a>, you learned how to compute the mean, minimum,
+<span id="id2"></span><h3><span class="section-number">9.3.1. </span>Aggregating a Column<a class="headerlink" href="#aggregating-a-column" title="Permalink to this heading">#</a></h3>
+<p>In <a class="reference internal" href="22_reading-files.html#summarizing-columns"><span class="std std-numref">Section 2.5.1</span></a>, you learned how to compute the mean, minimum,
 and maximum values from a Series. Pandas offers a more generalized way to
 handle these functions through its <code class="docutils literal notranslate"><span class="pre">.aggregate</span></code> method. This method
 <strong>aggregates</strong> the elements of Series, reducing the Series to a smaller number
 of values (usually one value).</p>
 <p>For example, to compute the median of all values in <code class="docutils literal notranslate"><span class="pre">first_appearance_year</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;first_appearance_year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">.agg</span></code> method is an alias for <code class="docutils literal notranslate"><span class="pre">.aggregate</span></code>. The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.aggregate.html">Pandas
 documentation</a> advises that you use the alias:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;first_appearance_year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>You can pass functions to <code class="docutils literal notranslate"><span class="pre">.agg</span></code> in addition to names of functions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;first_appearance_year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>The method is particularly powerful for its ability to handle multiple
 functions at once, using a list. Below, we compute the mean, median, and
 standard deviation for <code class="docutils literal notranslate"><span class="pre">bill_count</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">])</span>
-</pre></div>
-</div>
 <p>Aggregation methods can also work on multiple columns at once:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="p">[[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">,</span> <span class="s2">&quot;scaled_bill_value&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
-</pre></div>
-</div>
 </section>
 <section id="aggregating-within-groups">
-<span id="id3"></span><h3><span class="section-number">13.3.2. </span>Aggregating within Groups<a class="headerlink" href="#aggregating-within-groups" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3><span class="section-number">9.3.2. </span>Aggregating within Groups<a class="headerlink" href="#aggregating-within-groups" title="Permalink to this heading">#</a></h3>
 <p>Aggregation is especially useful when combined with grouping. The <code class="docutils literal notranslate"><span class="pre">.groupby</span></code>
 method groups rows of a DataFrame using the columns you specify. The grouping
 columns should generally be categories rather than decimal numbers. For
 example, to group the banknotes by <code class="docutils literal notranslate"><span class="pre">gender</span></code> and then count how many entries are
 in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>Use bracket notation to look at a specific column for each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>It’s also possible to group by multiple conditions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>By default, the grouping columns are moved to the index of the result. You can
 prevent this by setting <code class="docutils literal notranslate"><span class="pre">as_index</span> <span class="pre">=</span> <span class="pre">False</span></code> in <code class="docutils literal notranslate"><span class="pre">.groupby</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><span class="p">],</span> <span class="n">as_index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can also reset the index on a DataFrame, so that the current indexes
@@ -618,20 +538,12 @@ become columns with the <code class="docutils literal notranslate"><span class="
 </div>
 <p>Leaving the grouping columns in the index is often convenient because you can
 easily access results for the groups you’re interested in:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;profession&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-
-<span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Visual Artist&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>A few aggregation functions only make sense when used together with groups. One
 is the <code class="docutils literal notranslate"><span class="pre">.first</span></code> method, which returns the first element or row. The <code class="docutils literal notranslate"><span class="pre">.first</span></code>
 method is especially useful if all the values in a group are the same and you
 want to reduce the data to one row per group. For instance, the same country
 appears across multiple rows in our data set. With <code class="docutils literal notranslate"><span class="pre">.first</span></code>, you can select the
 corresponding currency code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)[</span><span class="s2">&quot;currency_code&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
-</pre></div>
-</div>
 </section>
 </section>
 </section>
@@ -664,7 +576,7 @@ corresponding currency code:</p>
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="07_special-values.html"
@@ -672,7 +584,7 @@ corresponding currency code:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Special Values</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Special Values</p>
       </div>
     </a>
     <a class="right-next"
@@ -680,7 +592,7 @@ corresponding currency code:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Data Visualization in Python</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data Visualization in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -699,19 +611,19 @@ corresponding currency code:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">13.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">13.1.1. Packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">13.1.2. Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">9.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">9.1.1. Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">9.1.2. Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">13.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">13.2.1. For-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">13.2.2. List Comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-data">9.2. Iterating Over Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">9.2.1. For-Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehensions">9.2.2. List Comprehensions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">13.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">13.3.1. Aggregating a Column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">13.3.2. Aggregating within Groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate-functions">9.3. Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-a-column">9.3.1. Aggregating a Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-within-groups">9.3.2. Aggregating within Groups</a></li>
 </ul>
 </li>
 </ul>
@@ -735,7 +647,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -761,8 +672,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

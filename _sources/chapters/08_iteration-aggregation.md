@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -43,7 +43,7 @@ As in the last chapter, you will be working with two primary packages: NumPy
 and Pandas. Later, you will load another set of packages to visualize your
 data.
 
-```
+```{code-cell}
 import numpy as np
 import pandas as pd
 ```
@@ -54,7 +54,7 @@ import pandas as pd
 We will continue working with the banknotes data set. Once you've imported your
 packages, load this data in as well.
 
-```
+```{code-cell}
 banknotes = pd.read_csv("data/banknotes.csv")
 ```
 
@@ -92,7 +92,7 @@ Code in the body of the loop must be indented by 4 spaces.
 For example, to print out all the column names in `banknotes.columns`, you can
 write:
 
-```
+```{code-cell}
 for column in banknotes.columns:
     print(column)
 ```
@@ -100,7 +100,7 @@ for column in banknotes.columns:
 Within the indented part of a for-loop, you can compute values, check
 conditions, etc.
 
-```
+```{code-cell}
 :tags: [output_scroll]
 for value in banknotes["bill_count"]:
     if value < 1:
@@ -111,7 +111,7 @@ Oftentimes you want to save the result of the code you perform within a
 for-loop. The easiest way to do this is by creating an empty list and using
 `append` to add values to it.
 
-```
+```{code-cell}
 :tags: [output_scroll]
 result = []
 for value in banknotes["current_bill_value"]:
@@ -137,7 +137,7 @@ expression is enclosed in square brackets `[ ]`.
 Here's a list comprehension that divides each value in the `current_bill_value`
 column by 2:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 [value / 2 for value in banknotes["current_bill_value"]]
 ```
@@ -145,7 +145,7 @@ column by 2:
 List comprehensions can optionally include the `if` keyword and a condition at
 the end, to filter out some elements of the list:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 [year for year in banknotes["first_appearance_year"] if year > 2012]
 ```
@@ -155,7 +155,7 @@ This is similar to subsetting in Pandas.
 Note that you can assign the results of a list comprehension to a new variable
 and then perform further computations on them:
 
-```
+```{code-cell}
 recent_years = [year for year in banknotes["first_appearance_year"] if year > 2012]
 np.median(recent_years)
 ```
@@ -182,7 +182,7 @@ of values (usually one value).
 
 For example, to compute the median of all values in `first_appearance_year`:
 
-```
+```{code-cell}
 banknotes["first_appearance_year"].aggregate('median')
 ```
 
@@ -191,13 +191,13 @@ documentation][pandasdocs] advises that you use the alias:
 
 [pandasdocs]: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.aggregate.html
 
-```
+```{code-cell}
 banknotes["first_appearance_year"].agg('median')
 ```
 
 You can pass functions to `.agg` in addition to names of functions:
 
-```
+```{code-cell}
 banknotes["first_appearance_year"].agg(np.median)
 ```
 
@@ -205,13 +205,13 @@ The method is particularly powerful for its ability to handle multiple
 functions at once, using a list. Below, we compute the mean, median, and
 standard deviation for `bill_count`:
 
-```
+```{code-cell}
 banknotes["current_bill_value"].agg([np.mean, np.median, np.std])
 ```
 
 Aggregation methods can also work on multiple columns at once:
 
-```
+```{code-cell}
 banknotes[["current_bill_value", "scaled_bill_value"]].agg(np.mean)
 ```
 
@@ -225,26 +225,26 @@ columns should generally be categories rather than decimal numbers. For
 example, to group the banknotes by `gender` and then count how many entries are
 in each group:
 
-```
+```{code-cell}
 banknotes.groupby("gender").size()
 ```
 
 Use bracket notation to look at a specific column for each group:
 
-```
+```{code-cell}
 banknotes.groupby("gender")["current_bill_value"].mean()
 ```
 
 It's also possible to group by multiple conditions:
 
-```
+```{code-cell}
 banknotes.groupby(["gender", "profession"]).size()
 ```
 
 By default, the grouping columns are moved to the index of the result. You can
 prevent this by setting `as_index = False` in `.groupby`:
 
-```
+```{code-cell}
 banknotes.groupby(["gender", "profession"], as_index = False).size()
 ```
 
@@ -256,7 +256,7 @@ become columns with the `.reset_index` method.
 Leaving the grouping columns in the index is often convenient because you can
 easily access results for the groups you're interested in:
 
-```
+```{code-cell}
 grouped = banknotes.groupby(["gender", "profession"]).size()
 
 grouped.loc[:, "Visual Artist"]
@@ -269,6 +269,6 @@ want to reduce the data to one row per group. For instance, the same country
 appears across multiple rows in our data set. With `.first`, you can select the
 corresponding currency code:
 
-```
+```{code-cell}
 banknotes.groupby("country")["currency_code"].first()
 ```

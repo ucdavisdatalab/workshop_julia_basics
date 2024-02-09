@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -30,7 +30,7 @@ dataset, and are represented by the NumPy `nan` type. This reduces some of the
 nuance of data values and types, but was seemingly done for computational
 performance reasons.
 
-```
+```{code-cell}
 banknotes.iloc[-25]
 ```
 
@@ -46,14 +46,14 @@ about as the return of a function, if something hasn't been defined yet, or if
 something wasn't found.
 
 When creating a Series, we can pass this value:
-```
+```{code-cell}
 pd.Series([None, "one", "two"])
 ```
 
 Be aware that `None` is a Python object, and in the above example, the 
 datatype of the series became 'object'. If we specify a datatype explicitly
 then Pandas will convert it to one of its representations:
-```
+```{code-cell}
 pd.Series([1.5, 2.0, 3, None], dtype="float")
 ```
 
@@ -88,14 +88,14 @@ and `.notna`.
 We can see information about missing values with the `.count` method on 
 DataFrames:
 
-```
+```{code-cell}
 banknotes.count()
 ```
 
 If we look at the `hover_text` columns of the DataFrame, we can see what 
 those missing values look like.
 
-```
+```{code-cell}
 ht = banknotes["hover_text"]
 ht.count()
 ```
@@ -103,14 +103,14 @@ ht.count()
 The return of `.isna` is a Boolean Series indicating which of the values are
 considered missing:
 
-```
+```{code-cell}
 ht.isna()
 ```
 
 The reverse---to see which values are not considered missing---is returned 
 with `.notna`:
 
-```
+```{code-cell}
 ht.notna()
 ```
 
@@ -120,20 +120,20 @@ ht.notna()
 We can use this Boolean Series to subset with `.loc`. For example, to keep only
 the values that aren't missing:
 
-```
+```{code-cell}
 ht.loc[ht.notna()]
 ```
 
 Pandas also provides a shortcut with the `.dropna` method:
 
-```
+```{code-cell}
 ht.dropna()
 ```
 
 Another strategy may be to fill the missing values. We could do so using the 
 `.fillna` method:
 
-```
+```{code-cell}
 ht.fillna(-1, inplace=True)
 ht
 ```
@@ -141,7 +141,7 @@ ht
 Additionally, the data set may have its own indicator for missing values, e.g
 "" or 0. We can convert those to missing using the `.replace` method:
 
-```
+```{code-cell}
 ht.replace(-1, np.nan)
 ```
 

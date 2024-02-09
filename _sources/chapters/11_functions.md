@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -52,7 +52,7 @@ For example, let's create a function that detects negative numbers. It should
 take a Series of numbers as input, compare them to zero, and then return the
 logical result from the comparison as output. Here's the code to do that:
 
-```
+```{code-cell}
 def is_negative(x):
     return x < 0
 ```
@@ -70,7 +70,7 @@ in function names.
 Any time you write a function, the first thing you should do afterwards is test
 that it actually works. Try the `is_negative` function on a few test cases:
 
-```
+```{code-cell}
 import pandas as pd
 
 x = pd.Series([5, -1, -2, 0, 3])
@@ -78,11 +78,11 @@ x = pd.Series([5, -1, -2, 0, 3])
 is_negative(6)
 ```
 
-```
+```{code-cell}
 is_negative(-1.1)
 ```
 
-```
+```{code-cell}
 is_negative(x)
 ```
 
@@ -100,7 +100,7 @@ For example, suppose you want to write a function that gets the largest values
 in a Series. You can make a parameter for the number of values to get, with a
 default argument of `5`. Here's the code and some test cases:
 
-```
+```{code-cell}
 def get_largest(x, n = 5):
     sorted = y.sort_values()
     return sorted.head(n)
@@ -110,7 +110,7 @@ y = pd.Series([-6, 7, 10, 3, 1, 15, -2])
 get_largest(y, 3)
 ```
 
-```
+```{code-cell}
 get_largest(y)
 ```
 
@@ -128,7 +128,7 @@ containers you can use.
 For example, let's make a function that computes the mean and median for a
 vector. We'll return the results in a tuple:
 
-```
+```{code-cell}
 import numpy as np
 
 def compute_mean_med(x):
@@ -188,7 +188,7 @@ is_leap(400)
 is_leap(1997)
 ```
 
-```
+```{code-cell}
 :tags: [remove-cell]
 # If year is divisible by 4 and not 100 -> leap
 # If year is divisible by 400 -> leap

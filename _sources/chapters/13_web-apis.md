@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -72,7 +72,7 @@ formats for the content are:
 
 ### The requests Package
 
-```
+```{code-cell}
 :tags: [remove-cell]
 import requests
 import requests_cache
@@ -83,7 +83,7 @@ requests_cache.install_cache("day4_http_cache")
 The **requests** package provides functions for making HTTP requests from
 Python. You can use requests to make a GET request with the `get` function:
 
-```
+```{code-cell}
 import requests
 
 response = requests.get("https://datalab.ucdavis.edu")
@@ -91,7 +91,7 @@ response = requests.get("https://datalab.ucdavis.edu")
 
 The status code of the response is in the `.status_code` attribute:
 
-```
+```{code-cell}
 response.status_code
 ```
 
@@ -99,7 +99,7 @@ If you want Python to raise an error any time the status code indicates a
 problem, you can use the `.raise_for_status` method. It doesn't do anything if
 the status code is okay:
 
-```
+```{code-cell}
 response.raise_for_status()
 ```
 
@@ -108,7 +108,7 @@ as text in the `.text` attribute. Choose which one to use based on what kind of
 site or file you requested. Web pages (`.html`) are usually text files, so for
 the DataLab site it makes more sense to use `.text` to access the content:
 
-```
+```{code-cell}
 text = response.text
 
 # Only display the first 200 characters
@@ -168,14 +168,14 @@ Wars API is [well-documented][swapi-docs].
 Try making a request to SWAPI's "people" endpoint (the endpoint URL comes from
 the SWAPI documentation):
 
-```
+```{code-cell}
 url = "https://swapi.dev/api/people/1/"
 response = requests.get(url)
 ```
 
 Don't forget to check the status of the response:
 
-```
+```{code-cell}
 response.status_code
 ```
 
@@ -188,7 +188,7 @@ printing the `.text` value to check whether the content looks like text. Byte
 content will usually look like gibberish if you try to display it as text.
 Here's the content of the response:
 
-```
+```{code-cell}
 response.text
 ```
 
@@ -224,13 +224,13 @@ When you know the content of a response is in JSON format, you can use the
 `.json` method on the response to convert it into Python lists and
 dictionaries:
 
-```
+```{code-cell}
 luke = response.json()
 
 luke
 ```
 
-```
+```{code-cell}
 type(luke)
 ```
 
@@ -238,14 +238,14 @@ type(luke)
 
 In this case, the outer object is a dictionary. The keys in the dictionary are:
 
-```
+```{code-cell}
 list(luke.keys())
 ```
 
 These keys describe the included information about Luke. For example, to get
 his eye color, you can use indexing:
 
-```
+```{code-cell}
 luke["eye_color"]
 ```
 
@@ -269,7 +269,7 @@ A good way to work with an endpoint that accepts arguments is to use Python to
 paste the arguments onto the end. For example, this code pastes the number `2`
 onto the end of the string `endpoint`:
 
-```
+```{code-cell}
 endpoint = "https://swapi.dev/api/people/"
 endpoint + str(2)
 ```
@@ -279,7 +279,7 @@ strings together.
 
 Now try getting the information for the person with ID number `2`:
 
-```
+```{code-cell}
 response = requests.get(endpoint + str(2))
 
 # Raise an error if the request failed
@@ -295,7 +295,7 @@ You can make using the endpoint more convenient by writing a Python function
 that takes an ID number as input, makes a request to the endpoint, and then
 returns the result. Here's the code:
 
-```
+```{code-cell}
 def get_swapi_person(id_num):
     endpoint = "https://swapi.dev/api/people/"
 
@@ -311,7 +311,7 @@ def get_swapi_person(id_num):
 As always, when you write a function, it's important to test it out. For
 example:
 
-```
+```{code-cell}
 get_swapi_person(50)
 ```
 

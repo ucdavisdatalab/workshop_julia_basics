@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -34,7 +34,7 @@ important roles:
 
 The index of a series is available via the `index` attribute:
 
-```
+```{code-cell}
 bill_value.index
 ```
 
@@ -47,14 +47,14 @@ subclasses of `Index` for specific purposes, which you can read more about
 Indexes, like tuples, are **immutable**. The labels in an index cannot be
 changed. That said, every index also has a name that _can_ be changed:
 
-```
+```{code-cell}
 bill_value.name = "bill_value"
 bill_value
 ```
 
 The above also applies to DataFrames:
 
-```
+```{code-cell}
 banknotes.index
 ```
 
@@ -62,7 +62,7 @@ Oftentimes, an index is a range of numbers, but this can be changed. The code
 below uses the `.set_index` method to change the index of `banknotes` to
 `country`:
 
-```
+```{code-cell}
 banknotes.set_index("country", inplace = True)
 banknotes.index
 ```
@@ -83,13 +83,13 @@ methods for accessing specific values in Pandas:
 
 To access elements in a series by integer position, use `.iloc`:
 
-```
+```{code-cell}
 bill_value.iloc[5]
 ```
 
 Using `.iloc` is extensible to sequences of values:
 
-```
+```{code-cell}
 bill_value.iloc[[5, 15, 25, 35]]
 ```
 
@@ -97,26 +97,26 @@ Use a **slice** to select a range of elements. The syntax for a slice is
 `start:stop:step`, with the second colon `:` and arguments being optional. This
 syntax also applies to lists. For example:
 
-```
+```{code-cell}
 bill_value.iloc[0:5]
 ```
 
 Below, we use a slice to get every twentieth element in the Series:
 
-```
+```{code-cell}
 bill_value.iloc[::20]
 ```
 
 Slices also accept negative values. This counts back from the end of a
 sequence. For instance:
 
-```
+```{code-cell}
 bill_value.iloc[-5:]
 ```
 
 The result is the same as if you had used the `.tail` method:
 
-```
+```{code-cell}
 bill_value.tail()
 ```
 
@@ -126,21 +126,21 @@ bill_value.tail()
 
 Use `.loc` to index a Series or DataFrame by label:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 banknotes.loc["Peru"]
 ```
 
 You can select specific columns as well:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 banknotes.loc["Peru", "name"]
 ```
 
 Just as with `.iloc`, it's possible to pass sequences into `.loc`:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 banknotes.loc[["Peru", "Serbia", "Ukraine"]]
 ```
@@ -150,20 +150,20 @@ labels are integers, as with the `bill_value` data.
 
 For example, this:
 
-```
+```{code-cell}
 bill_value.loc[0:5]
 ```
 
 Is *NOT* the same as this:
 
-```
+```{code-cell}
 bill_value.iloc[0:5]
 ```
 
 Recall that bracket notation selects columns in DataFrames. With a Series, the
 same notation acts as another way to perform `.loc` operations:
 
-```
+```{code-cell}
 bill_value[0:5]
 ```
 
@@ -171,7 +171,7 @@ Finally, `.iloc` and `.loc` can be used in tandem with one another. This is
 called **chaining**. Below, we use the country-indexed `banknotes` DataFrame to
 select all rows with "Peru." Then, we select the second row from this subset.
 
-```
+```{code-cell}
 banknotes.loc["Peru"].iloc[1]
 ```
 
@@ -187,7 +187,7 @@ For example, suppose you want to find bill values that are divisible by 25. You
 can use the modulo operator `%` to get the remainder when one positive integer
 is divided by another. So the condition to test for divisibility by 25 is:
 
-```
+```{code-cell}
 bill_value % 25 == 0
 ```
 
@@ -195,7 +195,7 @@ The result is a Boolean Series with as many elements as `bill_value`. You can
 use this condition in `.loc` to get only the elements where the result was
 `True`:
 
-```
+```{code-cell}
 bill_value.loc[bill_value % 25 == 0]
 ```
 
@@ -205,27 +205,27 @@ This is a **subset** of the Series.
 
 You can also use square brackets `[]` without `.loc` to index by condition:
 
-```
+```{code-cell}
 bill_value[bill_value - 100 > 5]
 ```
 
 With a DataFrame, indexing by condition gives you a subset of the rows:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 banknotes[banknotes["currency_code"] == "MWK"]
 ```
 
 If you want to specify specific columns, use `.loc`:
 
-```
+```{code-cell}
 banknotes.loc[banknotes["current_bill_value"] == 10.0, "currency_name"]
 ```
 
 The above lets you select multiple columns, but you could also do the
 following:
 
-```
+```{code-cell}
 cols = ["currency_code", "currency_name"]
 banknotes[cols].loc[banknotes["current_bill_value"] == 10.0]
 ```

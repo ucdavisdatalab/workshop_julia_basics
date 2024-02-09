@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -139,7 +139,7 @@ wildcard character `*`. Generally you shouldn't do this, because objects in a
 module will overwrite objects in your code if they have the same name. However,
 the plotnine package was designed to be imported this way:
 
-```
+```{code-cell}
 from plotnine import *
 ```
 
@@ -152,7 +152,7 @@ visualizations. If you're going to use visualization packages that depend on
 Matplotlib (such as plotnine), it's a good idea to set up your notebook by
 running:
 
-```
+```{code-cell}
 # Initialize matplotlib
 import matplotlib.pyplot as plt
 
@@ -188,7 +188,7 @@ reassign the altered data to a new variable.
 
 **Death year**
 
-```
+```{code-cell}
 no_death = banknotes["death_year"].isin([np.nan, "-"])
 to_plot = banknotes[no_death == False].copy()
 to_plot["death_year"] = to_plot["death_year"].astype(int)
@@ -196,7 +196,7 @@ to_plot["death_year"] = to_plot["death_year"].astype(int)
 
 **Scaled bill value**
 
-```
+```{code-cell}
 no_scaled = to_plot["scaled_bill_value"].isna()
 to_plot = to_plot[no_scaled == False]
 ```
@@ -248,7 +248,7 @@ sets we work with are tidy.
 
 To set up the data layer, call the ``ggplot` function on a Data Frame:
 
-```
+```{code-cell}
 ggplot(to_plot)
 ```
 
@@ -267,7 +267,7 @@ a function for each geometry, always prefixed with `geom_`.
 To add a geometry layer to the plot, choose the `geom_` function you want and
 add it to the plot with the `+` operator:
 
-```
+```{code-cell}
 :tags: [raises-exception]
 ggplot(to_plot) + geom_point()
 ```
@@ -307,7 +307,7 @@ Notice however that the aesthetic layer is not added to the plot with the `+`
 operator. Instead, it is passed as the second argument to the `ggplot`
 function:
 
-```
+```{code-cell}
 ggplot(
     to_plot,
     aes(x = "death_year", y = "scaled_bill_value")
@@ -321,7 +321,7 @@ applies to the entire plot. You can also set an aesthetic layer individually
 for each geometry by passing the layer as the first argument in the `geom_`
 function:
 
-```
+```{code-cell}
 (ggplot(to_plot) +
     geom_point(aes(x = "death_year", y = "scaled_bill_value"))
 )
@@ -338,7 +338,7 @@ This is really only useful when you have multiple geometries. As an example,
 let's color-code the points by gender. To do so, we need to convert `gender` to
 *categorical* data, which measures a qualitative category.
 
-```
+```{code-cell}
 (ggplot(to_plot) +
     geom_point(aes(x = "death_year", y = "scaled_bill_value", color = "factor(gender)"))
 )
@@ -347,7 +347,7 @@ let's color-code the points by gender. To do so, we need to convert `gender` to
 Now let's add labels to each point. To do this, we need to add another
 geometry:
 
-```
+```{code-cell}
 (ggplot(to_plot,
     aes(x = "death_year", y = "scaled_bill_value", color = "factor(gender)",
         label = "name")) +
@@ -358,7 +358,7 @@ geometry:
 
 Where you put the aesthetics matters:
 
-```
+```{code-cell}
 (ggplot(to_plot,
     aes(x = "death_year", y = "scaled_bill_value", label = "name")) + 
     geom_point() + 
@@ -373,7 +373,7 @@ data dependent, do so in the geometry layer rather than the aesthetic layer.
 For instance, suppose you want to use point shape rather than color to indicate
 gender, and you want to make all of the points blue.
 
-```
+```{code-cell}
 (ggplot(to_plot,
     aes(x = "death_year", y = "scaled_bill_value", shape = "factor(gender)")) +
     geom_point(color = "blue")
@@ -383,7 +383,7 @@ gender, and you want to make all of the points blue.
 If you set an aesthetic to a constant value inside of the aesthetic layer, the
 results you get might not be what you expect:
 
-```
+```{code-cell}
 :tags: [raises-exception]
 (ggplot(to_plot,
     aes(x = "death_year", y = "scaled_bill_value", shape = "factor(gender)",
@@ -402,7 +402,7 @@ all of them.
 The `labs` function is especially important, because it's used to set the title
 and axis labels. All graphs need a title and axis labels.
 
-```
+```{code-cell}
 (ggplot(to_plot,
     aes(x = "death_year", y = "scaled_bill_value", shape = "factor(gender)")) + 
     geom_point() +
@@ -446,7 +446,7 @@ when used in conjunction with the `factor()` syntax from above.
 We can also use a fill color to further breakdown the bars by gender. Here's
 the code to make the bar plot:
 
-```
+```{code-cell}
 (ggplot(to_plot,
     aes(x = "factor(profession)", fill = "factor(gender)")) +
     geom_bar(position = "dodge") + 

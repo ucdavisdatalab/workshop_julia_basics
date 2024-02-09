@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>18. Surfing the Web &#8212; Julia Basics</title>
+    <title>14. Surfing the Web &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/13_web-apis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="19. Loops" href="14_more-iteration.html" />
-    <link rel="prev" title="17. Appendix" href="12_more-data-structures.html" />
+    <link rel="next" title="15. Loops" href="14_more-iteration.html" />
+    <link rel="prev" title="13. Appendix" href="12_more-data-structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -169,34 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">7. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">8. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">9. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">10. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">11. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">12. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">13. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">14. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">15. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">16. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">17. Appendix</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">19. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -350,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -392,11 +377,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">18.1. The requests Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.2. Request Etiquette</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">18.3. Web APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">18.4. JavaScript Object Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">18.5. Using Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">14.1. The requests Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.2. Request Etiquette</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">14.3. Web APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">14.4. JavaScript Object Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">14.5. Using Endpoints</a></li>
 </ul>
             </nav>
         </div>
@@ -418,11 +403,11 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="surfing-the-web">
-<h1><span class="section-number">18. </span>Surfing the Web<a class="headerlink" href="#surfing-the-web" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">14. </span>Surfing the Web<a class="headerlink" href="#surfing-the-web" title="Permalink to this heading">#</a></h1>
 <p>The <strong>hypertext transfer protocol</strong> (HTTP) is a set of rules for communication
 between computers on a network. HTTP has a request-response model:</p>
 <ol class="arabic simple">
@@ -500,50 +485,26 @@ formats for the content are:</p>
 <li><p>JavaScript Object Notation (JSON)</p></li>
 </ul>
 <section id="the-requests-package">
-<h2><span class="section-number">18.1. </span>The requests Package<a class="headerlink" href="#the-requests-package" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">requests_cache</span>
-
-<span class="n">requests_cache</span><span class="o">.</span><span class="n">install_cache</span><span class="p">(</span><span class="s2">&quot;day4_http_cache&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<h2><span class="section-number">14.1. </span>The requests Package<a class="headerlink" href="#the-requests-package" title="Permalink to this heading">#</a></h2>
 <p>The <strong>requests</strong> package provides functions for making HTTP requests from
 Python. You can use requests to make a GET request with the <code class="docutils literal notranslate"><span class="pre">get</span></code> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://datalab.ucdavis.edu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>The status code of the response is in the <code class="docutils literal notranslate"><span class="pre">.status_code</span></code> attribute:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
-</pre></div>
-</div>
 <p>If you want Python to raise an error any time the status code indicates a
 problem, you can use the <code class="docutils literal notranslate"><span class="pre">.raise_for_status</span></code> method. It doesn’t do anything if
 the status code is okay:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>The content of the response is stored as bytes in the <code class="docutils literal notranslate"><span class="pre">.contents</span></code> attribute and
 as text in the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute. Choose which one to use based on what kind of
 site or file you requested. Web pages (<code class="docutils literal notranslate"><span class="pre">.html</span></code>) are usually text files, so for
 the DataLab site it makes more sense to use <code class="docutils literal notranslate"><span class="pre">.text</span></code> to access the content:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-
-<span class="c1"># Only display the first 200 characters</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>
-</pre></div>
-</div>
 </section>
 <section id="id1">
-<h2><span class="section-number">18.2. </span>Request Etiquette<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>Request Etiquette<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Making an HTTP request is not free. It has a real cost in CPU time and
 electricity. Server administrators will not appreciate it if you make too many
 requests or make requests too quickly. So:</p>
 <ul class="simple">
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">time.sleep</span></code> function to slow down any requests you make in a loop
-(<a class="reference internal" href="14_more-iteration.html#loops"><span class="std std-numref">Section 19</span></a> explains loops). Aim for no more than 20-30 requests per
+(<a class="reference internal" href="14_more-iteration.html#loops"><span class="std std-numref">Section 15</span></a> explains loops). Aim for no more than 20-30 requests per
 second.</p></li>
 <li><p>Install and use the <strong>requests_cache</strong> package to avoid downloading extra
 data when you make the same request twice.</p></li>
@@ -560,7 +521,7 @@ data when you make the same request twice.</p></li>
 </div>
 </section>
 <section id="web-apis">
-<h2><span class="section-number">18.3. </span>Web APIs<a class="headerlink" href="#web-apis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>Web APIs<a class="headerlink" href="#web-apis" title="Permalink to this heading">#</a></h2>
 <p>An <strong>application programming interface</strong> (API) is a collection of functions and
 data structures for communicating with other software. For instance, whenever
 you use a Python package, you’re using the API created by the package’s
@@ -580,14 +541,7 @@ how to use a web API is to read its documentation, and fortunately the Star
 Wars API is <a class="reference external" href="https://swapi.dev/documentation">well-documented</a>.</p>
 <p>Try making a request to SWAPI’s “people” endpoint (the endpoint URL comes from
 the SWAPI documentation):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/1/&quot;</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>Don’t forget to check the status of the response:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
-</pre></div>
-</div>
 <p>A 200 status code means the request was successful, so the next step is to take
 a look at the content of the response.</p>
 <p>Unless you’ve already read through the SWAPI documentation, you probably don’t
@@ -595,18 +549,15 @@ know whether the content will be bytes or text. When you’re unsure, you can tr
 printing the <code class="docutils literal notranslate"><span class="pre">.text</span></code> value to check whether the content looks like text. Byte
 content will usually look like gibberish if you try to display it as text.
 Here’s the content of the response:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-</div>
 <p>This is text about Luke Skywalker. In fact, according to the SWAPI
 documentation, all of the SWAPI endpoints return text.</p>
 <p>Although the response content is text, it isn’t ordinary English text. It’s
 full of curly braces, square brackets, quotes, and other punctuation. If you
-think back to the beginning (<a class="reference internal" href="12_more-data-structures.html#containers"><span class="std std-numref">Section 17.1</span></a>) of this chapter, the way the
+think back to the beginning (<a class="reference internal" href="12_more-data-structures.html#containers"><span class="std std-numref">Section 13.1</span></a>) of this chapter, the way the
 punctuation is arranged might start to look familiar…</p>
 </section>
 <section id="javascript-object-notation">
-<h2><span class="section-number">18.4. </span>JavaScript Object Notation<a class="headerlink" href="#javascript-object-notation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.4. </span>JavaScript Object Notation<a class="headerlink" href="#javascript-object-notation" title="Permalink to this heading">#</a></h2>
 <p>The response content looks a lot like Python lists and dictionaries! The
 response is not actually Python code, but it <em>is</em> JavaScript code. In
 JavaScript, lists and dictionaries are written the same way as in Python. The
@@ -625,29 +576,15 @@ in JSON format.</p>
 <p>When you know the content of a response is in JSON format, you can use the
 <code class="docutils literal notranslate"><span class="pre">.json</span></code> method on the response to convert it into Python lists and
 dictionaries:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">luke</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-<span class="n">luke</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">luke</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>In this case, the outer object is a dictionary. The keys in the dictionary are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">luke</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
-</div>
 <p>These keys describe the included information about Luke. For example, to get
 his eye color, you can use indexing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">luke</span><span class="p">[</span><span class="s2">&quot;eye_color&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Sometimes data in JSON format will contain several layers of dictionaries and
 lists. Remember that you can use indexing with square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> to
 navigate these.</p>
 </section>
 <section id="using-endpoints">
-<h2><span class="section-number">18.5. </span>Using Endpoints<a class="headerlink" href="#using-endpoints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.5. </span>Using Endpoints<a class="headerlink" href="#using-endpoints" title="Permalink to this heading">#</a></h2>
 <p>The SWAPI endpoint <code class="docutils literal notranslate"><span class="pre">/people/</span></code> returns information in JSON format about
 different people in the Star Wars universe. An ID number after <code class="docutils literal notranslate"><span class="pre">/people/</span></code>
 determines the person for which the endpoint returns information. Think of the
@@ -659,43 +596,15 @@ number is <code class="docutils literal notranslate"><span class="pre">1</span><
 <p>A good way to work with an endpoint that accepts arguments is to use Python to
 paste the arguments onto the end. For example, this code pastes the number <code class="docutils literal notranslate"><span class="pre">2</span></code>
 onto the end of the string <code class="docutils literal notranslate"><span class="pre">endpoint</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/&quot;</span>
-<span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> function converts the ID number into a string, and <code class="docutils literal notranslate"><span class="pre">+</span></code> pastes the two
 strings together.</p>
 <p>Now try getting the information for the person with ID number <code class="docutils literal notranslate"><span class="pre">2</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="c1"># Raise an error if the request failed</span>
-<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-
-<span class="n">person</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">person</span>
-</pre></div>
-</div>
 <p>So the “person” with ID number <code class="docutils literal notranslate"><span class="pre">2</span></code> is actually the android C3-PO.</p>
 <p>You can make using the endpoint more convenient by writing a Python function
 that takes an ID number as input, makes a request to the endpoint, and then
 returns the result. Here’s the code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_swapi_person</span><span class="p">(</span><span class="n">id_num</span><span class="p">):</span>
-    <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://swapi.dev/api/people/&quot;</span>
-
-    <span class="c1"># Note that &#39;id_num&#39; replaces &#39;2&#39;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">id_num</span><span class="p">))</span>
-
-    <span class="c1"># Raise an error if the request failed</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>As always, when you write a function, it’s important to test it out. For
 example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_swapi_person</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>When you’re working with a web API, it’s generally a good idea to create
 <strong>wrapper functions</strong>, like <code class="docutils literal notranslate"><span class="pre">get_swapi_person</span></code>, that turn each endpoint into an
 actual Python function by wrapping up (or encapsulating) the requests code.</p>
@@ -730,7 +639,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="12_more-data-structures.html"
@@ -738,7 +647,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Appendix</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Appendix</p>
       </div>
     </a>
     <a class="right-next"
@@ -746,7 +655,7 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Loops</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -765,11 +674,11 @@ actual Python function by wrapping up (or encapsulating) the requests code.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">18.1. The requests Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.2. Request Etiquette</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">18.3. Web APIs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">18.4. JavaScript Object Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">18.5. Using Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-package">14.1. The requests Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.2. Request Etiquette</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-apis">14.3. Web APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-object-notation">14.4. JavaScript Object Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-endpoints">14.5. Using Endpoints</a></li>
 </ul>
   </nav></div>
 
@@ -791,7 +700,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -817,8 +725,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

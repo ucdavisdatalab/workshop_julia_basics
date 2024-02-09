@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -43,7 +43,7 @@ We will be working with two packages in this chapter, NumPy and Pandas. Start
 by using what you learned in {numref}`modules` to load these packages with
 their conventional aliases:
 
-```
+```{code-cell}
 import numpy as np
 import pandas as pd
 ```
@@ -56,7 +56,7 @@ tabular dataset into a DataFrame. As an example, you saw how to load the
 banknotes dataset. You'll need that dataset for the examples in this chapter as
 well, so load a fresh copy of it:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 banknotes = pd.read_csv("data/banknotes.csv")
 banknotes.head()
@@ -84,7 +84,7 @@ Recall that you can select a single column from a DataFrame with the square
 brackets `[ ]`. Select the `current_bill_value` column from the banknotes
 dataset:
 
-```
+```{code-cell}
 banknotes["current_bill_value"]
 ```
 
@@ -106,7 +106,7 @@ both allow you to:
 You'll be working with the `current_bill_value` column for the next few
 examples, so go ahead and assign it to a variable:
 
-```
+```{code-cell}
 bill_value = banknotes["current_bill_value"]
 ```
 
@@ -119,7 +119,7 @@ positions. The 1st element in `bill_value` is `100`, the 2nd element is again
 You can get the length of a Series and many other types of objects with
 Python's built-in `len` function:
 
-```
+```{code-cell}
 len(bill_value)
 ```
 
@@ -128,11 +128,11 @@ Metadata can usually be accessed through attributes (see
 {numref}`objects-attributes`). Here are a few examples of metadata this Series
 contains (more on this later):
 
-```
+```{code-cell}
 bill_value.name
 ```
 
-```
+```{code-cell}
 bill_value.shape
 ```
 
@@ -161,7 +161,7 @@ out anywhere it's important to use a NumPy array.
 
 You can convert a Series to an array with the `.to_numpy` method:
 
-```
+```{code-cell}
 bill_value.to_numpy()
 ```
 
@@ -180,7 +180,7 @@ kind of container, and you don't need to load any modules in order to use them.
 You can make a list by enclosing comma-separated values in square brackets
 `[]`, like this:
 
-```
+```{code-cell}
 x = [1, 2, 3]
 x
 ```
@@ -189,20 +189,20 @@ Like a Series, a list is ordered, so it has a first element, second element,
 and so on up to the length of the list. You can get the length of a list with
 the `len` function:
 
-```
+```{code-cell}
 len(x)
 ```
 
 
 Lists can be empty:
 
-```
+```{code-cell}
 []
 ```
 
 You can convert many types objects into lists with the `list` function:
 
-```
+```{code-cell}
 :tags: [output_scroll]
 list(bill_value)
 ```
@@ -211,7 +211,7 @@ Unlike a Series, the elements of a list can be qualitatively different. There
 is no expectation that they will be homogeneous. For instance, this list
 contains a number, string, and another list (with one element):
 
-```
+```{code-cell}
 li = [8, "hello", [4.2]]
 li
 ```
@@ -246,27 +246,27 @@ you want to get. For DataFrames, you used column names as the index. For a
 list, you can use a position. So the code to get the first element of the list
 `li` is:
 
-```
+```{code-cell}
 li[0]
 ```
 
 Likewise, to get the third element:
 
-```
+```{code-cell}
 li[2]
 ```
 
 The same idea extends to containers stored inside of other containers. For
 example, to get the value stored in the list inside of `x`:
 
-```
+```{code-cell}
 li[2][0]
 ```
 
 You can set the element of a list by assigning a value at that index. So the
 code to change the first element of `x` to the string "hi" is:
 
-```
+```{code-cell}
 li[0] = "hi"
 li
 ```
@@ -279,7 +279,7 @@ Assigning elements of a container is not without complication. Suppose you
 assign a list to a variable `x` and then create a new variable, `y`, from `x`.
 If you change an element of `y`, it will also change `x`:
 
-```
+```{code-cell}
 x = [1, 2]
 y = x
 y[0] = 10
@@ -302,7 +302,7 @@ If you want to assign an independent copy of a container to a variable rather
 than a reference, you need to use a function or method to explicitly make a
 copy. Many containers have a `.copy` method that makes a copy:
 
-```
+```{code-cell}
 x = [1, 2]
 y = x.copy()
 y[0] = 10
@@ -321,13 +321,13 @@ elements.
 You can make a tuple by enclosing comma-separated values in parentheses `()`,
 like this:
 
-```
+```{code-cell}
 (1, 2)
 ```
 
 You can also convert another container into a tuple with the `tuple` function:
 
-```
+```{code-cell}
 x = [1, 2]
 y = x
 x = tuple(x)
@@ -360,25 +360,25 @@ check the type of an object in Python, use the built-in `type` function. Recall
 you used this function to check the type of the banknotes DataFrame in
 {numref}`inspecting-dataframe`:
 
-```
+```{code-cell}
 type(banknotes)
 ```
 
 Take a look at the types of a few other objects:
 
-```
+```{code-cell}
 type(bill_value)
 ```
 
-```
+```{code-cell}
 type(bill_value[0])
 ```
 
-```
+```{code-cell}
 type("hi")
 ```
 
-```
+```{code-cell}
 type(x)
 ```
 
@@ -397,21 +397,21 @@ The same is true for the NumPy arrays.
 in a Pandas object: by calling the `.info` method. In the printout, the element
 types are listed in the `Dtype` column:
 
-```
+```{code-cell}
 banknotes.info()
 ```
 
 The column label `Dtype` is short for "data types". You can also access the
 element types for a DataFrame with the `.dtypes` attribute:
 
-```
+```{code-cell}
 banknotes.dtypes
 ```
 
 For a Series or NumPy array, you can instead use `.dtype` to get the element
 type:
 
-```
+```{code-cell}
 bill_value.dtype
 ```
 
@@ -439,7 +439,7 @@ For most of the built-in types, you can explicitly construct an object with
 that type by calling the function with the same name as the type. For instance,
 here's a way to construct an integer (type `int`):
 
-```
+```{code-cell}
 n = int(4)
 type(n)
 ```
@@ -447,7 +447,7 @@ type(n)
 This example is a bit silly, since you could just write `4` instead of `int(4)`
 and you'd still get an integer:
 
-```
+```{code-cell}
 n = 4
 type(n)
 ```
@@ -455,12 +455,12 @@ type(n)
 That said, suppose you want to construct an integer from a decimal number:
 
 
-```
+```{code-cell}
 n = int(4.67)
 type(n)
 ```
 
-```
+```{code-cell}
 n
 ```
 
@@ -470,12 +470,12 @@ decimal point are removed.
 Decimal numbers like `4.67` are better represented by a floating point number,
 or `float`. Use this when you need decimal precision of any kind:
 
-```
+```{code-cell}
 n = 4.67
 type(n)
 ```
 
-```
+```{code-cell}
 n
 ```
 
@@ -497,7 +497,7 @@ attributes and methods associated with them.
 
 Recall that you can use double `"` or single `'` quotes to construct a string:
 
-```
+```{code-cell}
 "Hello, world!"
 ```
 
@@ -505,7 +505,7 @@ In Pandas and NumPy, strings usually associated with the `object` data type
 (printed as `object` or `O`). For example, look at the `names` column in the
 `banknotes` data:
 
-```
+```{code-cell}
 banknotes["name"]
 ```
 
@@ -513,18 +513,18 @@ The `object` data type is provided as a catch-all for non-numeric data
 types. For example, if you create a Series from several different types of
 data, Pandas will choose `object` as the element type:
 
-```
+```{code-cell}
 mixed = pd.Series(["hi", 1, True])
 mixed
 ```
 
 The individual elements of an `object` Series retain their original data types:
 
-```
+```{code-cell}
 type(mixed[0])
 ```
 
-```
+```{code-cell}
 type(mixed[2])
 ```
 
@@ -561,7 +561,7 @@ Although `bool`, `int`, and `float` are different types, in most situations
 Python will automatically convert between them as needed. For example, you can
 multiply a floating point number by an integer and then add a Boolean value:
 
-```
+```{code-cell}
 n = 3.1 * 2 + True
 n
 ```
@@ -572,7 +572,7 @@ number and added to `6.2`. In Python and most other programming languages,
 `False` corresponds to `0` and `True` corresponds to `1`. Thus the result is
 `7.2`, a floating point number:
 
-```
+```{code-cell}
 type(n)
 ```
 
@@ -584,7 +584,7 @@ Implicit coercion usually only applies to numeric types (including Boolean
 values). Mixing other types will usually cause an error. For instance, you
 can't add a number to a string:
 
-```
+```{code-cell}
 :tags: [raises-exception]
 "hi" + 1
 ```
@@ -592,7 +592,7 @@ can't add a number to a string:
 Implicit coercion also works for numeric Pandas/NumPy types. For example, you
 can multiply `bill_value` by one and a half times its current value:
 
-```
+```{code-cell}
 bill_value * 1.5
 ```
 
@@ -603,28 +603,28 @@ Notice that the `dtype` has changed from `int64` to `float64`.
 another. You already saw examples of this with the `int` and `float` functions
 in {numref}`data-types`. Here are a few more:
 
-```
+```{code-cell}
 bool(0)
 ```
 
-```
+```{code-cell}
 str(105)
 ```
 
 Python can even convert strings into numbers and Boolean values:
 
-```
+```{code-cell}
 float("7.3")
 ```
 
-```
+```{code-cell}
 bool("True")
 ```
 
 Note however that such operations have to be logically sound. This will not
 work:
 
-```
+```{code-cell}
 :tags: [raises-exception]
 int("Hello world!")
 ```
@@ -634,7 +634,7 @@ the elements to a specific type. Pass the name of the target type to the method
 as a string. For example, here's how to convert the `bill_value` elements to
 `float64`:
 
-```
+```{code-cell}
 bill_value.astype("float64")
 ```
 
@@ -650,14 +650,14 @@ the number of bits of memory used to store a value of that type.
 For example, a single value with type `int64` uses 64 bits of memory. So the
 `int64` series `bill_value` uses about 64 bits per element, for a total of:
 
-```
+```{code-cell}
 64 * len(bill_value) # bits
 ```
 
 In contrast, Python's built-in data types don't specify how much memory they
 use:
 
-```
+```{code-cell}
 type(3)
 ```
 
@@ -681,7 +681,7 @@ irrational numbers, like pi. Ultimately, your computer has to represent such
 numbers with decimal values, so the number of decimal places a variable can
 hold will affect what pi "means" in your code:
 
-```
+```{code-cell}
 np.pi
 ```
 
@@ -697,23 +697,23 @@ whether to get better hardware or to change your computing strategy.
 (booleans)=
 ### Booleans
 
-```
+```{code-cell}
 sum(bill_value) < 10000
 ```
 
-```
+```{code-cell}
 bill_value == banknotes["current_bill_value"]
 ```
 
-```
+```{code-cell}
 bill_value % 25 != 0
 ```
 
-```
+```{code-cell}
 banknotes["has_portrait"]
 ```
 
-```
+```{code-cell}
 coded_in_java = False
 type(coded_in_java)
 ```

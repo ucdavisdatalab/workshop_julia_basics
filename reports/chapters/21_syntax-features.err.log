@@ -18,19 +18,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-using CSV
-using DataFrames
+# Template
+for i = 1:length(x)
+  x[i] = f(x[i])
+end
+
+# Example
+x = rand(10)
+for i = 1:length(x)
+  x[i] = x[i] + sqrt(x[i])
+end
 ------------------
 
 
-ArgumentError: Package CSV not found in current path.
-- Run `import Pkg; Pkg.add("CSV")` to install the CSV package.
+UndefVarError: `f` not defined
 
 Stacktrace:
- [1] macro expansion
-   @ ./loading.jl:1630 [inlined]
- [2] macro expansion
-   @ ./lock.jl:267 [inlined]
- [3] require(into::Module, mod::Symbol)
-   @ Base ./loading.jl:1611
+ [1] top-level scope
+   @ ./In[13]:3
 

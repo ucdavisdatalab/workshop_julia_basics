@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>15. Organizing Code &#8212; Julia Basics</title>
+    <title>11. Organizing Code &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10_if-statements';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16. Functions" href="11_functions.html" />
-    <link rel="prev" title="14. Data Visualization in Python" href="09_visualization.html" />
+    <link rel="next" title="12. Functions" href="11_functions.html" />
+    <link rel="prev" title="10. Data Visualization in Python" href="09_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -169,34 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">7. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">8. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">9. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">10. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">11. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">12. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">13. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">14. Data Visualization in Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">16. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">17. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">18. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">19. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -350,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -392,7 +377,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">15.1. Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">11.1. Conditional Statements</a></li>
 </ul>
             </nav>
         </div>
@@ -414,11 +399,11 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="organizing-code">
-<h1><span class="section-number">15. </span>Organizing Code<a class="headerlink" href="#organizing-code" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Organizing Code<a class="headerlink" href="#organizing-code" title="Permalink to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <ul class="simple">
@@ -427,7 +412,7 @@ kernelspec:
 </ul>
 </div>
 <section id="conditional-statements">
-<h2><span class="section-number">15.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you’ll need code to do different things depending on a condition. You
 can use an <strong>if-statement</strong> to write conditional code.</p>
 <p>An if-statement begins with the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword, followed by a condition and a
@@ -436,62 +421,17 @@ colon <code class="docutils literal notranslate"><span class="pre">:</span></cod
 when the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. Code in the body must be indented by 4 spaces.</p>
 <p>For example, suppose you want your code to generate a different greeting
 depending on an input name:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
-
-<span class="c1"># Default greeting</span>
-<span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
-
-<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
-    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
-
-<span class="n">greeting</span>
-</pre></div>
-</div>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword (and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>) if you want to add an alternative when
 the condition is false. So the previous code can also be written as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
-
-<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
-    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># Default greeting</span>
-    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
-
-<span class="n">greeting</span>
-</pre></div>
-</div>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword with a condition (and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>) if you want to add an
 alternative to the first condition that also has its own condition. Only the
 first case where a condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> will run. You can use <code class="docutils literal notranslate"><span class="pre">elif</span></code> as many
 times as you want, and can also use <code class="docutils literal notranslate"><span class="pre">else</span></code>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Susan&quot;</span>
-
-<span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
-   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hi Nick, nice to see you again!&quot;</span>
-<span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Peter&quot;</span><span class="p">:</span>
-   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Go away Peter, I&#39;m busy!&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-   <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Nice to meet you!&quot;</span>
-
-<span class="n">greeting</span>
-</pre></div>
-</div>
 <p>You can create compound conditions with the keywords <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>. The
 <code class="docutils literal notranslate"><span class="pre">not</span></code> keyword inverts a condition. The <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword combines two conditions
 and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if both are <code class="docutils literal notranslate"><span class="pre">True</span></code>. The <code class="docutils literal notranslate"><span class="pre">or</span></code> keyword combines two
 conditions and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if either or both are <code class="docutils literal notranslate"><span class="pre">True</span></code>.
 For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name1</span> <span class="o">=</span> <span class="s2">&quot;Arthur&quot;</span>
-<span class="n">name2</span> <span class="o">=</span> <span class="s2">&quot;Nick&quot;</span>
-
-<span class="k">if</span> <span class="n">name1</span> <span class="o">==</span> <span class="s2">&quot;Arthur&quot;</span> <span class="ow">and</span> <span class="n">name2</span> <span class="o">==</span> <span class="s2">&quot;Nick&quot;</span><span class="p">:</span>
-  <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;These are the authors.&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Who are these people?!&quot;</span>
-
-<span class="n">greeting</span>
-</pre></div>
-</div>
 <p>You can write an if-statement inside of another if-statement. This is called
 <strong>nesting</strong> if-statements. Nesting is useful when you want to check a
 condition, do some computations, and then check another condition under the
@@ -534,7 +474,7 @@ whether there is a more general strategy or way to write the code.</p>
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="09_visualization.html"
@@ -542,7 +482,7 @@ whether there is a more general strategy or way to write the code.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Data Visualization in Python</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data Visualization in Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -550,7 +490,7 @@ whether there is a more general strategy or way to write the code.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Functions</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -569,7 +509,7 @@ whether there is a more general strategy or way to write the code.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">15.1. Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">11.1. Conditional Statements</a></li>
 </ul>
   </nav></div>
 
@@ -591,7 +531,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -617,8 +556,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

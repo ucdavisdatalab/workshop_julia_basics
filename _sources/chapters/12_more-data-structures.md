@@ -8,7 +8,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 
@@ -50,7 +50,7 @@ values. Lists are **mutable**, which means that the elements can be changed.
 
 Here's a quick recap of things you can do with lists:
 
-```
+```{code-cell}
 # Create a list with square brackets [ ]
 x = [1, 3, 5]
 
@@ -63,7 +63,7 @@ x[2] = -1
 
 You can also remove an element of a list with the `del` keyword. For instance:
 
-```
+```{code-cell}
 del x[2]
 
 x
@@ -79,24 +79,24 @@ A **tuple** is an ordered collection of values. Think of coordinates. Tuples
 are **immutable**, which means that the elements of a tuple can't be changed.
 
 
-```
+```{code-cell}
 y = ("hi", 1, 3.7)
 y
 ```
 
-```
+```{code-cell}
 type(y)
 ```
 
 You can get elements of a tuple with indexing, just like a list:
 
-```
+```{code-cell}
 y[0]
 ```
 
 If you try to change the elements, Python raises an error:
 
-```
+```{code-cell}
 :tags: [raises-exception]
 y[1] = 3
 ```
@@ -106,16 +106,16 @@ way to assign the elements of a tuple or list to multiple variables. Use `=` to
 unpack values, making sure that the structure on the left-hand side matches the
 structure on the right-hand side:
 
-```
+```{code-cell}
 u, v, w = y
 u
 ```
 
-```
+```{code-cell}
 v
 ```
 
-```
+```{code-cell}
 w
 ```
 
@@ -135,12 +135,12 @@ dictionaries are mutable.
 You can make a dictionary by enclosing comma-separated `key: value` pairs in
 curly braces `{ }`, like this:
 
-```
+```{code-cell}
 x = {"hello": 1, 3: 5}
 x
 ```
 
-```
+```{code-cell}
 type(x)
 ```
 
@@ -150,35 +150,35 @@ the keys are required to be unique.
 
 You can get and set elements of a dictionary by indexing with keys:
 
-```
+```{code-cell}
 x["hello"]
 ```
 
 You can also get elements with the `.get` method, which gets an element by key
 or returns a default value if the key isn't in the dictionary:
 
-```
+```{code-cell}
 x.get("hello", 10)
 ```
 
-```
+```{code-cell}
 x.get("goodbye", 10) 
 ```
 
 You can get the keys or the values in a dictionary with the `.keys` and `.dict`
 methods respectfully:
 
-```
+```{code-cell}
 x.keys()
 ```
 
-```
+```{code-cell}
 x.values()
 ```
 
 You can use the `list` function to convert either of these to an ordinary list:
 
-```
+```{code-cell}
 list(x.keys())
 ```
 

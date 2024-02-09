@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. File Systems &#8212; Julia Basics</title>
+    <title>5. File Systems &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03_file-systems';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Data Structures" href="05_data-types-structures.html" />
-    <link rel="prev" title="8. Packages" href="02_packages.html" />
+    <link rel="next" title="6. Data Structures" href="05_data-types-structures.html" />
+    <link rel="prev" title="4. Packages" href="02_packages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -169,34 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">7. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">8. Packages</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">10. Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">11. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">12. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">13. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">14. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">15. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">16. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">17. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">18. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">19. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_indexing.html">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -350,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -392,12 +377,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.1. Absolute &amp; Relative Paths</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-code">9.2. Saving Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">9.2.1. Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1. Absolute &amp; Relative Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-code">5.2. Saving Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">5.2.1. Jupyter Notebooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">9.3. The Working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">5.3. The Working Directory</a></li>
 </ul>
             </nav>
         </div>
@@ -419,11 +404,11 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="file-systems">
-<h1><span class="section-number">9. </span>File Systems<a class="headerlink" href="#file-systems" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>File Systems<a class="headerlink" href="#file-systems" title="Permalink to this heading">#</a></h1>
 <p>Most of the time, you won’t just write code directly into the Python console.
 Reproducibility and reusability are important benefits of Python over
 point-and-click software, and in order to realize these, you have to save your
@@ -490,7 +475,7 @@ helper functions to edit paths that account for differences between operating
 systems.</p>
 </div>
 <section id="id1">
-<h2><span class="section-number">9.1. </span>Absolute &amp; Relative Paths<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Absolute &amp; Relative Paths<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>A path that starts from the root directory, like all of the ones we’ve seen so
 far, is called an <strong>absolute path</strong>. The path is “absolute” because it
 unambiguously describes where a file or directory is located. The downside is
@@ -506,7 +491,7 @@ isn’t portable to others.</p>
 directory. The path is “relative” to an unspecified starting point, which
 usually depends on the context.</p>
 <p>For instance, suppose Ada’s code is saved in the file <code class="docutils literal notranslate"><span class="pre">analysis.ipynb</span></code> (more
-about <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files in <a class="reference internal" href="#jupyter-notebooks"><span class="std std-numref">Section 9.2.1</span></a>), which is in the same
+about <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files in <a class="reference internal" href="#jupyter-notebooks"><span class="std std-numref">Section 5.2.1</span></a>), which is in the same
 directory as <code class="docutils literal notranslate"><span class="pre">cats.csv</span></code> on her computer. Then instead of an absolute path, she
 can use a relative path in her code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cats</span><span class="o">.</span><span class="n">csv</span>
@@ -572,7 +557,7 @@ specific situations where <code class="docutils literal notranslate"><span class
 this text.</p>
 </section>
 <section id="saving-code">
-<h2><span class="section-number">9.2. </span>Saving Code<a class="headerlink" href="#saving-code" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Saving Code<a class="headerlink" href="#saving-code" title="Permalink to this heading">#</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When you start a new project, it’s a good idea to create a specific directory
@@ -591,9 +576,6 @@ delete, copy, cut, and paste code.</p>
 to write in the script (notes, documentation, etc.) must be placed in a
 <strong>comment</strong>. In Python, comments begin with <code class="docutils literal notranslate"><span class="pre">#</span></code> and extend to the end of the
 line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment.</span>
-</pre></div>
-</div>
 <p>Python will ignore comments when you run your code.</p>
 <p>Arrange your code in the order of the steps to solve the problem, even if you
 write some parts before others. Comment out or delete any lines of code that
@@ -602,7 +584,7 @@ periodically so that you don’t lose your work. Following these guidelines will
 help you stay organized and make it easier to share your code with others
 later.</p>
 <section id="jupyter-notebooks">
-<span id="id2"></span><h3><span class="section-number">9.2.1. </span>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3><span class="section-number">5.2.1. </span>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading">#</a></h3>
 <p>For data science tasks, it is also common to use a <a class="reference external" href="https://jupyter.org/"><strong>Jupyter
 notebook</strong></a> with extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> to store code. In addition to
 Python code, Jupyter notebooks have full support for formatted text, images,
@@ -647,14 +629,7 @@ added.</p>
 </section>
 </section>
 <section id="the-working-directory">
-<h2><span class="section-number">9.3. </span>The Working Directory<a class="headerlink" href="#the-working-directory" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
-<span class="c1"># Save working dir to reset at the end of this section.</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">_wd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-</div>
+<h2><span class="section-number">5.3. </span>The Working Directory<a class="headerlink" href="#the-working-directory" title="Permalink to this heading">#</a></h2>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">absolute-relative-paths</span></code> explained that relative paths have a
 starting point that depends on the context where the path is used. The <em>working
 directory</em> is the starting point Python uses for relative paths. Think of the
@@ -662,23 +637,12 @@ working directory as the directory Python is currently “at” or watching.</p>
 <p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">os</span></code> module provides functions to manipulate the working
 directory. The function <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code> returns the absolute path for the current
 working directory, as a string. It doesn’t require any arguments:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>On your computer, the output from <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code> will likely be different. This is
 a very useful function for getting your bearings when you write relative paths.
 If you write a relative path and it doesn’t work as expected, the first thing
 to do is check the working directory.</p>
 <p>The related <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> function changes the working directory. It takes one
 argument: a path to the new working directory. Here’s an example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
-
-<span class="c1"># Now check the working directory.</span>
-<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>Generally, you should avoid using calls to <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> in your Jupyter notebooks
 and Python scripts. Calling <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code> makes your code more difficult to
 understand, and can always be avoided by using appropriate relative paths. If
@@ -690,25 +654,9 @@ system is <code class="docutils literal notranslate"><span class="pre">os.listdi
 the files and directories inside of a directory. It accepts a path to a
 directory as an argument, or assumes the working directory if you don’t pass a
 path. For instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># List files and directories in /home/.</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/home/&quot;</span><span class="p">)</span>
-
-<span class="c1"># List files and directories in the working directory.</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>As usual, since you have a different computer, you’re likely to see different
 output if you run this code. If you call <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> with an invalid path or
 an empty directory, Python raises a <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">raises</span><span class="o">-</span><span class="n">exception</span><span class="p">]</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/this/path/is/fake/&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">remove</span><span class="o">-</span><span class="n">cell</span><span class="p">]</span>
-<span class="c1"># Reset the working dir.</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">_wd</span><span class="p">)</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -740,7 +688,7 @@ an empty directory, Python raises a <code class="docutils literal notranslate"><
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_packages.html"
@@ -748,7 +696,7 @@ an empty directory, Python raises a <code class="docutils literal notranslate"><
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Packages</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Packages</p>
       </div>
     </a>
     <a class="right-next"
@@ -756,7 +704,7 @@ an empty directory, Python raises a <code class="docutils literal notranslate"><
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Data Structures</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Data Structures</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -775,12 +723,12 @@ an empty directory, Python raises a <code class="docutils literal notranslate"><
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.1. Absolute &amp; Relative Paths</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-code">9.2. Saving Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">9.2.1. Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1. Absolute &amp; Relative Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-code">5.2. Saving Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">5.2.1. Jupyter Notebooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">9.3. The Working Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-working-directory">5.3. The Working Directory</a></li>
 </ul>
   </nav></div>
 
@@ -802,7 +750,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -828,8 +775,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

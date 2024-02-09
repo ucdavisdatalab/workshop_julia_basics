@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>11. Indexing in Pandas &#8212; Julia Basics</title>
+    <title>7. Indexing in Pandas &#8212; Julia Basics</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06_indexing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. Special Values" href="07_special-values.html" />
-    <link rel="prev" title="10. Data Structures" href="05_data-types-structures.html" />
+    <link rel="next" title="8. Special Values" href="07_special-values.html" />
+    <link rel="prev" title="6. Data Structures" href="05_data-types-structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -169,34 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">1. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">2. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">3. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">4. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">5. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">6. Case Studies</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="15_test.html">Test</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics (old material)</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">7. Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_packages.html">8. Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">9. File Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">10. Data Structures</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Indexing in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">12. Special Values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">13. Exploring Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">14. Data Visualization in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">15. Organizing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_functions.html">16. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">17. Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">18. Surfing the Web</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">19. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">2. Reading Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_julia-basics.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_file-systems.html">5. File Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-types-structures.html">6. Data Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Indexing in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_special-values.html">8. Special Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_iteration-aggregation.html">9. Exploring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_visualization.html">10. Data Visualization in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_if-statements.html">11. Organizing Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_functions.html">12. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_more-data-structures.html">13. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_web-apis.html">14. Surfing the Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_more-iteration.html">15. Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_test.html">16. Test</a></li>
 </ul>
 
     </div>
@@ -350,7 +337,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,7 +346,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -392,10 +377,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">11.1. What’s an Index?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. Indexing by Position</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.3. Indexing by Label</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">11.4. Indexing by a Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">7.1. What’s an Index?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.2. Indexing by Position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.3. Indexing by Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">7.4. Indexing by a Condition</a></li>
 </ul>
             </nav>
         </div>
@@ -417,16 +402,16 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 -->
 <section class="tex2jax_ignore mathjax_ignore" id="indexing-in-pandas">
-<span id="id1"></span><h1><span class="section-number">11. </span>Indexing in Pandas<a class="headerlink" href="#indexing-in-pandas" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">7. </span>Indexing in Pandas<a class="headerlink" href="#indexing-in-pandas" title="Permalink to this heading">#</a></h1>
 <p>If you want to inspect the elements of a Series more closely, you can use
 indexing. Conceptually, indexing a Series is very similar to indexing a list or
 tuple, but Pandas offers additional ways to select and subset data via indexes.</p>
 <section id="what-s-an-index">
-<h2><span class="section-number">11.1. </span>What’s an Index?<a class="headerlink" href="#what-s-an-index" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>What’s an Index?<a class="headerlink" href="#what-s-an-index" title="Permalink to this heading">#</a></h2>
 <p>A Pandas index is more than just a positional location. Indexes serve three
 important roles:</p>
 <ol class="arabic simple">
@@ -435,35 +420,21 @@ important roles:</p>
 <li><p>As a convenience for getting and setting subsets of data</p></li>
 </ol>
 <p>The index of a series is available via the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
 <p>Index labels can be numbers, strings, dates, or other values. Pandas provides
 subclasses of <code class="docutils literal notranslate"><span class="pre">Index</span></code> for specific purposes, which you can read more about
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Index.html">here</a>.</p>
 <p>Indexes, like tuples, are <strong>immutable</strong>. The labels in an index cannot be
 changed. That said, every index also has a name that <em>can</em> be changed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bill_value&quot;</span>
-<span class="n">bill_value</span>
-</pre></div>
-</div>
 <p>The above also applies to DataFrames:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
 <p>Oftentimes, an index is a range of numbers, but this can be changed. The code
 below uses the <code class="docutils literal notranslate"><span class="pre">.set_index</span></code> method to change the index of <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> to
 <code class="docutils literal notranslate"><span class="pre">country</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">banknotes</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">inplace</span></code> argument instructs Pandas to change the index directly without
 making a copy first, so that we don’t have to reassign <code class="docutils literal notranslate"><span class="pre">banknotes.index</span></code>
 explicitly.</p>
 </section>
 <section id="id2">
-<h2><span class="section-number">11.2. </span>Indexing by Position<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Indexing by Position<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Changing the index affects how you select elements. There are three main
 methods for accessing specific values in Pandas:</p>
 <ol class="arabic simple">
@@ -472,111 +443,49 @@ methods for accessing specific values in Pandas:</p>
 <li><p>By a condition</p></li>
 </ol>
 <p>To access elements in a series by integer position, use <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> is extensible to sequences of values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]]</span>
-</pre></div>
-</div>
 <p>Use a <strong>slice</strong> to select a range of elements. The syntax for a slice is
 <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>, with the second colon <code class="docutils literal notranslate"><span class="pre">:</span></code> and arguments being optional. This
 syntax also applies to lists. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Below, we use a slice to get every twentieth element in the Series:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">20</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Slices also accept negative values. This counts back from the end of a
 sequence. For instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
-</pre></div>
-</div>
 <p>The result is the same as if you had used the <code class="docutils literal notranslate"><span class="pre">.tail</span></code> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
 </section>
 <section id="id3">
-<h2><span class="section-number">11.3. </span>Indexing by Label<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Indexing by Label<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to index a Series or DataFrame by label:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>You can select specific columns as well:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Just as with <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>, it’s possible to pass sequences into <code class="docutils literal notranslate"><span class="pre">.loc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;Serbia&quot;</span><span class="p">,</span> <span class="s2">&quot;Ukraine&quot;</span><span class="p">]]</span>
-</pre></div>
-</div>
 <p>This can be a very powerful operation, but it’s easy to get mixed up when
 labels are integers, as with the <code class="docutils literal notranslate"><span class="pre">bill_value</span></code> data.</p>
 <p>For example, this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Is <em>NOT</em> the same as this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Recall that bracket notation selects columns in DataFrames. With a Series, the
 same notation acts as another way to perform <code class="docutils literal notranslate"><span class="pre">.loc</span></code> operations:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>Finally, <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> and <code class="docutils literal notranslate"><span class="pre">.loc</span></code> can be used in tandem with one another. This is
 called <strong>chaining</strong>. Below, we use the country-indexed <code class="docutils literal notranslate"><span class="pre">banknotes</span></code> DataFrame to
 select all rows with “Peru.” Then, we select the second row from this subset.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
 </section>
 <section id="indexing-by-a-condition">
-<h2><span class="section-number">11.4. </span>Indexing by a Condition<a class="headerlink" href="#indexing-by-a-condition" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.4. </span>Indexing by a Condition<a class="headerlink" href="#indexing-by-a-condition" title="Permalink to this heading">#</a></h2>
 <p>The last way to index in Pandas is by condition. Pandas does this by evaluating
 a condition and returning a Boolean Series or array. This is by far the most
 powerful method of indexing in Pandas.</p>
 <p>For example, suppose you want to find bill values that are divisible by 25. You
 can use the modulo operator <code class="docutils literal notranslate"><span class="pre">%</span></code> to get the remainder when one positive integer
 is divided by another. So the condition to test for divisibility by 25 is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span> <span class="o">%</span> <span class="mi">25</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
 <p>The result is a Boolean Series with as many elements as <code class="docutils literal notranslate"><span class="pre">bill_value</span></code>. You can
 use this condition in <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to get only the elements where the result was
 <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bill_value</span> <span class="o">%</span> <span class="mi">25</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
 <!--
 This is a **subset** of the Series.
 -->
 <p>You can also use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> without <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to index by condition:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bill_value</span><span class="p">[</span><span class="n">bill_value</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>With a DataFrame, indexing by condition gives you a subset of the rows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="n">output_scroll</span><span class="p">]</span>
-<span class="n">banknotes</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;currency_code&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MWK&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>If you want to specify specific columns, use <code class="docutils literal notranslate"><span class="pre">.loc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banknotes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s2">&quot;currency_name&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
 <p>The above lets you select multiple columns, but you could also do the
 following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;currency_code&quot;</span><span class="p">,</span> <span class="s2">&quot;currency_name&quot;</span><span class="p">]</span>
-<span class="n">banknotes</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">banknotes</span><span class="p">[</span><span class="s2">&quot;current_bill_value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.0</span><span class="p">]</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -608,7 +517,7 @@ following:</p>
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="05_data-types-structures.html"
@@ -616,7 +525,7 @@ following:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Data Structures</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Data Structures</p>
       </div>
     </a>
     <a class="right-next"
@@ -624,7 +533,7 @@ following:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Special Values</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Special Values</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -643,10 +552,10 @@ following:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">11.1. What’s an Index?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2. Indexing by Position</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.3. Indexing by Label</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">11.4. Indexing by a Condition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-an-index">7.1. What’s an Index?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.2. Indexing by Position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.3. Indexing by Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-by-a-condition">7.4. Indexing by a Condition</a></li>
 </ul>
   </nav></div>
 
@@ -668,7 +577,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -694,8 +602,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
