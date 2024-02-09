@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Reading and Writing Data &#8212; Julia Basics</title>
+    <title>4. Reading and Writing Data &#8212; Julia Basics</title>
   
   
   
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/22_reading-files';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Data Frames" href="24_data-frames.html" />
-    <link rel="prev" title="5. Data Types and Structures" href="23_types.html" />
+    <link rel="next" title="5. Data Frames" href="24_data-frames.html" />
+    <link rel="prev" title="3. Data Types and Structures" href="23_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
   </head>
@@ -171,15 +171,13 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="20_introduction.html">1. Installation</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">4. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">5. Data Types and Structures</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">7. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">8. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">9. Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">2. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Reading and Writing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">5. Data Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">6. Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">7. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -377,10 +375,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">6.1. Navigating File Systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">6.2. Example: Reading a CSV File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">6.3. Structured Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">6.4. Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">4.1. Navigating File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">4.2. Example: Reading a CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">4.3. Structured Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a></li>
 </ul>
             </nav>
         </div>
@@ -393,13 +391,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <!-- Run at top level of repo. --><section class="tex2jax_ignore mathjax_ignore" id="reading-and-writing-data">
-<h1><span class="section-number">6. </span>Reading and Writing Data<a class="headerlink" href="#reading-and-writing-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Reading and Writing Data<a class="headerlink" href="#reading-and-writing-data" title="Permalink to this heading">#</a></h1>
 <p>In order to use Julia for research computing projects, you’ll need to know how
 to read and write data. Julia provides functions to read and write bytes and
 text, while community-contributed packages provide functions to handle a wide
 variety of structured data formats.</p>
 <section id="navigating-file-systems">
-<h2><span class="section-number">6.1. </span>Navigating File Systems<a class="headerlink" href="#navigating-file-systems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Navigating File Systems<a class="headerlink" href="#navigating-file-systems" title="Permalink to this heading">#</a></h2>
 <p>Julia’s <code class="docutils literal notranslate"><span class="pre">Base.Filesystem</span></code> module provides functions for working with file
 systems. Here are a few that are useful for checking the working directory and
 that files are where you think they are:</p>
@@ -438,7 +436,7 @@ file
 -->
 </section>
 <section id="example-reading-a-csv-file">
-<h2><span class="section-number">6.2. </span>Example: Reading a CSV File<a class="headerlink" href="#example-reading-a-csv-file" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Example: Reading a CSV File<a class="headerlink" href="#example-reading-a-csv-file" title="Permalink to this heading">#</a></h2>
 <!--
 TODO: Host the data somewhere so that folks can follow along more easily.
 -->
@@ -536,10 +534,10 @@ a statistical summary of each column:</p>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><div style = "float: left;"><span>110×7 DataFrame</span></div><div style = "float: right;"><span style = "font-style: italic;">85 rows omitted</span></div><div style = "clear: both;"></div></div><div class = "data-frame" style = "overflow-x: scroll;"><table class = "data-frame" style = "margin-bottom: 6px;"><thead><tr class = "header"><th class = "rowNumber" style = "font-weight: bold; text-align: right;">Row</th><th style = "text-align: left;">variable</th><th style = "text-align: left;">mean</th><th style = "text-align: left;">min</th><th style = "text-align: left;">median</th><th style = "text-align: left;">max</th><th style = "text-align: left;">nmissing</th><th style = "text-align: left;">eltype</th></tr><tr class = "subheader headerLastRow"><th class = "rowNumber" style = "font-weight: bold; text-align: right;"></th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Union{Nothing, Float64}" style = "text-align: left;">Union…</th><th title = "Any" style = "text-align: left;">Any</th><th title = "Any" style = "text-align: left;">Any</th><th title = "Any" style = "text-align: left;">Any</th><th title = "Int64" style = "text-align: left;">Int64</th><th title = "Type" style = "text-align: left;">Type</th></tr></thead><tbody><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">1</td><td style = "text-align: left;">Year</td><td style = "text-align: left;">2023.0</td><td style = "text-align: left;">2023</td><td style = "text-align: left;">2023.0</td><td style = "text-align: left;">2023</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">2</td><td style = "text-align: left;">Quarter</td><td style = "text-align: left;">1.0</td><td style = "text-align: left;">1</td><td style = "text-align: left;">1.0</td><td style = "text-align: left;">1</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">3</td><td style = "text-align: left;">Month</td><td style = "text-align: left;">1.0</td><td style = "text-align: left;">1</td><td style = "text-align: left;">1.0</td><td style = "text-align: left;">1</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">4</td><td style = "text-align: left;">DayofMonth</td><td style = "text-align: left;">16.0954</td><td style = "text-align: left;">1</td><td style = "text-align: left;">16.0</td><td style = "text-align: left;">31</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">5</td><td style = "text-align: left;">DayOfWeek</td><td style = "text-align: left;">3.89027</td><td style = "text-align: left;">1</td><td style = "text-align: left;">4.0</td><td style = "text-align: left;">7</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">6</td><td style = "text-align: left;">FlightDate</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">2023-01-01</td><td style = "text-align: left;">2023-01-16</td><td style = "text-align: left;">2023-01-31</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Date</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">7</td><td style = "text-align: left;">Reporting_Airline</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">9E</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">YX</td><td style = "text-align: right;">0</td><td style = "text-align: left;">String3</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">8</td><td style = "text-align: left;">DOT_ID_Reporting_Airline</td><td style = "text-align: left;">19944.9</td><td style = "text-align: left;">19393</td><td style = "text-align: left;">19930.0</td><td style = "text-align: left;">20452</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">9</td><td style = "text-align: left;">IATA_CODE_Reporting_Airline</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">9E</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">YX</td><td style = "text-align: right;">0</td><td style = "text-align: left;">String3</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">10</td><td style = "text-align: left;">Tail_Number</td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: left;">N999JQ</td><td style = "text-align: right;">0</td><td style = "text-align: left;">String7</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">11</td><td style = "text-align: left;">Flight_Number_Reporting_Airline</td><td style = "text-align: left;">2201.93</td><td style = "text-align: left;">1</td><td style = "text-align: left;">1909.0</td><td style = "text-align: left;">9887</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">12</td><td style = "text-align: left;">OriginAirportID</td><td style = "text-align: left;">12653.2</td><td style = "text-align: left;">10135</td><td style = "text-align: left;">12889.0</td><td style = "text-align: left;">16869</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">13</td><td style = "text-align: left;">OriginAirportSeqID</td><td style = "text-align: left;">1.26532e6</td><td style = "text-align: left;">1013506</td><td style = "text-align: left;">1.2889e6</td><td style = "text-align: left;">1686902</td><td style = "text-align: right;">0</td><td style = "text-align: left;">Int64</td></tr><tr><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td><td style = "text-align: right;">&vellip;</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">99</td><td style = "text-align: left;">Div4LongestGTime</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">100</td><td style = "text-align: left;">Div4WheelsOff</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">101</td><td style = "text-align: left;">Div4TailNum</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">102</td><td style = "text-align: left;">Div5Airport</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">103</td><td style = "text-align: left;">Div5AirportID</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">104</td><td style = "text-align: left;">Div5AirportSeqID</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">105</td><td style = "text-align: left;">Div5WheelsOn</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">106</td><td style = "text-align: left;">Div5TotalGTime</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">107</td><td style = "text-align: left;">Div5LongestGTime</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">108</td><td style = "text-align: left;">Div5WheelsOff</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">109</td><td style = "text-align: left;">Div5TailNum</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">110</td><td style = "text-align: left;">Column110</td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "font-style: italic; text-align: left;"></td><td style = "text-align: right;">538837</td><td style = "text-align: left;">Missing</td></tr></tbody></table></div></div></div>
 </div>
-<p>We’ll learn more about working with data frames in <a class="reference internal" href="24_data-frames.html#data-frames"><span class="std std-numref">Section 7</span></a>.</p>
+<p>We’ll learn more about working with data frames in <a class="reference internal" href="24_data-frames.html#data-frames"><span class="std std-numref">Section 5</span></a>.</p>
 </section>
 <section id="structured-data">
-<h2><span class="section-number">6.3. </span>Structured Data<a class="headerlink" href="#structured-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Structured Data<a class="headerlink" href="#structured-data" title="Permalink to this heading">#</a></h2>
 <p>Functions to read and write structured file formats are generally provided by
 packages rather than built into Julia. Here are a few (find more by searching
 online):</p>
@@ -614,7 +612,7 @@ format. We chose the packages in the table based on popularity and signs of
 active development or maintenance.</p>
 </section>
 <section id="text-and-bytes">
-<h2><span class="section-number">6.4. </span>Text and Bytes<a class="headerlink" href="#text-and-bytes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Text and Bytes<a class="headerlink" href="#text-and-bytes" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you might need to read and write text or bytes directly. For example,
 you might need to work with a file that has an obscure or custom format.</p>
 <p>Julia’s built-in <code class="docutils literal notranslate"><span class="pre">open</span></code> function opens a file. Let’s open a file called
@@ -788,7 +786,7 @@ file is always closed, even if something goes wrong in the computation.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Data Types and Structures</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Data Types and Structures</p>
       </div>
     </a>
     <a class="right-next"
@@ -796,7 +794,7 @@ file is always closed, even if something goes wrong in the computation.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Data Frames</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Data Frames</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -815,10 +813,10 @@ file is always closed, even if something goes wrong in the computation.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">6.1. Navigating File Systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">6.2. Example: Reading a CSV File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">6.3. Structured Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">6.4. Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">4.1. Navigating File Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">4.2. Example: Reading a CSV File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">4.3. Structured Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a></li>
 </ul>
   </nav></div>
 

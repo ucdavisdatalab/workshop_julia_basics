@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Installation &#8212; Julia Basics</title>
+    <title>1. Introduction &#8212; Julia Basics</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/20_introduction';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Syntax and Features" href="21_syntax-features.html" />
+    <link rel="next" title="2. Syntax and Features" href="21_syntax-features.html" />
     <link rel="prev" title="Overview" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en-us"/>
@@ -169,15 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Installation</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">4. Syntax and Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_types.html">5. Data Types and Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">6. Reading and Writing Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">7. Data Frames</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">8. Data Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">9. Case Studies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_syntax-features.html">2. Syntax and Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_types.html">3. Data Types and Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_reading-files.html">4. Reading and Writing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_data-frames.html">5. Data Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_data-viz.html">6. Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_case-studies.html">7. Case Studies</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -365,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installation</h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,15 +373,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-julia">2. Why Julia?</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-deployments-in-the-wild">2.1. Julia deployments in the wild</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-migrations-to-julia">2.2. Local migrations to Julia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-julia">1.2. Why Julia?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-deployments-in-the-wild">1.2.1. Julia deployments in the wild</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-migrations-to-julia">1.2.2. Local migrations to Julia</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-other-languages">3. Comparison with other languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-other-languages">1.3. Comparison with other languages</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -394,8 +391,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <!-- Run at top level of repo. --><section class="tex2jax_ignore mathjax_ignore" id="installation">
-<h1><span class="section-number">1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+  <!-- Run at top level of repo. --><section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<section id="installation">
+<h2><span class="section-number">1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Download the Julia installer for your operating system: <a class="reference external" href="https://julialang.org/downloads/#official_binaries_for_manual_download">https://julialang.org/downloads/#official_binaries_for_manual_download</a></p></li>
 <li><p>Follow the installation instructions for your operating system: <a class="reference external" href="https://julialang.org/downloads/platform/">https://julialang.org/downloads/platform/</a></p></li>
@@ -419,8 +418,8 @@ document.write(`
 </ol>
 <p>For more information about using Pluto, consult the FAQ: <a class="github reference external" href="https://github.com/fonsp/Pluto.jl/wiki">fonsp/Pluto.jl</a></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="why-julia">
-<h1><span class="section-number">2. </span>Why Julia?<a class="headerlink" href="#why-julia" title="Permalink to this heading">#</a></h1>
+<section id="why-julia">
+<h2><span class="section-number">1.2. </span>Why Julia?<a class="headerlink" href="#why-julia" title="Permalink to this heading">#</a></h2>
 <p>In the beginning, there was Fortran. Fortran offered (and offers) unparalleled speed paired with a deeply unpleasant programming experience. Every subsequent scientific computing language has attempted to answer the question, “What if Fortran didn’t suck?”. Polite language designers refer to this as “ergonomics.”</p>
 <p>Julia is a modern scientific computing language that offers unparalleled speed paired with a remarkably pleasant programming experience. In particular, it offers:</p>
 <ol class="arabic simple">
@@ -431,7 +430,7 @@ document.write(`
 <li><p>Native code parallelization</p></li>
 </ol>
 <section id="julia-deployments-in-the-wild">
-<h2><span class="section-number">2.1. </span>Julia deployments in the wild<a class="headerlink" href="#julia-deployments-in-the-wild" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">1.2.1. </span>Julia deployments in the wild<a class="headerlink" href="#julia-deployments-in-the-wild" title="Permalink to this heading">#</a></h3>
 <p>Julia is currently being used for large-scale scientific computing projects, displacing Python/NumPy as the language of choice for new development. Examples include:</p>
 <ul class="simple">
 <li><p>Climate modeling: <a class="reference external" href="https://clima.caltech.edu/">https://clima.caltech.edu/</a></p></li>
@@ -441,18 +440,19 @@ document.write(`
 </ul>
 </section>
 <section id="local-migrations-to-julia">
-<h2><span class="section-number">2.2. </span>Local migrations to Julia<a class="headerlink" href="#local-migrations-to-julia" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">1.2.2. </span>Local migrations to Julia<a class="headerlink" href="#local-migrations-to-julia" title="Permalink to this heading">#</a></h3>
 <p>The UC Davis DataLab chose Julia for several of its recent research computing projects and acn talk about their experiences, as well as the tradeoffs involved in choosing it for new work.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="comparison-with-other-languages">
-<h1><span class="section-number">3. </span>Comparison with other languages<a class="headerlink" href="#comparison-with-other-languages" title="Permalink to this heading">#</a></h1>
+<section id="comparison-with-other-languages">
+<h2><span class="section-number">1.3. </span>Comparison with other languages<a class="headerlink" href="#comparison-with-other-languages" title="Permalink to this heading">#</a></h2>
 <p>A high-level discussion of architectual differences between Julia and other languages:
 <a class="reference external" href="https://docs.julialang.org/en/v1/#man-julia-compared-other-languages">https://docs.julialang.org/en/v1/#man-julia-compared-other-languages</a></p>
 <p>Noteworthy differences between Julia and other scientific computing languages:
 <a class="reference external" href="https://docs.julialang.org/en/v1/manual/noteworthy-differences/">https://docs.julialang.org/en/v1/manual/noteworthy-differences/</a></p>
 <p>Comparing Julia Data Frames with Data Frames in other languages:
 <a class="reference external" href="https://dataframes.juliadata.org/stable/man/comparisons/">https://dataframes.juliadata.org/stable/man/comparisons/</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -499,7 +499,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Syntax and Features</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Syntax and Features</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -518,15 +518,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-julia">2. Why Julia?</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-deployments-in-the-wild">2.1. Julia deployments in the wild</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-migrations-to-julia">2.2. Local migrations to Julia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">1.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-julia">1.2. Why Julia?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-deployments-in-the-wild">1.2.1. Julia deployments in the wild</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-migrations-to-julia">1.2.2. Local migrations to Julia</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-other-languages">3. Comparison with other languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-other-languages">1.3. Comparison with other languages</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
