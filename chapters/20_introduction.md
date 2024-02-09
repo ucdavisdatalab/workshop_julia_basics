@@ -16,8 +16,11 @@ kernelspec:
 cd("..")
 ```
 
-Installation
+Introduction
 ============
+
+Installation
+------------
 
 1. Download the Julia installer for your operating system: https://julialang.org/downloads/#official_binaries_for_manual_download
 2. Follow the installation instructions for your operating system: https://julialang.org/downloads/platform/
@@ -38,7 +41,7 @@ For more information about using Pluto, consult the FAQ: https://github.com/fons
 
 
 Why Julia?
-==========
+----------
 
 In the beginning, there was Fortran. Fortran offered (and offers) unparalleled speed paired with a deeply unpleasant programming experience. Every subsequent scientific computing language has attempted to answer the question, "What if Fortran didn't suck?". Polite language designers refer to this as "ergonomics."
 
@@ -65,7 +68,7 @@ The UC Davis DataLab chose Julia for several of its recent research computing pr
 
 
 Comparison with other languages
-===============================
+-------------------------------
 
 A high-level discussion of architectual differences between Julia and other languages:
 https://docs.julialang.org/en/v1/#man-julia-compared-other-languages
