@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en-us" data-content_root="" >
+<html lang="en-us" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -140,11 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
   
 
 <a class="navbar-brand logo" href="index.html">
-  
   
   
   
@@ -154,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -335,7 +333,6 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -345,7 +342,6 @@ document.write(`
   </button>
 `);
 </script>
-
 
 <script>
 document.write(`
@@ -386,7 +382,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">2.2. Iteration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-over-any-ordered-collection-with-a-for-loop">2.2.1. Iterate over any ordered collection with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-iterate-over-an-array">2.2.2. (Optional) Iterate over an Array</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-over-key-value-pairs-with-a-for-loop">2.2.3. Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-iterate-over-key-value-pairs-with-a-for-loop">2.2.3. (Optional) Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-approaches-to-iteration">2.2.4. Functional approaches to iteration</a></li>
 </ul>
 </li>
@@ -425,9 +421,19 @@ document.write(`
 <span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
 <span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">]</span>
 
+<span class="n">typeof</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">typeof</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">typeof</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you’re working in a terminal, you can print the results to the screen using the <code class="docutils literal notranslate"><span class="pre">println()</span></code> function:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">PlutoUI</span>
+
+<span class="c"># Send byte stream</span>
 <span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
-<span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span>
-<span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span>
+
+<span class="c"># Polymorphic display</span>
+<span class="n">display</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In Julia, ordered collections are indexed from 1.</p>
@@ -436,7 +442,7 @@ document.write(`
 </pre></div>
 </div>
 <p>You can slice a collection to return a subset. Slices are inclusive, so this code:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>…returns all items from the start index (<code class="docutils literal notranslate"><span class="pre">1</span></code>) up to and including the stop index (<code class="docutils literal notranslate"><span class="pre">2</span></code>).</p>
@@ -446,11 +452,15 @@ document.write(`
 <p>A Dict allows you to store a set of key/value pairs. This is analogous to a dictionary in Python, labeled list in R, or hashmap in Java.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">([(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)])</span>
 
-<span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="n">typeof</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Each value is indexed by its unique key.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">])</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can add additional key/value pairs via assignment:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s">&quot;d&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
 </pre></div>
 </div>
 </section>
@@ -465,43 +475,40 @@ document.write(`
 <span class="n">zeros</span><span class="p">(</span><span class="kt">Int8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">println()</span></code> functions will print them horizontally in the Julia REPL.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reshape</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<p>Arrays wrap column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">println()</span></code> functions will print them horizontally in the Julia REPL.</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reshape</span><span class="p">(</span><span class="n">collect</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>You can concatenate arrays vertically or horizontally.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Concatenate subarrays into a single (vertical) vector using the ; operator</span>
-<span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Concatenate subarrays vertically into a single vector using the ; operator</span>
+<span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
 
-<span class="c"># Concatenate subarrys into a 2x2 matrix using the ;; operator</span>
-<span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+<span class="c"># Concatenate subarrys horizontally into a 2x2 matrix using the ;; operator</span>
+<span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">;;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
 </pre></div>
 </div>
 <p>Arrays are passed by reference. In this example, Arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are both Views onto the same contiguous chunk of memory.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">;</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a4</span>
+<span class="n">b1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">a4</span>
 </pre></div>
 </div>
-<p>Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using <code class="docutils literal notranslate"><span class="pre">copy()</span></code> or <code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>.</p>
+<p>(Optional) Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using <code class="docutils literal notranslate"><span class="pre">copy()</span></code> or <code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code>.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Makes a random 2x2 matrix</span>
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c"># Makes a view to the 2x2 matrix which is a 1-dimensional array</span>
-<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.7</span>
-<span class="n">display</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">a5</span><span class="p">)</span>
+<span class="n">b2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">a5</span>
 </pre></div>
 </div>
-<p>Slicing an array returns a copy of the relevant chunk</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
-<span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<p>…but slicing an array returns a copy of the relevant chunk:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a5</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="n">a5</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">b3</span>
 </pre></div>
 </div>
 <p>Linear algebra operations are matrix-wise by default</p>
@@ -513,7 +520,10 @@ document.write(`
 </pre></div>
 </div>
 <p>If you want to do element-wise operations on an Array, you can use the broadcast operator <code class="docutils literal notranslate"><span class="pre">.</span></code> to apply a function to each element of the Array rather than the Array as a whole.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Generically, apply function `f(x)` to each element of x</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Continuing the previous example:</span>
+<span class="n">a</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">transpose</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c"># Generically, apply function `f(x)` to each element of x</span>
 <span class="n">x</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="c"># Example</span>
@@ -521,7 +531,7 @@ document.write(`
 <span class="n">x</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">sqrt</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To write this even more concisely you can wrap your code in the broadast macro, which applies the dot operater to all of the operators.</p>
+<p>(Optional) To write this even more concisely you can wrap your code in the broadast macro, which applies the dot operater to all of the operators.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Template</span>
 <span class="nd">@.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -538,10 +548,14 @@ document.write(`
 <h2><span class="section-number">2.2. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
 <section id="iterate-over-any-ordered-collection-with-a-for-loop">
 <h3><span class="section-number">2.2.1. </span>Iterate over any ordered collection with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#iterate-over-any-ordered-collection-with-a-for-loop" title="Permalink to this heading">#</a></h3>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">x</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">x1</span>
+<span class="w">    </span><span class="n">push!</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <span class="k">end</span>
+
+<span class="n">x2</span>
 </pre></div>
 </div>
 </section>
@@ -561,8 +575,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="iterate-over-key-value-pairs-with-a-for-loop">
-<h3><span class="section-number">2.2.3. </span>Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#iterate-over-key-value-pairs-with-a-for-loop" title="Permalink to this heading">#</a></h3>
+<section id="optional-iterate-over-key-value-pairs-with-a-for-loop">
+<h3><span class="section-number">2.2.3. </span>(Optional) Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#optional-iterate-over-key-value-pairs-with-a-for-loop" title="Permalink to this heading">#</a></h3>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">d</span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
 <span class="k">end</span>
@@ -573,13 +587,13 @@ document.write(`
 <h3><span class="section-number">2.2.4. </span>Functional approaches to iteration<a class="headerlink" href="#functional-approaches-to-iteration" title="Permalink to this heading">#</a></h3>
 <p>A common programming task is iterating through the members of a collection, performing an operation on (or with) each member, and returning a new collection contaning the results of those operations. Many languages provide a concise syntax for this task, referred to as a comprehension (cf. <a class="reference external" href="https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions">https://docs.julialang.org/en/v1/manual/arrays/#man-comprehensions</a>).</p>
 <p>By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">v4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">g1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 
-<span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">gen</span>
+<span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">g1</span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
@@ -615,11 +629,11 @@ document.write(`
 <p>Missing data is represented with <code class="docutils literal notranslate"><span class="pre">missing</span></code>.</p>
 <p>Null values are represented with <code class="docutils literal notranslate"><span class="pre">nothing</span></code>.</p>
 <p>You can check whether a collection includes an item by using the keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> or the <code class="docutils literal notranslate"><span class="pre">in()</span></code> function:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v1</span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;v contains 1&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="n">println</span><span class="p">(</span><span class="k">in</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">))</span>
+<span class="k">in</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -639,9 +653,9 @@ document.write(`
 <span class="w">    </span><span class="k">end</span>
 <span class="k">end</span>
 
-<span class="n">println</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="n">add_missing!</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">add_missing!</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -681,16 +695,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "julia-1.10"
+            mode: "julia-1.9"
         },
         kernelOptions: {
-            name: "julia-1.10",
+            name: "julia-1.9",
             path: "./chapters"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'julia-1.10'</script>
+    <script>kernelName = 'julia-1.9'</script>
 
                 </article>
               
@@ -700,7 +714,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="20_introduction.html"
@@ -744,7 +758,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">2.2. Iteration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-over-any-ordered-collection-with-a-for-loop">2.2.1. Iterate over any ordered collection with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-iterate-over-an-array">2.2.2. (Optional) Iterate over an Array</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-over-key-value-pairs-with-a-for-loop">2.2.3. Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-iterate-over-key-value-pairs-with-a-for-loop">2.2.3. (Optional) Iterate over key/value pairs with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-approaches-to-iteration">2.2.4. Functional approaches to iteration</a></li>
 </ul>
 </li>
@@ -780,7 +794,6 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   
   <div class="footer-item">
     
-
   </div>
   
   <div class="footer-item">
@@ -806,8 +819,8 @@ By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

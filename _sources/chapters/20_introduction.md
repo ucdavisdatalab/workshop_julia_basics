@@ -7,7 +7,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 
 <!-- Run at top level of repo. -->
@@ -30,6 +30,7 @@ Installation
      ```julia
      import Pkg
      Pkg.add("Pluto")
+     Pkg.add.("PlutoUI")
      ```
 4. Start Pluto by running the following commands from the Julia prompt:
    ```julia

@@ -7,7 +7,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.10
+  name: julia-1.9
 ---
 
 <!-- Run at top level of repo. -->
@@ -34,9 +34,20 @@ v1 = [1, 2, 3]
 v2 = ["a", "b", "c"]
 v3 = [1, "b", v1]
 
+typeof(v1)
+typeof(v2)
+typeof(v3)
+```
+
+If you're working in a terminal, you can print the results to the screen using the `println()` function:
+```julia
+using PlutoUI
+
+# Send byte stream
 println(typeof(v1))
-println(typeof(v2))
-println(typeof(v3))
+
+# Polymorphic display
+display(v1)
 ```
 
 In Julia, ordered collections are indexed from 1.
@@ -47,7 +58,7 @@ println(v3[3][1])
 
 You can slice a collection to return a subset. Slices are inclusive, so this code:
 ```julia
-v1[1:2]
+v2[1:2]
 ```
 ...returns all items from the start index (`1`) up to and including the stop index (`2`).
 
@@ -57,12 +68,17 @@ A Dict allows you to store a set of key/value pairs. This is analogous to a dict
 ```julia
 d = Dict([("a", 1), ("b", 2), ("c", 3)])
 
-println(typeof(d))
+typeof(d)
 ```
 
 Each value is indexed by its unique key.
 ```julia
-println(d["a"])
+d["a"]
+```
+
+You can add additional key/value pairs via assignment:
+```julia
+d["d"] = 4
 ```
 
 ### Arrays
@@ -78,48 +94,45 @@ zeros(2,4)
 zeros(Int8, 2, 4)
 ```
 
-Arrays are indexed column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
+Arrays wrap column by row. This means that that their default orientation is vertical, and 1-dimensional Arrays are vertical by default. This can be a source of confusion because the `print()` and `println()` functions will print them horizontally in the Julia REPL.
 ```julia
-a = reshape(collect(1:10), (2,5))
-a[1,2]
+a1 = reshape(collect(1:10), (2,5))
+a1[1,2]
 ```
 
 You can concatenate arrays vertically or horizontally.
 ```julia
-# Concatenate subarrays into a single (vertical) vector using the ; operator
-a1 = [[1,2] ; [3,4]]
+# Concatenate subarrays vertically into a single vector using the ; operator
+a2 = [[1,2] ; [3,4]]
 
-# Concatenate subarrys into a 2x2 matrix using the ;; operator
-a2 = [[1,2] ;; [3,4]]
+# Concatenate subarrys horizontally into a 2x2 matrix using the ;; operator
+a3 = [[1,2] ;; [3,4]]
 ```
 
 Arrays are passed by reference. In this example, Arrays `a` and `b` are both Views onto the same contiguous chunk of memory.
 ```julia
-a = [3;4;5]
-b = a
-b[1] = 1
-println(a)
+a4 = [3,4,5]
+b1 = a4
+b1[1] = 1
+a4
 ```
 
-Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using `copy()` or `deepcopy()`.
+(Optional) Different arrangements of an Array are Views onto the same underlying array. If you want to avoid modifying the original array, you can explicitly copy it using `copy()` or `deepcopy()`.
 ```julia
 # Makes a random 2x2 matrix
-a = rand(2,2)
+a5 = rand(2,2)
 
 # Makes a view to the 2x2 matrix which is a 1-dimensional array
-b = vec(a)
-
-display(a)
-display(b)
-b[3] = 0.7
-display(a)
+b2 = vec(a5)
+b2[3] = 1
+a5
 ```
 
-Slicing an array returns a copy of the relevant chunk
+...but slicing an array returns a copy of the relevant chunk:
 ```julia
-c = a[1:2, 1]
-a[1] = 0.5
-display(c)
+b3 = a5[1:2, 1]
+a5[1] = 1
+b3
 ```
 
 Linear algebra operations are matrix-wise by default
@@ -133,6 +146,9 @@ a * b
 
 If you want to do element-wise operations on an Array, you can use the broadcast operator `.` to apply a function to each element of the Array rather than the Array as a whole.
 ```julia
+# Continuing the previous example:
+a .* transpose(b)
+
 # Generically, apply function `f(x)` to each element of x
 x .= f.(x)
 
@@ -141,7 +157,7 @@ x = rand(10)
 x .= x .+ sqrt.(x)
 ```
 
-To write this even more concisely you can wrap your code in the broadast macro, which applies the dot operater to all of the operators.
+(Optional) To write this even more concisely you can wrap your code in the broadast macro, which applies the dot operater to all of the operators.
 ```julia
 # Template
 @. x = f(x)
@@ -159,10 +175,14 @@ Iteration
 ### Iterate over any ordered collection with a `for` loop
 
 ```julia
-x = collect(10)
-for i in x
-    println(i)
+x1 = collect(1:10)
+x2 = zeros(Int64, 0)
+
+for i in x1
+    push!(x2, i)
 end
+
+x2
 ```
 
 ### (Optional) Iterate over an Array
@@ -181,7 +201,7 @@ for i = 1:length(x)
 end
 ```
 
-### Iterate over key/value pairs with a `for` loop
+### (Optional) Iterate over key/value pairs with a `for` loop
 
 ```julia
 for (key, value) in d
@@ -195,14 +215,14 @@ A common programming task is iterating through the members of a collection, perf
 
 By default, a comprehension returns a Vector (if 1-dimensional) or an Array (if multidimensional).
 ```julia
-vec = [x for x in 1:20 if x % 2 == 0]
+v4 = [x for x in 1:20 if x % 2 == 0]
 ```
 
 A comprehension produces a new collection of items immediately. In contrast, a generator expression allows you to produce each new items on demand. You can rewrite any comprehension as a generator expression by enclosing it in parentheses instead of square brackets.
 ```julia
-gen = (x for x in 1:20 if x % 2 == 0)
+g1 = (x for x in 1:20 if x % 2 == 0)
 
-for item in gen
+for item in g1
     println(item)
 end
 ```
@@ -243,11 +263,11 @@ Null values are represented with `nothing`.
 
 You can check whether a collection includes an item by using the keyword `in` or the `in()` function:
 ```julia
-if 1 in v
+if 1 in v1
     println("v contains 1")
 end
 
-println(in(6, v))
+in(6, v1)
 ```
 
 Functions
@@ -267,9 +287,9 @@ function add_missing!(item, collection)
     end
 end
 
-println(v)
-add_missing!(7, v)
-println(v)
+println(v1)
+add_missing!(7, v1)
+println(v1)
 ```
 
 ### Exceptions (try/catch/finally)
