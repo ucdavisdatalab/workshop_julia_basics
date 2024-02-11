@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Data Types and Structures &#8212; Julia Basics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03_types';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Reading and Writing Data" href="04_reading-data.html" />
+    <link rel="prev" title="2. Syntax and Features" href="02_syntax-features.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en-us"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
+    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Julia Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_syntax-features.html">2. Syntax and Features</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Data Types and Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_reading-data.html">4. Reading and Writing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data-frames.html">5. Data Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_data-viz.html">6. Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_case-studies.html">7. Case Studies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ucdavisdatalab/workshop_julia_basics/issues/new?title=Issue%20on%20page%20%2Fchapters/03_types.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/03_types.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Types and Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-typing">3.1.1. Dynamic Typing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-related-errors">3.1.1.1. Type-Related Errors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-difficulties">3.1.1.2. Debugging Difficulties</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lack-of-code-clarity">3.1.1.3. Lack of Code Clarity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#suboptimal-performance">3.1.1.4. Suboptimal Performance</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-typing">3.1.2. Static Typing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-s-type-system">3.1.3. Julia’s Type System</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-julia-data-type-hierarchy">3.1.3.1. The Julia data type hierarchy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">3.2. Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-typing">3.3. Parametric Typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">3.4. Type Conversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-type-conversion-functions">3.4.1. Basic Type Conversion Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parse">3.4.1.1. parse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convert">3.4.1.2. convert</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#promote">3.4.1.3. promote</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-types-and-structures">
+<h1><span class="section-number">3. </span>Data Types and Structures<a class="headerlink" href="#data-types-and-structures" title="Permalink to this heading">#</a></h1>
+<p>The primary purpose of data typing is to create “variables whose substitution
+for each other in any context will not result in a compile-time
+error”<a class="footnote-reference brackets" href="#parnas76" id="id1">1</a>. In high-level programming languages this is typically
+accomplished through the implementation of a <strong>type system</strong> that formalizes
+and enforces both the range of values that can be associated with and the
+operations that can be performed on any term.</p>
+<p>The adoption of a typing system has implications beyond simply preventing compile-time errors as it necessarily limits the range of values that you can and cannot store in any variable and also the operations you can and cannot perform on it. When properly understood and implemented, however, type systems can be exploited to significantly improve performance while at the same time ensuring computational accuracy and reducing system error. This chapter focuses on understanding the structure of Julia’s type system with a particular eye on achieving these positive outcomes.</p>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<ul class="simple">
+<li><p>Understand how Julia accommodates both Dynamic and Statically typed variables;</p></li>
+<li><p>Identify the Abstract and Primitive data types that comprise Julia’s type system;</p></li>
+<li><p>Understand how Parametric Typing works in Julia;</p></li>
+<li><p>Identify different methods for converting between data types, including the implications of these conversions;</p></li>
+<li><p>Identify common scenarios where data typing can be used to improve code performance and computational accuracy.</p></li>
+</ul>
+</div>
+<section id="overview">
+<h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<section id="dynamic-typing">
+<h3><span class="section-number">3.1.1. </span>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this heading">#</a></h3>
+<p>Like <em>Python</em>, <em>Perl</em>, <em>Javascript</em>, <em>PHP</em>, <em>Ruby</em>, and many other programming and scripting languages, Julia’s type system operates by default as a Dynamic type system which does not require the use of type declarations at the time of variable creation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># assign the integer value 10 to the variable x</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="c"># reassing the literal value &quot;hello world&quot; to the variable x</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;hello world&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, we first assign the integer value ‘10’ to the variable <em>x</em>, and then immediately reassign the literal value, “hello world” to the same variable. This is possible because in Dynamic type systems the actual data type of a variable is assigned at runtime based on the value assigned to it at any point in the run process. In the above example, the runtime environment interprets ‘10’ as an integer at the time of variable declaration and dynamically types the variable as an integer. In our next line of code, where we assign the literal value “hello world” to <em>x</em>, the runtime environment re-declares and dynamically assigns the data type of string to the variable <em>x</em> at the time of the assignment.</p>
+<p>The dynamic type systems deployed by modern programming and scripting languages are quite robust and generally well-functioning. However, several classes of problems are commonly associated with dynamic typing, regardless of the programing environment. These include type-related errors, increased difficulty debugging code, the production of code that is less clear and maintainable, and suboptimal performance.</p>
+<section id="type-related-errors">
+<h4><span class="section-number">3.1.1.1. </span>Type-Related Errors<a class="headerlink" href="#type-related-errors" title="Permalink to this heading">#</a></h4>
+<p>Type-related errors refer to errors there are produced when the application attempts to perform an operation on a variable whose type does not allow that operation. Consider the below code snippet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above assigns the value 5 to the variable <em>x</em>, adds 10 to this value, and then prints the result.  A simple process that runs successfully. Now let’s assign a new value to <em>x</em>.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MethodError</span>: no method matching +(::String, ::Int64)
+
+<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="p">:</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="o">...</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">operators</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">587</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">BigFloat</span><span class="p">,</span> <span class="p">::</span><span class="n">Union</span><span class="p">{</span><span class="n">Int16</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">Int8</span><span class="p">})</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">mpfr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">447</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">Missing</span><span class="p">,</span> <span class="p">::</span><span class="n">Number</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">missing</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">123</span>
+  <span class="o">...</span>
+
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The modified snippet fails to execute, because it attempts to perform a math function on a string.  Here, the type of variable and the type expected by the function do not align, thereby producting an error in execution.</p>
+</section>
+<section id="debugging-difficulties">
+<h4><span class="section-number">3.1.1.2. </span>Debugging Difficulties<a class="headerlink" href="#debugging-difficulties" title="Permalink to this heading">#</a></h4>
+<p>Debugging dynamically typed applications can prove difficult because different functions and operations behave differently when they encounter type errors.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MethodError</span>: no method matching +(::String, ::Int64)
+
+<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="p">:</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="p">,</span> <span class="p">::</span><span class="n">Any</span><span class="o">...</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">operators</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">587</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">BigFloat</span><span class="p">,</span> <span class="p">::</span><span class="n">Union</span><span class="p">{</span><span class="n">Int16</span><span class="p">,</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">Int8</span><span class="p">})</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">mpfr</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">447</span>
+  <span class="o">+</span><span class="p">(::</span><span class="n">Missing</span><span class="p">,</span> <span class="p">::</span><span class="n">Number</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="n">missing</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">123</span>
+  <span class="o">...</span>
+
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the above code will produce the following error:</p>
+<blockquote>
+<div><p>ERROR: MethodError: no method matching /(::String, ::Int64)<br />
+Closest candidates are:<br />
+/(::Union{Int128, Int16, Int32, Int64, Int8, UInt128, UInt16, UInt32, UInt64, UInt8}, ::Union{Int128, Int16, Int32, Int64, Int8, UInt128, UInt16, UInt32, UInt64, UInt8}) at int.jl:97<br />
+/(::StridedArray{P}, ::Real) where P&lt;:Dates.Period at /Applications/Julia-1.8.app/Contents/Resources/julia/share/julia/stdlib/v1.8/Dates/src/deprecated.jl:44<br />
+/(::Union{SparseArrays.SparseVector{Tv, Ti}, SubArray{Tv, 1, &lt;:SparseArrays.AbstractSparseMatrixCSC{Tv, Ti}, Tuple{Base.Slice{Base.OneTo{Int64}}, Int64}, false}, SubArray{Tv, 1, &lt;:SparseArrays.AbstractSparseVector{Tv, Ti}, Tuple{Base.Slice{Base.OneTo{Int64}}}, false}} where {Tv, Ti}, ::Number) at /Applications/Julia-1.8.app/Contents/Resources/julia/share/julia/stdlib/v1.8/SparseArrays/src/sparsevector.jl:1506.
+…<br />
+Stacktrace:<br />
+[1] divide(x::String, y::Int64)<br />
+&#64; Main ./Untitled-1:2<br />
+[2] top-level scope<br />
+&#64; Untitled-1:8</p>
+</div></blockquote>
+<p>Following the Stacktrace and identifying the source of the error is a relatively simple activity given our short example, which contains inefficient and redundant code.  However, if our assignment of <em>x</em> was happening inside any type of iterative process, it would quickly become difficult to track down the source of any type error.</p>
+</section>
+<section id="lack-of-code-clarity">
+<h4><span class="section-number">3.1.1.3. </span>Lack of Code Clarity<a class="headerlink" href="#lack-of-code-clarity" title="Permalink to this heading">#</a></h4>
+<p>Dynamic typing will also allow human coders to construct (through oversight or carelessness) unclear code that compiles successfully but can generate errors later in the application process.  Consider the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">mystery_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Nothing to see here&quot;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mystery_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Nothing to see here&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>While the above example will run without error, it generates confusion about the type of return, which can lead to a host of problems with later operations being performed on <em>x</em>.</p>
+</section>
+<section id="suboptimal-performance">
+<h4><span class="section-number">3.1.1.4. </span>Suboptimal Performance<a class="headerlink" href="#suboptimal-performance" title="Permalink to this heading">#</a></h4>
+<p>A final deficit of dynamic typing is that is can, and frequently does, result in longer processing time per operation.  Because this is an area of particular concern for most Julia operations, this particular problem is addressed in detail in its own section later in this tutorial.</p>
+</section>
+</section>
+<section id="static-typing">
+<h3><span class="section-number">3.1.2. </span>Static Typing<a class="headerlink" href="#static-typing" title="Permalink to this heading">#</a></h3>
+<p>Static data typing, also known as static typing or static type checking, address all of the above issues.  It refers to a programming language feature where variable types are determined and checked at compile time, i.e., before the program is executed. In statically typed languages, the data type of a variable is explicitly declared when the variable is defined, and the compiler enforces that variables are used consistently according to their declared types throughout the program.  Key characteristics of statically typed systems include:</p>
+<ul class="simple">
+<li><p>Explicit type declarations: Variables must be explicitly declared with their data types when they are defined;</p></li>
+<li><p>Type checking at compile-time: The compiler checks the type compatibility of variables, expressions, and function calls at compile time. It ensures that operations involving variables are valid according to their declared types;</p></li>
+<li><p>Type safety: Static typing helps catch type-related errors early in the development process, reducing the likelihood of runtime errors related to type mismatches or incorrect data usage;</p></li>
+<li><p>Improved tooling and code analysis: Static typing allows for more advanced code analysis tools and IDE features, such as auto-completion, code navigation, and refactoring support, because the compiler has knowledge of variable types.</p></li>
+</ul>
+</section>
+<section id="julia-s-type-system">
+<h3><span class="section-number">3.1.3. </span>Julia’s Type System<a class="headerlink" href="#julia-s-type-system" title="Permalink to this heading">#</a></h3>
+<p>Julia allows developers to have their typing cake and eat it to. If variables and objects are declared without type declarations (as in all of our above examples), the Julia compiler and runtime will dynamically type variables as needed. However, Julia also provides a syntax and functionality for statically typing variables when they are declared. In most instances a Julia application that relies on dynamic typing will run error free and produce accurate results. However, programmers can avoid the types of errors introduced by dynamic processing and significantly increase code performance by providing type annotations to variable declarations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">myInt</span><span class="o">::</span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="n">myString</span><span class="o">::</span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">myInt</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">myString</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+hello world
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example above illustrates the Julia method of annotating a variable instantiation with a data type.  Here we declare the variable <em>myInt</em> as a variable of type <em>Integer</em> and the variable <em>myString</em>  as a variable of type <em>String</em> value. When we do this, the Julia compiler will check all operations performed on these variables anywhere else in our code at compile time to ensure that they are legal operations for the annotated data type.</p>
+<section id="the-julia-data-type-hierarchy">
+<h4><span class="section-number">3.1.3.1. </span>The Julia data type hierarchy<a class="headerlink" href="#the-julia-data-type-hierarchy" title="Permalink to this heading">#</a></h4>
+<p>The following figure provides an high-altitude view of the Julia data type model:</p>
+<p><img alt="" src="../_images/julia_data_type_hierarchy.png" /></p>
+<p>A full discussion of the entire Julia data-type hierarchy, is beyond the scope of this introductory tutorial.  The <a class="reference external" href="https://docs.julialang.org/en/v1/manual/types/">Types</a> chapter of the <a class="reference external" href="https://docs.julialang.org/en/v1/">Juilia Documentation</a> provides an excellent discussion of the various data types, their functions, and limitations.  You can also use the subtypes() function to list all subtypes of a given abstract type in type hierarchy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{Any}:
+ Base.MultiplicativeInverses.MultiplicativeInverse
+ Complex
+ Real
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calling subtypes() with the “Any” argument will effectively list all data types since “Any” is the root of the type hierarchy in Julia:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">subtypes</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>605-element Vector{Any}:
+ AbstractArray
+ AbstractChannel
+ AbstractChar
+ AbstractDict
+ AbstractDisplay
+ AbstractMatch
+ AbstractPattern
+ AbstractSet
+ AbstractString
+ Any
+ Base.ANSIDelimiter
+ Base.ANSIIterator
+ Base.AbstractBroadcasted
+ ⋮
+ Timer
+ Tuple
+ Type
+ TypeVar
+ UndefInitializer
+ Val
+ VecElement
+ VersionNumber
+ WeakRef
+ ZMQ.Context
+ ZMQ.Socket
+ ZMQ._Message
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is important to remember at this point is that all variables are ultimately stored in memory by Julia as one of the data types defined in the Julia data type hierarchy, whether a programmer statically types variables or relies on Julia to dynamically type them.  This has very real implications for how the code will function. And, as a matter of practice, it is beneficial to understand these implications as they will affect the ability of your code to run error free as well as the speed execution and accuracy of outputs.</p>
+</section>
+</section>
+</section>
+<section id="performance">
+<h2><span class="section-number">3.2. </span>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">#</a></h2>
+<p>As noted above, one of the primary benefits of static type casting is that it can substantially increase performance.  In the below example we create two data.frames, one of type Any and one of type Float64, fill them with a sequence of numbers from 1 to 1,000, and then perform a basic math operation on each.  As reflected in the output, this simple process is nearly 4 times faster when performed on the properly cast data.frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">DataFrames</span>
+<span class="k">using</span><span class="w"> </span><span class="n">BenchmarkTools</span>
+
+<span class="n">AnyXY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Create a Dataframe with Any-type</span>
+<span class="n">AnyDF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">([[],[]],[</span><span class="s">&quot;AnyX&quot;</span><span class="p">,</span><span class="s">&quot;AnyY&quot;</span><span class="p">])</span>
+<span class="c"># Fill AnyDF</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span><span class="w"> </span><span class="n">push!</span><span class="p">(</span><span class="n">AnyDF</span><span class="p">,</span><span class="n">AnyXY</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="k">end</span>
+<span class="c"># Create a new Column and measure the time</span>
+<span class="nd">@btime</span><span class="w"> </span><span class="n">AnyDF</span><span class="o">.</span><span class="n">Z</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="o">$</span><span class="n">AnyDF</span><span class="o">.</span><span class="n">AnyX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">$</span><span class="n">AnyDF</span><span class="o">.</span><span class="n">AnyY</span><span class="w"> </span><span class="c">#5.317 μs (118 allocations: 3.91 KiB)</span>
+<span class="c"># Create a Dataframe with Float64-type</span>
+<span class="n">FloatDF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">(</span><span class="n">AnyXY</span><span class="p">,[</span><span class="s">&quot;FloatX&quot;</span><span class="p">,</span><span class="s">&quot;FloatY&quot;</span><span class="p">])</span>
+<span class="c"># Create a new Column and measure the time</span>
+<span class="nd">@btime</span><span class="w"> </span><span class="n">FloatDF</span><span class="o">.</span><span class="n">Z</span><span class="w"> </span><span class="o">.=</span><span class="w"> </span><span class="o">$</span><span class="n">FloatDF</span><span class="o">.</span><span class="n">FloatX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">$</span><span class="n">FloatDF</span><span class="o">.</span><span class="n">FloatY</span><span class="w"> </span><span class="c">#1.430 μs (11 allocations: 2.05 KiB)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.368 μs (117 allocations: 3.89 KiB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  989.800 ns (10 allocations: 2.03 KiB)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100-element Vector{Float64}:
+ 0.7943288654231558
+ 0.5523711854173875
+ 0.5539832899102816
+ 0.8750295488320015
+ 1.0886598059441244
+ 0.8874091476899713
+ 0.7271067541336381
+ 0.6976811099187062
+ 1.8931488608255809
+ 0.41040366710148524
+ 1.5389595791467716
+ 0.6128425768257996
+ 1.0913627320802417
+ ⋮
+ 1.6033347655288424
+ 0.8574850594290024
+ 0.673287311803652
+ 1.1008662244526868
+ 1.0147130130088766
+ 1.822853434409068
+ 0.18403724145681544
+ 0.8921334513582174
+ 0.8276238489514982
+ 0.9262526314248942
+ 0.5851129553211861
+ 0.8176850963787596
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parametric-typing">
+<h2><span class="section-number">3.3. </span>Parametric Typing<a class="headerlink" href="#parametric-typing" title="Permalink to this heading">#</a></h2>
+<p>Parametric type casting refers to the process of explicitly converting an <em>object</em> from one type to another. In Julia, parametric types are types that take one or more type parameters. For example, <strong>Array{T}</strong> is a parametric type where <strong><code class="docutils literal notranslate"><span class="pre">T</span></code></strong> is a type parameter representing the type of elements stored in the array. Julia provides a syntax for creating parametrically typed objects as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="kt">MyType</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
+<span class="w">    </span><span class="n">value</span><span class="o">::</span><span class="kt">T</span>
+<span class="k">end</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">MyType</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="mf">5.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MyType{Float64}(5.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parametric typing provides flexibility by allowing you to defer specifying concrete types until later in the development process. This makes your code more adaptable to changing requirements and allows for greater interoperability between different parts of your codebase.  Additionally, Despite its flexibility, parametric typing maintains type safety by enforcing type constraints at compile time. The compiler ensures that operations performed on values of the instantiated type are valid according to the type parameters specified by the generic type definition.</p>
+</section>
+<section id="type-conversion">
+<h2><span class="section-number">3.4. </span>Type Conversion<a class="headerlink" href="#type-conversion" title="Permalink to this heading">#</a></h2>
+<p>As discussed above, statically typing variables can offer significant code optimization advantages in Julia. However, as with everything in life, there is a cost. It is common in most programming situation to need to treat the same value as a different type in different contexts. For example, after calculating a value stored in a Integer cast variable we may want to print that value to a text file, an operation that can only be performed on text cast objects. Similarly, we may need to place a value stored in a variable cast as one data type into a collection object that only holds values of another type. The process of converting a value from one data type to another is known as Data type conversion, type casting, or type coercion.</p>
+<section id="basic-type-conversion-functions">
+<h3><span class="section-number">3.4.1. </span>Basic Type Conversion Functions<a class="headerlink" href="#basic-type-conversion-functions" title="Permalink to this heading">#</a></h3>
+<p>Julia provides several functions and mechanisms for type conversion, allowing you to seamlessly convert between different data types when necessary.</p>
+<section id="parse">
+<h4><span class="section-number">3.4.1.1. </span>parse<a class="headerlink" href="#parse" title="Permalink to this heading">#</a></h4>
+<p>The parse function is used to convert a string representation of a value to another data type. It is commonly used to convert strings to numerical types or other data types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">str</span><span class="o">::</span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10&quot;</span>
+<span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert">
+<h4><span class="section-number">3.4.1.2. </span>convert<a class="headerlink" href="#convert" title="Permalink to this heading">#</a></h4>
+<p>The convert function is a more general-purpose conversion function that converts values between different data types. It’s often used for explicit type conversions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Any</span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2×3 Matrix{Float64}:
+ 1.0  2.0  3.0
+ 4.0  5.0  6.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that conversion isn’t always possible, in which case a MethodError is thrown indicating that convert doesn’t know how to perform the requested conversion:</p>
+<blockquote>
+<div><p>julia&gt; convert(AbstractFloat, “foo”)</p>
+<p>ERROR: MethodError: Cannot <code class="docutils literal notranslate"><span class="pre">convert</span></code> an object of type String to an object of type AbstractFloat</p>
+<p>[…]</p>
+</div></blockquote>
+</section>
+<section id="promote">
+<h4><span class="section-number">3.4.1.3. </span>promote<a class="headerlink" href="#promote" title="Permalink to this heading">#</a></h4>
+<p>Julia also has a built-in function for promoting related data types to a common parent as a way of normalizing the two types.  As defined in the Julia documentation:</p>
+<blockquote>
+<div><p>Promotion refers to converting values of mixed types to a single common type. Although it is not strictly necessary, it is generally implied that the common type to which the values are converted can faithfully represent all of the original values.</p>
+</div></blockquote>
+<p>In the example below, we use promotion to coerce the Int64 type ‘1’ and the Float64 type ‘2.5’ both to the type Float64:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">promote</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 2.5)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="parnas76"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Parnas, David L.; Shore, John E.; Weiss, David
+(1976). “Abstract types defined as classes of variables”. Proceedings of the
+1976 conference on Data : Abstraction, definition and structure. pp. 149–154.
+doi:<a class="reference external" href="https://dl.acm.org/doi/10.1145/942574.807133">10.1145/800237.807133 </a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.10"
+        },
+        kernelOptions: {
+            name: "julia-1.10",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.10'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_syntax-features.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Syntax and Features</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_reading-data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Reading and Writing Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-typing">3.1.1. Dynamic Typing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-related-errors">3.1.1.1. Type-Related Errors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-difficulties">3.1.1.2. Debugging Difficulties</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lack-of-code-clarity">3.1.1.3. Lack of Code Clarity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#suboptimal-performance">3.1.1.4. Suboptimal Performance</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-typing">3.1.2. Static Typing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-s-type-system">3.1.3. Julia’s Type System</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-julia-data-type-hierarchy">3.1.3.1. The Julia data type hierarchy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">3.2. Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-typing">3.3. Parametric Typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">3.4. Type Conversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-type-conversion-functions">3.4.1. Basic Type Conversion Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parse">3.4.1.1. parse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convert">3.4.1.2. convert</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#promote">3.4.1.3. promote</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg"> 
+</a>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
