@@ -1,4 +1,3 @@
-<!--
 ---
 jupytext:
   formats: md:myst
@@ -10,27 +9,31 @@ kernelspec:
   language: julia
   name: julia-1.9
 ---
--->
 
 Data Types and Structures
 ===============
 
-The primary purpose of data typing is to create "variables whose substitution for each other in any context will not result in a compile-time error" [[1]](#ref1). In high-level programming languages this is typically accomplished through the implementation of a *type system* that formalizes and enforces both the range of values that can be associated with and the operations that can be performed on any term. 
+The primary purpose of data typing is to create "variables whose substitution
+for each other in any context will not result in a compile-time
+error"[^parnas76]. In high-level programming languages this is typically
+accomplished through the implementation of a **type system** that formalizes
+and enforces both the range of values that can be associated with and the
+operations that can be performed on any term.
+
+[^parnas76]: Parnas, David L.; Shore, John E.; Weiss, David
+(1976). "Abstract types defined as classes of variables". Proceedings of the
+1976 conference on Data : Abstraction, definition and structure. pp. 149–154.
+doi:[10.1145/800237.807133 ](https://dl.acm.org/doi/10.1145/942574.807133)
 
 The adoption of a typing system has implications beyond simply preventing compile-time errors as it necessarily limits the range of values that you can and cannot store in any variable and also the operations you can and cannot perform on it. When properly understood and implemented, however, type systems can be exploited to significantly improve performance while at the same time ensuring computational accuracy and reducing system error. This chapter focuses on understanding the structure of Julia's type system with a particular eye on achieving these positive outcomes.  
 
 :::{admonition} Learning Objectives
-
 * Understand how Julia accommodates both Dynamic and Statically typed variables;
 * Identify the Abstract and Primitive data types that comprise Julia's type system;
 * Understand how Parametric Typing works in Julia;
 * Identify different methods for converting between data types, including the implications of these conversions;
 * Identify common scenarios where data typing can be used to improve code performance and computational accuracy.
-
-
-<a name="ref1">[1]</a> Parnas, David L.; Shore, John E.; Weiss, David (1976). "Abstract types defined as classes of variables". Proceedings of the 1976 conference on Data : Abstraction, definition and structure. pp. 149–154. doi:[10.1145/800237.807133 ](https://dl.acm.org/doi/10.1145/942574.807133)
-
-
+:::
 
 
 Overview
@@ -62,6 +65,7 @@ result = x + 10
 The above assigns the value 5 to the variable *x*, adds 10 to this value, and then prints the result.  A simple process that runs successfully. Now let's assign a new value to *x*.  
 
 ```{code-cell}
+:tags: [raises-exception]
 x = "Hello"
 result = x + 10
 ```
@@ -72,6 +76,7 @@ The modified snippet fails to execute, because it attempts to perform a math fun
 Debugging dynamically typed applications can prove difficult because different functions and operations behave differently when they encounter type errors.  
 
 ```{code-cell}
+:tags: [raises-exception]
 x = "Hello"
 result = x + 10
 ```
