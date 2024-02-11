@@ -4,7 +4,8 @@
 
 _[UC Davis DataLab][datalab], [UC Julia Users Group][ucjug]_  
 _Winter 2024_  
-_Authors: Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle_  
+_Authors: Derek Devnich (UCM), Ezra Morrison (UCD), Carl Stahmer (UCD), Nick Ulle (UCD)_  
+_Helpers: Neal Fultz (UCLA)_  
 _Maintainer: Nick Ulle <<naulle@ucdavis.edu>>_  
 
 * [Reader](https://ucdavisdatalab.github.io/workshop_julia_basics/)
