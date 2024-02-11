@@ -2,7 +2,7 @@
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-_[UC Davis DataLab][datalab], [UC Julia Users Group][ucjug]_  
+_[UC Julia Users Group][ucjug], [UC Davis DataLab][datalab]_  
 _Winter 2024_  
 _Authors: Derek Devnich (UCM), Ezra Morrison (UCD), Carl Stahmer (UCD), Nick Ulle (UCD)_  
 _Helpers: Neal Fultz (UCLA)_  
