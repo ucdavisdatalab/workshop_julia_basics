@@ -353,7 +353,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -369,6 +371,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-tutorials">Documentation &amp; Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communities">Communities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editors">Editors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -380,6 +393,69 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
+<p>This chapter contains links to resources we’ve found helpful as we’ve learned
+and used Julia.</p>
+<section id="documentation-tutorials">
+<h2>Documentation &amp; Tutorials<a class="headerlink" href="#documentation-tutorials" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.julialang.org/en/v1/manual/getting-started/">The Official Julia Documentation</a></p>
+<ul>
+<li><p>Noteworthy differences <a class="reference external" href="https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-R">from R</a>, <a class="reference external" href="https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python">from Python</a>, and
+<a class="reference external" href="https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-MATLAB">from MATLAB</a></p></li>
+<li><p><a class="reference external" href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">Integers and floating point numbers</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://dataframes.juliadata.org/stable/">The DataFrames.jl Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bkamins/Julia-DataFrames-Tutorial">Interactive Julia Data Frames Tutorial</a></p></li>
+<li><p>UCLA’s Biostatistics 257 Course</p>
+<ul>
+<li><p><a class="reference external" href="https://ucla-biostat-257.github.io/2022spring/schedule/schedule.html">2022 Materials</a></p></li>
+<li><p><a class="reference external" href="https://ucla-biostat-257.github.io/2023spring/syllabus/syllabus.html">2023 Materials</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="communities">
+<h2>Communities<a class="headerlink" href="#communities" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://discourse.julialang.org/">The Official Julia Discourse</a></p></li>
+<li><p><a class="reference external" href="https://datalab.ucdavis.edu/julia-users-group/">University of California Julia User Group</a></p></li>
+</ul>
+</section>
+<section id="editors">
+<h2>Editors<a class="headerlink" href="#editors" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plutojl.org/">Pluto.jl</a>, reactive notebooks for Julia</p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter</a>, notebooks for Julia, Python, text, and R</p></li>
+<li><p><a class="reference external" href="https://www.julia-vscode.org/">Julia for VSCode</a></p></li>
+</ul>
+</section>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/timholy/Revise.jl">Revise.jl</a>, a package to watch and automatically reload Julia scripts when
+they change. Useful for testing code as you write it.</p></li>
+<li><p><a class="reference external" href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a> for literate programming—generate formatted documents from
+comments in a Julia source file.</p></li>
+<li><p>Statistical modeling</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/JuliaStats/Distributions.jl">Distributions.jl</a> provides sampling functions and density/distribution
+functions for common probability distributions.</p></li>
+<li><p><a class="reference external" href="https://github.com/FluxML">Flux.jl</a> provides native Julia support for statistical modeling and
+machine learning. Some models are GPU-accelerated.</p></li>
+<li><p><a class="reference external" href="https://github.com/TuringLang/Turing.jl">Turing.jl</a> provides probabilistic programming and Bayesian modeling
+functions.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/PainterQubits/Unitful.jl">Unitful.jl</a> to assign low- or no-overhead units to values and
+automatically perform appropriate conversions.</p></li>
+<li><p><a class="reference external" href="https://github.com/jump-dev/JuMP.jl">JuMP.jl</a>, a domain-specific language for mathematical optimization in
+Julia.</p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaGPU/CUDA.jl">CUDA.jl</a> for low-level GPU computing support.</p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a>, a computer algebra system for Julia.</p></li>
+<li><p><a class="reference external" href="https://genieframework.com/">Genie</a>, a web framework similar to Django.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,6 +503,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-tutorials">Documentation &amp; Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communities">Communities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editors">Editors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
