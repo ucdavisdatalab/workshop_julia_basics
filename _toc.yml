@@ -19,6 +19,7 @@ parts:
       - file: chapters/05_data-frames.md
       - file: chapters/06_data-viz.md
       - file: chapters/07_case-studies.md
+      - file: chapters/08_case-study-EM.md
   - caption: Backmatter
     chapters:
       - file: chapters/references.md
