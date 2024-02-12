@@ -17,7 +17,7 @@ cd("..")
 pwd()
 ```
 
-# Implementing an EM algorithm for Gaussian mixture modeling
+# Case Study 2: Implementing an EM algorithm for Gaussian mixture modeling
 
 The following code implements an Expectation-Maximization (EM) algorithm to find the maximum likelihood estimate of the mixing parameter of a two-component Gaussian mixture model (a form of k-means clustering which assumes that each cluster has a Gaussian distribution; c.f. https://scikit-learn.org/stable/modules/mixture.html). This "algorithm"^[it's really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates.
 
