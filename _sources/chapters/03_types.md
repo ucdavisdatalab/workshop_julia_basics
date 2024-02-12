@@ -49,7 +49,17 @@ x = 10
 # reassing the literal value "hello world" to the variable x
 x = "hello world"
 ```
-In the above example, we first assign the integer value '10' to the variable *x*, and then immediately reassign the literal value, "hello world" to the same variable. This is possible because in Dynamic type systems the actual data type of a variable is assigned at runtime based on the value assigned to it at any point in the run process. In the above example, the runtime environment interprets '10' as an integer at the time of variable declaration and dynamically types the variable as an integer. In our next line of code, where we assign the literal value "hello world" to *x*, the runtime environment re-declares and dynamically assigns the data type of string to the variable *x* at the time of the assignment. 
+
+In the above example, we first assign the integer value '10' to the variable
+`x`, and then immediately reassign the literal value, "hello world" to the same
+variable. This is possible because in Dynamic type systems the actual data type
+of a variable is assigned at runtime based on the value assigned to it at any
+point in the run process. In the above example, the runtime environment
+interprets '10' as an integer at the time of variable declaration and
+dynamically types the variable as an integer. In our next line of code, where
+we assign the literal value "hello world" to `x`, the runtime environment
+re-declares and dynamically assigns the data type of string to the variable `x`
+at the time of the assignment. 
 
 The dynamic type systems deployed by modern programming and scripting languages are quite robust and generally well-functioning. However, several classes of problems are commonly associated with dynamic typing, regardless of the programing environment. These include type-related errors, increased difficulty debugging code, the production of code that is less clear and maintainable, and suboptimal performance. 
 
@@ -62,7 +72,9 @@ x = 5
 result = x + 10
 ```
 
-The above assigns the value 5 to the variable *x*, adds 10 to this value, and then prints the result.  A simple process that runs successfully. Now let's assign a new value to *x*.  
+The above assigns the value 5 to the variable `x`, adds 10 to this value, and
+then prints the result.  A simple process that runs successfully. Now let's
+assign a new value to `x`.  
 
 ```{code-cell}
 :tags: [raises-exception]
@@ -95,7 +107,11 @@ Running the above code will produce the following error:
 > [2] top-level scope  
 >   @ Untitled-1:8  
 
-Following the Stacktrace and identifying the source of the error is a relatively simple activity given our short example, which contains inefficient and redundant code.  However, if our assignment of *x* was happening inside any type of iterative process, it would quickly become difficult to track down the source of any type error.
+Following the Stacktrace and identifying the source of the error is a
+relatively simple activity given our short example, which contains inefficient
+and redundant code.  However, if our assignment of `x` was happening inside any
+type of iterative process, it would quickly become difficult to track down the
+source of any type error.
 
 #### Lack of Code Clarity
 
@@ -114,7 +130,9 @@ end
 result = mystery_function(5)
 ```
 
-While the above example will run without error, it generates confusion about the type of return, which can lead to a host of problems with later operations being performed on *x*.
+While the above example will run without error, it generates confusion about
+the type of return, which can lead to a host of problems with later operations
+being performed on `x`.
 
 #### Suboptimal Performance
 
@@ -140,7 +158,13 @@ myString::String = "hello world"
 println(myInt)
 println(myString)
 ```
-The example above illustrates the Julia method of annotating a variable instantiation with a data type.  Here we declare the variable *myInt* as a variable of type *Integer* and the variable *myString*  as a variable of type *String* value. When we do this, the Julia compiler will check all operations performed on these variables anywhere else in our code at compile time to ensure that they are legal operations for the annotated data type.  
+
+The example above illustrates the Julia method of annotating a variable
+instantiation with a data type.  Here we declare the variable `myInt` as a
+variable of type `Integer` and the variable `myString` as a variable of type
+`String` value. When we do this, the Julia compiler will check all operations
+performed on these variables anywhere else in our code at compile time to
+ensure that they are legal operations for the annotated data type.  
 
 #### The Julia data type hierarchy
 
@@ -154,7 +178,8 @@ A full discussion of the entire Julia data-type hierarchy, is beyond the scope o
 subtypes(Number)
 ```
 
-Calling subtypes() with the "Any" argument will effectively list all data types since "Any" is the root of the type hierarchy in Julia:
+Calling subtypes() with the `Any` argument will effectively list all data types
+since `Any` is the root of the type hierarchy in Julia:
 
 ```{code-cell}
 subtypes(Any)
@@ -188,7 +213,12 @@ FloatDF = DataFrame(AnyXY,["FloatX","FloatY"])
 Parametric Typing
 -----
 
-Parametric type casting refers to the process of explicitly converting an *object* from one type to another. In Julia, parametric types are types that take one or more type parameters. For example, **Array{T}** is a parametric type where **`T`** is a type parameter representing the type of elements stored in the array. Julia provides a syntax for creating parametrically typed objects as follows:
+Parametric type casting refers to the process of explicitly converting an
+*object* from one type to another. In Julia, parametric types are types that
+take one or more type parameters. For example, `Array{T}` is a parametric
+type where `T` is a type parameter representing the type of elements stored
+in the array. Julia provides a syntax for creating parametrically typed objects
+as follows:
 
 ```{code-cell}
 struct MyType{T}
@@ -226,7 +256,10 @@ a = Any[1 2 3; 4 5 6]
 b = convert(Array{Float64}, a)
 ```
 
-Note that conversion isn't always possible, in which case a MethodError is thrown indicating that convert doesn't know how to perform the requested conversion:
+Note that conversion isn't always possible, in which case a `MethodError` is
+thrown indicating that convert doesn't know how to perform the requested
+conversion:
+
 
 > julia> convert(AbstractFloat, "foo")
 > 
@@ -240,7 +273,8 @@ Julia also has a built-in function for promoting related data types to a common 
 
 >Promotion refers to converting values of mixed types to a single common type. Although it is not strictly necessary, it is generally implied that the common type to which the values are converted can faithfully represent all of the original values.
 
-In the example below, we use promotion to coerce the Int64 type '1' and the Float64 type '2.5' both to the type Float64:
+In the example below, we use promotion to coerce the `Int64` type `1` and the
+`Float64` type `2.5` both to the type `Float64`:
 
 ```{code-cell}
 promote(1, 2.5)

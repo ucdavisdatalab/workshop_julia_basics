@@ -30,7 +30,7 @@ Installation
      ```julia
      import Pkg
      Pkg.add("Pluto")
-     Pkg.add.("PlutoUI")
+     Pkg.add("PlutoUI")
      ```
 4. Start Pluto by running the following commands from the Julia prompt:
    ```julia

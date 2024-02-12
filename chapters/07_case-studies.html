@@ -380,14 +380,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-modeling">7.1. Gaussian Mixture Modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-simulation">7.1.1. Data-generating simulation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#em-algorithm-top-level-function">7.1.2. EM algorithm: top-level function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-step-subroutine">7.1.3. E step subroutine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-step-subroutine">7.1.4. M step subroutine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-criterion">7.1.5. Convergence criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-our-implementation">7.1.6. Timing our implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-the-results">7.1.7. Examine the results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-algorithm-s-path-towards-the-mle">7.1.8. Graph the algorithm’s path towards the MLE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-objective">7.1.1. Analysis objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-simulation">7.1.2. Data-generating simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#em-algorithm-top-level-function">7.1.3. EM algorithm: top-level function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-step-subroutine">7.1.4. E step subroutine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-step-subroutine">7.1.5. M step subroutine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-criterion">7.1.6. Convergence criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-our-implementation">7.1.7. Timing our implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-the-results">7.1.8. Examine the results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-algorithm-s-path-towards-the-mle">7.1.9. Graph the algorithm’s path towards the MLE</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-construction">7.2. Network Construction</a></li>
@@ -408,23 +409,41 @@ document.write(`
 benchmarks we’ve tried.</p>
 <section id="gaussian-mixture-modeling">
 <h2><span class="section-number">7.1. </span>Gaussian Mixture Modeling<a class="headerlink" href="#gaussian-mixture-modeling" title="Permalink to this heading">#</a></h2>
-<p>The following code implements an Expectation-Maximization (EM) algorithm to find the maximum likelihood estimate of the mixing parameter of a two-component Gaussian mixture model (a form of k-means clustering which assumes that each cluster has a Gaussian distribution; c.f. <a class="reference external" href="https://scikit-learn.org/stable/modules/mixture.html">https://scikit-learn.org/stable/modules/mixture.html</a>). This “algorithm”^[it’s really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates.</p>
-<p>To simplify this coding example, let’s assume that we already know that cluster one has a Gaussian distribution with mean 0 and standard deviation 1, and cluster two has a Gaussian distribution with mean 2 and standard deviation 1. We only need to estimate the mixing probability (the relative sizes of the clusters), <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>The following code implements an <a class="reference external" href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">Expectation-Maximization (EM) algorithm</a> to find the maximum likelihood estimate of the mixing parameter of a two-component <a class="reference external" href="https://scikit-learn.org/stable/modules/mixture.html">Gaussian mixture model</a> (a form of k-means clustering which assumes that each cluster has a Gaussian distribution). This “algorithm” [it’s really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates, particularly for problems that can be interpreted as involving <a class="reference external" href="https://en.wikipedia.org/wiki/Latent_and_observable_variables">latent variables</a> or other forms of <a class="reference external" href="https://en.wikipedia.org/wiki/Missing_data">incomplete data</a>.</p>
+<section id="analysis-objective">
+<h3><span class="section-number">7.1.1. </span>Analysis objective<a class="headerlink" href="#analysis-objective" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(Y\)</span> denote the observed univariate outcome. To simplify this coding example, let’s assume that we already know that:</p>
+<ul class="simple">
+<li><p>cluster one (denoted by <span class="math notranslate nohighlight">\(Z=1\)</span>) has a Gaussian distribution with</p>
+<ul>
+<li><p>mean <span class="math notranslate nohighlight">\(\mu_1 = \text{E}[Y|Z=1] = 0\)</span></p></li>
+<li><p>standard deviation <span class="math notranslate nohighlight">\(\sigma_1 = \sqrt{\text{Var}(Y|Z=1)} = 1\)</span></p></li>
+</ul>
+</li>
+<li><p>cluster two (<span class="math notranslate nohighlight">\(Z=2\)</span>) has a Gaussian distribution with</p>
+<ul>
+<li><p>mean <span class="math notranslate nohighlight">\(\mu_2 = \text{E}[Y|Z=2] = 2\)</span></p></li>
+<li><p>standard deviation <span class="math notranslate nohighlight">\(\sigma_2 = \sqrt{\text{Var}(Y|Z=2)} = 1\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<p>We only need to estimate the mixing probability (the relative frequency of the clusters), <span class="math notranslate nohighlight">\(\pi = P(Z=1)\)</span>.</p>
+</section>
 <section id="data-generating-simulation">
-<h3><span class="section-number">7.1.1. </span>Data-generating simulation<a class="headerlink" href="#data-generating-simulation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.2. </span>Data-generating simulation<a class="headerlink" href="#data-generating-simulation" title="Permalink to this heading">#</a></h3>
 <p>First, let’s write a function to generate data that our EM algorithm can analyze.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">DataFrames</span><span class="p">,</span><span class="w"> </span><span class="n">Distributions</span><span class="p">,</span><span class="w"> </span><span class="n">DataFramesMeta</span>
 
 <span class="k">function</span><span class="w"> </span><span class="n">gen_data</span><span class="p">(</span>
-<span class="p">;</span><span class="w"> </span><span class="c"># no positional arguments</span>
-
-<span class="c"># four keyword arguments:</span>
-<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w"> </span>
-<span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span>
-<span class="n">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
-<span class="nb">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="w"> </span>
+<span class="w">  </span><span class="p">;</span><span class="w"> </span><span class="c"># no positional arguments</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c"># four keyword arguments:</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span>
+<span class="w">  </span><span class="n">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nb">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="w"> </span>
 <span class="p">)</span>
 <span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="w">        </span><span class="n">Obs_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span>
@@ -462,7 +481,7 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="em-algorithm-top-level-function">
-<h3><span class="section-number">7.1.2. </span>EM algorithm: top-level function<a class="headerlink" href="#em-algorithm-top-level-function" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.3. </span>EM algorithm: top-level function<a class="headerlink" href="#em-algorithm-top-level-function" title="Permalink to this heading">#</a></h3>
 <p>The EM algorithm starts with an initial guess for <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(\hat{\pi}_0\)</span>. Then it iterates between two steps:</p>
 <ul class="simple">
 <li><p>E step: compute the cluster membership probabilities, <span class="math notranslate nohighlight">\(p(X|Y)\)</span>, for each observed outcome <span class="math notranslate nohighlight">\(Y\)</span>, using the current estimate of <span class="math notranslate nohighlight">\(\hat{\pi}\)</span></p></li>
@@ -519,8 +538,8 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="e-step-subroutine">
-<h3><span class="section-number">7.1.3. </span>E step subroutine<a class="headerlink" href="#e-step-subroutine" title="Permalink to this heading">#</a></h3>
-<p>The E step uses (Bayes’ Theorem)[<a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">https://en.wikipedia.org/wiki/Bayes’_theorem</a>] to compute <span class="math notranslate nohighlight">\(\hat p(X|Y) using the current estimate of \)</span>\hat\pi$.</p>
+<h3><span class="section-number">7.1.4. </span>E step subroutine<a class="headerlink" href="#e-step-subroutine" title="Permalink to this heading">#</a></h3>
+<p>The E step uses <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’ Theorem</a> to compute <span class="math notranslate nohighlight">\(\hat p(X|Y)\)</span> using the current estimate of <span class="math notranslate nohighlight">\(\hat\pi\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">E_step!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">pi_hat</span><span class="p">)</span>
@@ -540,7 +559,7 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="m-step-subroutine">
-<h3><span class="section-number">7.1.4. </span>M step subroutine<a class="headerlink" href="#m-step-subroutine" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.5. </span>M step subroutine<a class="headerlink" href="#m-step-subroutine" title="Permalink to this heading">#</a></h3>
 <p>The M step treats the possible cluster memberships as weighted data, with the weights determined by the cluster membership probabilities from the E step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,7 +577,7 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="convergence-criterion">
-<h3><span class="section-number">7.1.5. </span>Convergence criterion<a class="headerlink" href="#convergence-criterion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.6. </span>Convergence criterion<a class="headerlink" href="#convergence-criterion" title="Permalink to this heading">#</a></h3>
 <p>We check for convergence using the change in the observed-data log-likelihood:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -576,7 +595,7 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="timing-our-implementation">
-<h3><span class="section-number">7.1.6. </span>Timing our implementation<a class="headerlink" href="#timing-our-implementation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.7. </span>Timing our implementation<a class="headerlink" href="#timing-our-implementation" title="Permalink to this heading">#</a></h3>
 <p>Let’s speed-test our implementation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,7 +604,7 @@ benchmarks we’ve tried.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.689774 seconds (1.10 M allocations: 75.855 MiB, 3.76% gc time, 99.26% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.618296 seconds (1.10 M allocations: 75.855 MiB, 3.49% gc time, 99.25% compilation time)
 </pre></div>
 </div>
 </div>
@@ -602,14 +621,14 @@ benchmarks we’ve tried.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.004784 seconds (6.01 k allocations: 828.656 KiB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.003415 seconds (6.01 k allocations: 828.656 KiB)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="examine-the-results">
-<h3><span class="section-number">7.1.7. </span>Examine the results<a class="headerlink" href="#examine-the-results" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.8. </span>Examine the results<a class="headerlink" href="#examine-the-results" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
@@ -621,7 +640,7 @@ benchmarks we’ve tried.</p>
 </div>
 </section>
 <section id="graph-the-algorithm-s-path-towards-the-mle">
-<h3><span class="section-number">7.1.8. </span>Graph the algorithm’s path towards the MLE<a class="headerlink" href="#graph-the-algorithm-s-path-towards-the-mle" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.9. </span>Graph the algorithm’s path towards the MLE<a class="headerlink" href="#graph-the-algorithm-s-path-towards-the-mle" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Gadfly</span>
@@ -7569,9 +7588,7 @@ fig.select("#img-a58f67be-767")
 </html>
 </div></div>
 </div>
-<p>Compare these results with an implementation in R:</p>
-<p><a class="reference external" href="https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results">https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results</a></p>
-<p>Despite very similar code, the Julia implementation is much faster!</p>
+<p>Compare these results with <a class="reference external" href="https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results">an implementation in R</a>. Despite very similar code, the Julia implementation is much faster!</p>
 </section>
 </section>
 <section id="network-construction">
@@ -7867,14 +7884,15 @@ strategies for Julia code.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-modeling">7.1. Gaussian Mixture Modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-simulation">7.1.1. Data-generating simulation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#em-algorithm-top-level-function">7.1.2. EM algorithm: top-level function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-step-subroutine">7.1.3. E step subroutine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-step-subroutine">7.1.4. M step subroutine</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-criterion">7.1.5. Convergence criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-our-implementation">7.1.6. Timing our implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-the-results">7.1.7. Examine the results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-algorithm-s-path-towards-the-mle">7.1.8. Graph the algorithm’s path towards the MLE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-objective">7.1.1. Analysis objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-simulation">7.1.2. Data-generating simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#em-algorithm-top-level-function">7.1.3. EM algorithm: top-level function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-step-subroutine">7.1.4. E step subroutine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-step-subroutine">7.1.5. M step subroutine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-criterion">7.1.6. Convergence criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-our-implementation">7.1.7. Timing our implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-the-results">7.1.8. Examine the results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-algorithm-s-path-towards-the-mle">7.1.9. Graph the algorithm’s path towards the MLE</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-construction">7.2. Network Construction</a></li>
