@@ -7,7 +7,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.9
+  name: julia-1.10
 ---
 
 Data Types and Structures
