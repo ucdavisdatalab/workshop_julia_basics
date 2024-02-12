@@ -7,7 +7,7 @@ jupytext:
 kernelspec:
   display_name: Julia
   language: julia
-  name: julia-1.9
+  name: julia-1.10
 ---
 
 <!-- Run at top level of repo. -->
@@ -21,7 +21,7 @@ pwd()
 
 The following code implements an Expectation-Maximization (EM) algorithm to find the maximum likelihood estimate of the mixing parameter of a two-component Gaussian mixture model (a form of k-means clustering which assumes that each cluster has a Gaussian distribution; c.f. https://scikit-learn.org/stable/modules/mixture.html). This "algorithm"^[it's really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates.
 
-In this case, we are going to assume that we already know the distribution of data from each component, and we only need to estimate the mixing probability (the relative sizes of the clusters), $\pi$.
+To simplify this coding example, let's assume that we already know that cluster one has a Gaussian distribution with mean 0 and standard deviation 1, and cluster two has a Gaussian distribution with mean 2 and standard deviation 1. We only need to estimate the mixing probability (the relative sizes of the clusters), $\pi$.
 
 ## Data-generating simulation
 
@@ -53,9 +53,19 @@ pi = 0.8
   end
 ```
 
+Let's generate some data using our `gen_data()` function and examine the results:
+
+```{code-cell}
+using Random
+Random.seed!(1234);
+data = gen_data(n = 1000, pi = 0.8)
+first(data, 10)
+
+```
+
 ## EM algorithm: top-level function
 
-The EM algorithm starts with an initial guess for $pi$, $\hat{\pi}_0$. Then it iterates between two steps:
+The EM algorithm starts with an initial guess for $\pi$, $\hat{\pi}_0$. Then it iterates between two steps:
 
 * E step: compute the cluster membership probabilities, $p(X|Y)$, for each observed outcome $Y$, using the current estimate of $\hat{\pi}$
 * M step: re-estimate $\hat{\pi}$ using the previously estimated cluster membership probabilities, $\hat p(X|Y)$
@@ -100,12 +110,12 @@ The EM algorithm starts with an initial guess for $pi$, $\hat{\pi}_0$. Then it i
         end
     end
     return progress[1:last_iter, :]
-end
+  end
 ```
 
-# E step subroutine
+## E step subroutine
 
-The E step is an application of (Bayes' Theorem)[https://en.wikipedia.org/wiki/Bayes%27_theorem]:
+The E step uses (Bayes' Theorem)[https://en.wikipedia.org/wiki/Bayes%27_theorem] to compute $\hat p(X|Y) using the current estimate of $\hat\pi$.
 
 ```{code-cell}
 
@@ -116,7 +126,7 @@ function E_step!(data, pi_hat)
     @transform!(data, :pZ1_given_Y = :pY_Z1 ./ :pY)
 end
 ```
-# M step subroutine
+## M step subroutine
 
 The M step treats the possible cluster memberships as weighted data, with the weights determined by the cluster membership probabilities from the E step.
 
@@ -125,6 +135,7 @@ function M_step(data)
     mean(data[!, :pZ1_given_Y])
 end
 ```
+## Convergence criterion
 
 We check for convergence using the change in the observed-data log-likelihood:
 
@@ -133,9 +144,46 @@ function loglik!(data)
     sum(log.(data[!, :pY]))
 end
 ```
+## Timing our implementation
 
 Let's speed-test our implementation:
 ```{code-cell}
-data = gen_data(n = 1000, pZ1 = 0.8)
-@time fit_model!(data)
+
+@time results = fit_model!(data);
 ```
+
+Note that most of the computation time was for pre-compiling our code. A second call to `fit_model!()` will be faster, since re-compilation isn't needed:
+
+```{code-cell}
+
+# for a fair comparison, let's reset `data` to its original state, since `gen_data()` augmented the previous copy.
+Random.seed!(1234);
+data = gen_data(n = 1000, pi = 0.8)
+
+@time results = fit_model!(data);
+```
+
+## Examine the results
+
+```{code-cell}
+results
+```
+
+## Graph the algorithm's path towards the MLE
+
+```{code-cell}
+using Gadfly
+
+Gadfly.plot(
+  results,
+  x = :pi_hat,
+  y = :ll,
+  Geom.point,
+  Geom.line)
+
+```
+Compare these results with an implementation in R:
+
+https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results
+
+Despite very similar code, the Julia implementation is much faster!
