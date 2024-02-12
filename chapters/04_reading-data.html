@@ -156,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-light" alt="Julia Basics - Home"/>
-    <script>document.write(`<img src="../_static/datalab-logo-full-color-rgb-1.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
+    <img src="../_static/ucjug_logo.png" class="logo__image only-light" alt="Julia Basics - Home"/>
+    <script>document.write(`<img src="../_static/ucjug_logo.png" class="logo__image only-dark" alt="Julia Basics - Home"/>`);</script>
   
   
 </a></div>
@@ -382,7 +382,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">4.1. Navigating File Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">4.2. Example: Reading a CSV File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">4.3. Structured Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data">4.4.1. Writing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-blocks">4.4.2. <code class="docutils literal notranslate"><span class="pre">do</span></code> Blocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">4.4.3. Reading Data</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -395,7 +400,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <!-- Run at top level of repo. --><section class="tex2jax_ignore mathjax_ignore" id="reading-and-writing-data">
-<h1><span class="section-number">4. </span>Reading and Writing Data<a class="headerlink" href="#reading-and-writing-data" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1><span class="section-number">4. </span>Reading and Writing Data<a class="headerlink" href="#reading-and-writing-data" title="Permalink to this heading">#</a></h1>
 <p>In order to use Julia for research computing projects, you’ll need to know how
 to read and write data. Julia provides functions to read and write bytes and
 text, while community-contributed packages provide functions to handle a wide
@@ -441,15 +446,15 @@ file
 </section>
 <section id="example-reading-a-csv-file">
 <h2><span class="section-number">4.2. </span>Example: Reading a CSV File<a class="headerlink" href="#example-reading-a-csv-file" title="Permalink to this heading">#</a></h2>
-<!--
-TODO: Host the data somewhere so that folks can follow along more easily.
--->
 <p>The <a class="reference external" href="https://www.bts.gov/">U.S. Bureau of Transportation Statistics</a> publishes and regularly
 updates the <a class="reference external" href="https://www.transtats.bts.gov/tables.asp?qo_vq=EFD">Airline On-Time Performance Data Set</a>, which
 includes departure and arrival times for all domestic flights since 1987. The
 data set is distributed as a collection of comma-separated value (CSV) files,
-with one for each month-year combination. You can download a subset of the data
-set <span class="xref myst">here</span>.</p>
+with one for each month-year combination.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can download a zipped subset of the data set <a class="reference external" href="https://drive.google.com/file/d/19J_LLVOpyp187efhKRgNsk3oHP8_Mgzb/view?usp=sharing">here</a>.</p>
+</div>
 <p>Let’s try reading the data set into Julia. There’s no built-in function to read
 CSV files, but the <a class="reference external" href="https://github.com/JuliaData/CSV.jl">CSV.jl</a> package provides one. The CSV format is tabular,
 so let’s read the data as a data frame (a tabular data structure). In Julia,
@@ -619,8 +624,10 @@ active development or maintenance.</p>
 <h2><span class="section-number">4.4. </span>Text and Bytes<a class="headerlink" href="#text-and-bytes" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you might need to read and write text or bytes directly. For example,
 you might need to work with a file that has an obscure or custom format.</p>
+<section id="writing-data">
+<h3><span class="section-number">4.4.1. </span>Writing Data<a class="headerlink" href="#writing-data" title="Permalink to this heading">#</a></h3>
 <p>Julia’s built-in <code class="docutils literal notranslate"><span class="pre">open</span></code> function opens a file. Let’s open a file called
-<code class="docutils literal notranslate"><span class="pre">hello.txt</span></code> in write mode:</p>
+<code class="docutils literal notranslate"><span class="pre">hello.txt</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;hello.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">)</span>
@@ -633,6 +640,9 @@ you might need to work with a file that has an obscure or custom format.</p>
 </div>
 </div>
 </div>
+<p>The second argument specifies whether to open the file in read mode (the
+default, or <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>) or write mode (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>). In this case, we opened the file in
+write mode.</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">println</span></code>, or <code class="docutils literal notranslate"><span class="pre">write</span></code> function to write to a file. Try
 it out with a few lines:</p>
 <div class="cell docutils container">
@@ -681,27 +691,11 @@ completed.</p>
 </div>
 </div>
 </div>
-<p>Now let’s read the file to check that the lines were written. The idiomatic way
-to open a file and do something (read or write) with it is to use a <code class="docutils literal notranslate"><span class="pre">do</span></code> block.
-Try running this code to read the lines from the file:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;hello.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">f</span>
-<span class="w">        </span><span class="n">readlines</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="w">    </span><span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{String}:
- &quot;Don&#39;t worry, be happy!&quot;
- &quot;Hello world!&quot;
- &quot;Print?&quot;
-</pre></div>
-</div>
-</div>
-</div>
+<p>It’s easy to forget to close files, but fortunately Julia provides syntactic
+sugar to close files automatically: the <code class="docutils literal notranslate"><span class="pre">do</span></code> block.</p>
+</section>
+<section id="do-blocks">
+<h3><span class="section-number">4.4.2. </span><code class="docutils literal notranslate"><span class="pre">do</span></code> Blocks<a class="headerlink" href="#do-blocks" title="Permalink to this heading">#</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">do</span></code> block is syntactic sugar for defining an anonymous function and passing
 it as the first argument to another function. As an example, consider this call
 with an anonymous function as the first argument:</p>
@@ -748,10 +742,39 @@ The file is opened, the function is called on the open file, the file is
 closed, and the result is returned. This approach is safer than manually
 closing the file with <code class="docutils literal notranslate"><span class="pre">close</span></code>, because the <code class="docutils literal notranslate"><span class="pre">open</span></code> function ensures that the
 file is always closed, even if something goes wrong in the computation.</p>
-<!--
-`read`
-`readchomp`
---></section>
+</section>
+<section id="reading-data">
+<h3><span class="section-number">4.4.3. </span>Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this heading">#</a></h3>
+<p>Let’s read the <code class="docutils literal notranslate"><span class="pre">hello.txt</span></code> file to check that the lines were written, and do it
+using a <code class="docutils literal notranslate"><span class="pre">do</span></code> block. Try running this code to read the lines from the file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;hello.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="n">readlines</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{String}:
+ &quot;Don&#39;t worry, be happy!&quot;
+ &quot;Hello world!&quot;
+ &quot;Print?&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">readlines</span></code> function reads lines as elements of an array. If you only want
+to read one line, use the <code class="docutils literal notranslate"><span class="pre">readline</span></code> function instead. If you want to read all
+of the lines into a single string, use the <code class="docutils literal notranslate"><span class="pre">read</span></code> function instead.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">read</span></code>, there’s also a <code class="docutils literal notranslate"><span class="pre">readchomp</span></code> function, which only differs
+from <code class="docutils literal notranslate"><span class="pre">read</span></code> in that it removes (“chomps”) trailing newlines.</p>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -820,7 +843,12 @@ file is always closed, even if something goes wrong in the computation.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-file-systems">4.1. Navigating File Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reading-a-csv-file">4.2. Example: Reading a CSV File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-data">4.3. Structured Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-and-bytes">4.4. Text and Bytes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data">4.4.1. Writing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-blocks">4.4.2. <code class="docutils literal notranslate"><span class="pre">do</span></code> Blocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data">4.4.3. Reading Data</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -16,6 +16,7 @@ kernelspec:
 cd("..")
 ```
 
+(reading-and-writing-data)=
 Reading and Writing Data
 ========================
 
@@ -54,20 +55,20 @@ file
 Example: Reading a CSV File
 ---------------------------
 
-<!--
-TODO: Host the data somewhere so that folks can follow along more easily.
--->
-
 The [U.S. Bureau of Transportation Statistics][bts] publishes and regularly
 updates the [Airline On-Time Performance Data Set][airline-data], which
 includes departure and arrival times for all domestic flights since 1987. The
 data set is distributed as a collection of comma-separated value (CSV) files,
-with one for each month-year combination. You can download a subset of the data
-set [here][airline-download].
+with one for each month-year combination.
 
 [bts]: https://www.bts.gov/
 [airline-data]: https://www.transtats.bts.gov/tables.asp?qo_vq=EFD
-[airline-download]: #
+
+:::{important}
+You can download a zipped subset of the data set [here][airline-download].
+:::
+
+[airline-download]: https://drive.google.com/file/d/19J_LLVOpyp187efhKRgNsk3oHP8_Mgzb/view?usp=sharing
 
 Let's try reading the data set into Julia. There's no built-in function to read
 CSV files, but the [CSV.jl][] package provides one. The CSV format is tabular,
@@ -216,12 +217,18 @@ Text and Bytes
 Sometimes you might need to read and write text or bytes directly. For example,
 you might need to work with a file that has an obscure or custom format.
 
+### Writing Data
+
 Julia's built-in `open` function opens a file. Let's open a file called
-`hello.txt` in write mode:
+`hello.txt`:
 
 ```{code-cell}
 file = open("hello.txt", "w")
 ```
+
+The second argument specifies whether to open the file in read mode (the
+default, or `"r"`) or write mode (`"w"`). In this case, we opened the file in
+write mode.
 
 You can use the `print`, `println`, or `write` function to write to a file. Try
 it out with a few lines:
@@ -258,16 +265,11 @@ completed.
 close(file)
 ```
 
-Now let's read the file to check that the lines were written. The idiomatic way
-to open a file and do something (read or write) with it is to use a `do` block.
-Try running this code to read the lines from the file:
+It's easy to forget to close files, but fortunately Julia provides syntactic
+sugar to close files automatically: the `do` block.
 
-```{code-cell}
-lines =
-    open("hello.txt") do f
-        readlines(f)
-    end
-```
+
+### `do` Blocks
 
 A `do` block is syntactic sugar for defining an anonymous function and passing
 it as the first argument to another function. As an example, consider this call
@@ -297,10 +299,23 @@ closing the file with `close`, because the `open` function ensures that the
 file is always closed, even if something goes wrong in the computation.
 
 
+### Reading Data
 
+Let's read the `hello.txt` file to check that the lines were written, and do it
+using a `do` block. Try running this code to read the lines from the file:
 
-<!--
-`read`
-`readchomp`
--->
+```{code-cell}
+lines =
+    open("hello.txt") do f
+        readlines(f)
+    end
+```
 
+The `readlines` function reads lines as elements of an array. If you only want
+to read one line, use the `readline` function instead. If you want to read all
+of the lines into a single string, use the `read` function instead.
+
+:::{note}
+In addition to `read`, there's also a `readchomp` function, which only differs
+from `read` in that it removes ("chomps") trailing newlines.
+:::
