@@ -26,9 +26,25 @@ benchmarks we've tried.
 Gaussian Mixture Modeling
 -------------------------
 
-The following code implements an Expectation-Maximization (EM) algorithm to find the maximum likelihood estimate of the mixing parameter of a two-component Gaussian mixture model (a form of k-means clustering which assumes that each cluster has a Gaussian distribution; c.f. https://scikit-learn.org/stable/modules/mixture.html). This "algorithm"^[it's really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates.
+The following code implements an [Expectation-Maximization (EM) algorithm][em] to find the maximum likelihood estimate of the mixing parameter of a two-component [Gaussian mixture model][mixmod] (a form of k-means clustering which assumes that each cluster has a Gaussian distribution). This "algorithm" [it's really a meta-algorithm framework, not a specific algorithm] is a very frequently-used approach for finding maximum likelihood estimates, particularly for problems that can be interpreted as involving [latent variables][lvs] or other forms of [incomplete data][id].
 
-To simplify this coding example, let's assume that we already know that cluster one has a Gaussian distribution with mean 0 and standard deviation 1, and cluster two has a Gaussian distribution with mean 2 and standard deviation 1. We only need to estimate the mixing probability (the relative sizes of the clusters), $\pi$.
+[mixmod]: https://scikit-learn.org/stable/modules/mixture.html
+[em]: https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
+[lvs]: https://en.wikipedia.org/wiki/Latent_and_observable_variables
+[id]: https://en.wikipedia.org/wiki/Missing_data
+
+### Analysis objective
+
+Let $Y$ denote the observed univariate outcome. To simplify this coding example, let's assume that we already know that:
+
+- cluster one (denoted by $Z=1$) has a Gaussian distribution with
+    - mean $\mu_1 = \text{E}[Y|Z=1] = 0$
+    - standard deviation $\sigma_1 = \sqrt{\text{Var}(Y|Z=1)} = 1$
+- cluster two ($Z=2$) has a Gaussian distribution with
+    - mean $\mu_2 = \text{E}[Y|Z=2] = 2$
+    - standard deviation $\sigma_2 = \sqrt{\text{Var}(Y|Z=2)} = 1$. 
+    
+We only need to estimate the mixing probability (the relative frequency of the clusters), $\pi = P(Z=1)$.
 
 ### Data-generating simulation
 
@@ -38,13 +54,13 @@ First, let's write a function to generate data that our EM algorithm can analyze
 using DataFrames, Distributions, DataFramesMeta
 
 function gen_data(
-; # no positional arguments
-
-# four keyword arguments:
-n = 500000, 
-mu = [0, 2], 
-sigma = 1, 
-pi = 0.8 
+  ; # no positional arguments
+  
+  # four keyword arguments:
+  n = 500000, 
+  mu = [0, 2], 
+  sigma = 1, 
+  pi = 0.8 
 )
     data = DataFrame(
         Obs_ID = 1:n,
@@ -122,7 +138,9 @@ The EM algorithm starts with an initial guess for $\pi$, $\hat{\pi}_0$. Then it 
 
 ### E step subroutine
 
-The E step uses (Bayes' Theorem)[https://en.wikipedia.org/wiki/Bayes%27_theorem] to compute $\hat p(X|Y) using the current estimate of $\hat\pi$.
+The E step uses [Bayes' Theorem][bayes] to compute $\hat p(X|Y)$ using the current estimate of $\hat\pi$.
+
+[bayes]: https://en.wikipedia.org/wiki/Bayes%27_theorem
 
 ```{code-cell}
 
@@ -189,12 +207,9 @@ Gadfly.plot(
   Geom.line)
 
 ```
-Compare these results with an implementation in R:
+Compare these results with [an implementation in R][r_em]. Despite very similar code, the Julia implementation is much faster!
 
-https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results
-
-Despite very similar code, the Julia implementation is much faster!
-
+[r_em]: https://d-morrison.github.io/EM.examples/articles/mixmodel-benchmark-r.html#results
 
 Network Construction
 --------------------
