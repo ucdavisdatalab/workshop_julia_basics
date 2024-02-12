@@ -15,12 +15,15 @@ beneficial.
 
 [Julia]: https://julialang.org/
 
+This workshop was developed by the [UC Julia User Group][ucjug]. If you're a
+Julia user at *any* UC campus, you're welcome to join! We meet virtually a few
+times every term to discuss how we're using Julia and the latest Julia news, as
+well as develop resources like this one.
 
-Learning Goals
---------------
+[ucjug]: https://datalab.ucdavis.edu/julia-users-group/
 
-After completing this workshop, learners should be able to:
 
+:::{admonition} Learning Objectives
 * Explain the advantages and disadvantages of Julia compared to other
   programming languages
 * Write Julia code that uses variables, control flow, functions, and other
@@ -32,6 +35,7 @@ After completing this workshop, learners should be able to:
 * Create visualizations with Julia's visualization packages
 * Give examples of ways using Julia can benefit research
 * List some references to learn more about Julia
+:::
 
 [DataFrames.jl]: https://dataframes.juliadata.org/
 
@@ -42,53 +46,14 @@ Participants must be proficient programming in a language such as R, Python, or
 MATLAB. Before the workshop, participants must install the latest version of
 [Julia][] on their computer.
 
-<!--
-No prior programming experience is necessary. Learners should commit to
-attending all four sessions of this series.
-
-These workshops are not an introduction to Python. Learners must have taken
-[DataLab’s Python Basics workshop series][basics] or have equivalent prior
-experience using Python.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_python_basics/
-
-These workshops are not an introduction to R. Learners must have taken
-[DataLab’s R Basics workshop series][basics] or have equivalent prior
-experience using R.
-
-[basics]: https://ucdavisdatalab.github.io/workshop_r_basics/
--->
-
-
-YOUR PREQUISITES
-
 
 Computing Requirements
 ----------------------
 
-<!--
 Before the workshop, please make sure your computer has a working internet
 connection and the most recent versions of the following software:
 
-* [Anaconda Distribution][anaconda], which by default includes:
-  + [Python 3][python]
-  + [conda][]
-  + [JupyterLab][jupyter]
+* [Julia][]
+    + [Pluto.jl][]
 
-* [R][r]
-
-You can find step-by-step installation instructions in [DataLab's Python
-Install Guide][install-guide]. If you need additional help, come chat with us
-in [DataLab's Office Hours][oh].
-
-[anaconda]: https://www.anaconda.com/
-[python]: https://www.python.org/
-[conda]: https://docs.conda.io/en/latest/
-[jupyter]: https://jupyter.org/
-
-[r]: https://www.r-project.org/
-[rstudio]: https://posit.co/products/open-source/rstudio/
-
-[install-guide]: https://ucdavisdatalab.github.io/install_guides/python-and-python-tools.html#python-and-python-tools
-[oh]: https://datalab.ucdavis.edu/office-hours/
--->
+[Pluto.jl]: https://plutojl.org/
