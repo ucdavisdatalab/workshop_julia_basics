@@ -278,6 +278,8 @@ function to specific columns. For example, to get the mean (non-missing) delay
 for flights by day of week:
 
 ```{code-cell}
+using Statistics
+
 combine(groupby(air, :DayOfWeek), :DepDelay => x -> mean(skipmissing(x)))
 ```
 
