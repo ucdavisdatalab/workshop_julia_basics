@@ -19,14 +19,6 @@ parts:
       - file: chapters/05_data-frames.md
       - file: chapters/06_data-viz.md
       - file: chapters/07_case-studies.md
-      - file: chapters/20_introduction.md
-      - file: chapters/21_syntax-features.md
-      - file: chapters/23_types.md
-      - file: chapters/22_reading-files.md
-      - file: chapters/24_data-frames.md
-      - file: chapters/25_data-viz.md
-      - file: chapters/26_case-studies.md
-      - file: chapters/27_case-study-EM.md
   - caption: Backmatter
     chapters:
       - file: chapters/references.md
