@@ -4,7 +4,7 @@
 title: Julia Basics
 author: Derek Devnich, Ezra Morrison, Carl Stahmer, Nick Ulle
 copyright: "2023"
-logo: img/datalab-logo-full-color-rgb-1.png
+logo: img/ucjug_logo.png
 only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
