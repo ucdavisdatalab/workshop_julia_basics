@@ -78,7 +78,7 @@ The EM algorithm starts with an initial guess for $\pi$, $\hat{\pi}_0$. Then it 
   function fit_model!(
     data; # one positional argument
     pi_hat_0 = 0.5, 
-    tolerance = 0.0001,
+    tolerance = 0.00001,
     max_iterations = 1000,
     progress = DataFrame(
         iter = 1:(max_iterations+1), 
